@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CCIMIGRATION.CustomControls.CustomHeader.HeaderView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:res="clr-namespace:CCIMIGRATION.Resources"
+    x:Name="Root">
+    <ContentView.Content>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            VerticalOptions="Fill">
+            <Image
+                Margin="5,10,-35,0"
+                HeightRequest="20"
+                HorizontalOptions="Start"
+                IsVisible="{Binding Source={x:Reference Root}, Path=BackButtonVisible}"
+                Source="back_blue"
+                VerticalOptions="Start"
+                WidthRequest="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image
+                Margin="25,10"
+                Aspect="AspectFit"
+                HeightRequest="50"
+                HorizontalOptions="CenterAndExpand"
+                Source="logo"
+                VerticalOptions="Center"
+                WidthRequest="200" />
+            <!--<Label Text="{x:Static res:Resource.AppName}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" TextColor="{StaticResource White}" FontSize="36"/>-->
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

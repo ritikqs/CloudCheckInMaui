@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.CameraPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:CCIMIGRATION.CustomControls"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:res="clr-namespace:CCIMIGRATION.Resources.Localization"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid x:Name="cameragrid" RowSpacing="0">
+                <Frame BackgroundColor="{StaticResource White}" 
+                    x:Name="camerview"
+                    Grid.Row="0"
+                    Padding="0"
+                    CornerRadius="0"
+                    HasShadow="False"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <customControl:CameraPage
+                        Margin="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" />
+                </Frame>
+                <Frame
+                    Margin="5"
+                    Padding="0"
+                    BackgroundColor="{StaticResource White}"
+                    CornerRadius="15"
+                    HasShadow="True"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="30">
+                    <Image
+                        HeightRequest="10"
+                        HorizontalOptions="Center"
+                        Source="back_blue"
+                        VerticalOptions="Center"
+                        WidthRequest="10" />
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CameraBack_Clicked" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <customControl:CustomButton
+                    x:Name="captureBtn"
+                    Grid.Row="0"
+                    Margin="0,0,0,20"
+                    Background="{StaticResource BackgroundGradient}"
+                    Clicked="captureclicked"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    Text="{translater:Translate Capture}"
+                    TextColor="White"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="250" />
+                <customControl:CustomButton
+                    x:Name="submitBtn"
+                    Grid.Row="0"
+                    Margin="0,0,0,20"
+                    Background="{StaticResource BackgroundGradient}"
+                    Clicked="Registerclicked"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    Text="{translater:Translate Submit}"
+                    TextColor="White"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="250" />
+            </Grid>
+            <Grid
+                x:Name="demoview"
+                BackgroundColor="White"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+                <BoxView
+                    x:Name="demoviewbg"
+                    BackgroundColor="Black"
+                    HorizontalOptions="Fill"
+                    Opacity="0.9"
+                    VerticalOptions="FillAndExpand" />
+                <Frame
+                    Margin="20"
+                    Padding="0"
+                    BackgroundColor="White"
+                    CornerRadius="20" IsClippedToBounds="True"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="300">
+                    <Grid
+                        Margin="0,20,0,0"
+                        RowDefinitions="Auto,Auto,Auto"
+                        RowSpacing="15">
+
+                        <Image
+                            Grid.Row="0"
+                            HeightRequest="200"
+                            HorizontalOptions="Center"
+                            IsAnimationPlaying="True"
+                            Source="second_gif.gif"
+                            VerticalOptions="Center"
+                            WidthRequest="200" />
+                        <Label
+                            Grid.Row="1"
+                            Margin="10"
+                           
+                            FontSize="14" FontFamily="MediumFont"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="{translater:Translate LookintoCamera}"
+                            TextColor="Black" />
+                        <Button
+                            Grid.Row="2"
+                            Padding="0"
+                            Background="{StaticResource BackgroundGradient}"
+                            Clicked="GetStartedButton_Clicked"
+                            CornerRadius="0"
+                            FontFamily="MediumFont"
+                            HeightRequest="50"
+                            Text="{translater:Translate GetStarted}"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+            </Grid>
+            <Frame
+                x:Name="successView"
+                BackgroundColor="{StaticResource White}"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsSuccessVisible}"
+                VerticalOptions="Fill">
+                <StackLayout Spacing="20" VerticalOptions="Center">
+                    <Image
+                        Margin="0,0,0,20"
+                        HeightRequest="50"
+                        Source="logo" />
+                    <Image
+                        HeightRequest="50"
+                        Source="green_tick"
+                        WidthRequest="50" />
+                    <Label
+                        Margin="0,10,0,0"
+                        FontFamily="MediumFont"
+                        FontSize="18"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{translater:Translate ThankYou_for_Registering}"
+                        TextColor="Black" />
+                    <Label
+                        Margin="0,-20,0,10"
+                        FontFamily="MediumFont"
+                        FontSize="18"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{translater:Translate Account_verfied_Admin}"
+                        TextColor="Black" />
+                    <Button
+                        Padding="0"
+                        Background="{StaticResource BackgroundGradient}"
+                        Clicked="HomeButton_Clicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HeightRequest="50"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{translater:Translate ReturnToLogin}"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        WidthRequest="300" />
+                </StackLayout>
+            </Frame>
+            <Frame
+                x:Name="successViewLogin"
+                BackgroundColor="{StaticResource White}"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsSuccessForLoginVisible}"
+                VerticalOptions="Fill">
+                <StackLayout Spacing="20" VerticalOptions="Center">
+                    <Image
+                        Margin="0,0,0,20"
+                        HeightRequest="50"
+                        Source="logo" />
+                    <Image
+                        HeightRequest="50"
+                        Source="green_tick"
+                        WidthRequest="50" />
+                    <Label
+                        Margin="0,10,0,0"
+                        FontFamily="MediumFont"
+                        FontSize="18"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding SuccessForLoginText}"
+                        TextColor="Black" />
+                  
+                    <Button
+                        Padding="0"
+                        Background="{StaticResource BackgroundGradient}"
+                        Clicked="HomeButton_Clicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HeightRequest="50"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{translater:Translate ReturnToLogin}"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        WidthRequest="300" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

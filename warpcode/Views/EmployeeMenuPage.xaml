@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.EmployeeMenuPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="10,0" RowDefinitions="50,40,*">
+                <Label
+                    Grid.Row="0"
+                    FontFamily="LightIcons"
+                    FontSize="30"
+                    HorizontalOptions="End"
+                    Text="{x:Static icons:Icons.Cross}"
+                    TextColor="Black"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuCloseTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    Grid.Row="1"
+                    Margin="10,0,0,0"
+                    FontFamily="MediumFont"
+                    FontSize="18"
+                    HorizontalOptions="Start"
+                    Text="{Binding UserName}"
+                    TextColor="#272361" />
+                <Grid
+                    Grid.Row="2"
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="10"
+                    RowDefinitions="Auto,Auto,Auto,Auto,*"
+                    RowSpacing="10">
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="home_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate MenuHome}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Home_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="timesheet_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate TimeSheets}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TimeSheet_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <!--<Frame
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="visitor_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate StaffOnSite}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StaffOnSite_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="calendar_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate Calender}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Calender_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>-->
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="holiday_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate Holiday}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Holiday_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <!--<Frame
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="evacuation_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate PageTitleEvacuation}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EvacuationTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="visitor_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate PageTitleVisitors}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Visitor_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>-->
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource LandingPageCard}">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="logout_side" Style="{StaticResource LandingPageCardIcon}" />
+                            <Label Style="{StaticResource LandingPageCardLabel}" Text="{translater:Translate Logout}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Logout_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

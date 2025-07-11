@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCIMIGRATION.CameraCapturePage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Camera Capture"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="120" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        
+        <!-- Camera View Placeholder -->
+        <Frame x:Name="CameraView" 
+               Grid.Row="0"
+               BackgroundColor="DarkGray"
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="FillAndExpand">
+            <Label Text="Camera Preview\n(Placeholder)" 
+                   TextColor="White" 
+                   FontSize="24"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+        </Frame>
+        
+        <!-- Control Buttons -->
+        <Grid Grid.Row="1" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Back Button -->
+            <Button Grid.Column="0" 
+                    x:Name="BackButton"
+                    Text="Back"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    CornerRadius="25"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="OnBackClicked" />
+            
+            <!-- Capture Button -->
+            <Button Grid.Column="1" 
+                    x:Name="CaptureButton"
+                    Text="📸"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    CornerRadius="40"
+                    WidthRequest="80"
+                    HeightRequest="80"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="OnCaptureClicked" />
+            
+            <!-- Complete Button -->
+            <Button Grid.Column="2" 
+                    x:Name="CompleteButton"
+                    Text="Done"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    CornerRadius="25"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    IsEnabled="{Binding CanComplete}"
+                    Clicked="OnCompleteClicked" />
+        </Grid>
+        
+        <!-- Captured Images Count & Preview -->
+        <StackLayout Grid.Row="2" 
+                     BackgroundColor="Black" 
+                     Orientation="Horizontal" 
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center"
+                     Spacing="10">
+            
+            <Label x:Name="ImageCountLabel" 
+                   Text="Images: 0/6" 
+                   TextColor="White" 
+                   FontSize="16" 
+                   VerticalOptions="Center" />
+            
+            <CollectionView x:Name="CapturedImagesView" 
+                            ItemsSource="{Binding CapturedImages}"
+                            HeightRequest="80"
+                            WidthRequest="300"
+                            ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" 
+                               CornerRadius="5" 
+                               Padding="2" 
+                               Margin="2">
+                            <Image Source="{Binding}" 
+                                   HeightRequest="70" 
+                                   WidthRequest="70" 
+                                   Aspect="AspectFill" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+    
+</ContentPage>

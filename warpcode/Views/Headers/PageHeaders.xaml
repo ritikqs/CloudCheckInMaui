@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CCIMIGRATION.Views.Headers.PageHeaders"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="root1">
+    <ContentView.Content>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            VerticalOptions="Center">
+            <Image
+                Margin="5,0,-35,0"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="menu"
+                WidthRequest="30">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding Source={x:Reference root1}, Path=Title}"
+                VerticalOptions="Center" />
+
+            <!--<Label Text="{x:Static res:Resource.AppName}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" TextColor="{StaticResource White}" FontSize="36"/>-->
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

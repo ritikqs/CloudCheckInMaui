@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.SiteManagerViews.EvacuationList"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:header="clr-namespace:CCIMIGRATION.CustomControls.SiteManagerHeader"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:converter="clr-namespace:CCIMIGRATION.Converter"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:CheckedTrueFalseConverter x:Key="YesNoConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource White}" RowDefinitions="50,Auto,*,80">
+            <Label
+                Grid.Row="0"
+                Margin="10,0"
+                HorizontalOptions="Start"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontFamily="SolidIcons" Text="{x:Static icons:Icons.ChevronLeft}" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="MediumFont"
+                            FontSize="15"
+                            Text="  Back" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{translater:Translate PageTitleEvacuation}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <CollectionView
+                x:Name="evacuatedList"
+                Grid.Row="2"
+                Margin="10" SelectionMode="Single"
+                BackgroundColor="{StaticResource Transparent}"
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding EvacuationsList}"
+                VerticalOptions="FillAndExpand">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame
+                                Margin="5"
+                                Padding="5"
+                                BackgroundColor="{StaticResource White}"
+                                BorderColor="{StaticResource LightBlueColor}"
+                                CornerRadius="5"
+                                HasShadow="False"
+                                HeightRequest="60">
+                                <Grid ColumnDefinitions="50,*,70" x:Name="Item">
+                                    <Image
+                                        Grid.Column="0"
+                                        Aspect="AspectFill"
+                                        HeightRequest="50"
+                                        HorizontalOptions="Center"
+                                        Source="{Binding Image}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="50" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="RegularFont"
+                                        Text="{Binding Description}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        Grid.Column="2"
+                                        FontFamily="RegularFont"
+                                        Text="View Detail"
+                                        TextColor="{StaticResource AppThemeColor}"
+                                        TextDecorations="Underline"
+                                        VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer  Command="{Binding ViewDetailsCommand}" BindingContext="{Binding Source={x:Reference evacuatedList}, Path=BindingContext}" CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="{translater:Translate NoData}"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+            <Frame
+                Grid.Row="3"
+                Margin="20,10"
+                Padding="0"
+                Background="{DynamicResource BackgroundGradient}"
+                CornerRadius="30"
+                HasShadow="False"
+                HeightRequest="60"
+                HorizontalOptions="End"
+                IsVisible="{Binding IsSentSelected}"
+                VerticalOptions="End"
+                WidthRequest="60">
+                <Label
+                    FontFamily="LightIcons"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    Text="{x:Static icons:Icons.Plus}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CreateEvacuationCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <BoxView IsVisible="{Binding IsEvacuationDetailPopupVisible}" BackgroundColor="Black" Opacity="0.5" Grid.RowSpan="4" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding HideDetailPopup}"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Frame IsVisible="{Binding IsEvacuationDetailPopupVisible}" Grid.RowSpan="4" HorizontalOptions="Center" VerticalOptions="Center" Margin="20" CornerRadius="20">
+                <ListView ItemsSource="{Binding SelectedEvacuationEmlpoyees}" HeightRequest="150" SeparatorVisibility="None">
+                    <ListView.Header>
+                        <Grid ColumnDefinitions="*,50">
+                            <Label Text="Employee" Grid.Column="0" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                            <Label Text="Read" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="16"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,50" HeightRequest="20" Margin="0,5">
+                                    <Label Text="{Binding Employee}" Grid.Column="0"/>
+                                    <Label Text="{Binding IsChecked,Converter={StaticResource YesNoConverter}}" Grid.Column="1"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

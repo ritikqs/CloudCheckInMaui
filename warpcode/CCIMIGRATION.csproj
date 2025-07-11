@@ -1,0 +1,199 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<UseMaui>true</UseMaui>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+		<!-- Temporarily disabled: net8.0-windows10.0.19041.0 - needs complex MAUI Windows setup -->
+		<!-- Temporarily disabled: net8.0-maccatalyst - main entry point configuration needed -->
+		<OutputType>Exe</OutputType>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>CCIMIGRATION</RootNamespace>
+		<ApplicationTitle>CCIMIGRATION</ApplicationTitle>
+		<ApplicationId>com.CCIMIGRATION.app</ApplicationId>
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<EnableDefaultMauiItems>True</EnableDefaultMauiItems>
+		<SingleProject>true</SingleProject>
+		<MauiVersion>8.0.100</MauiVersion>
+		
+		<!-- Platform-specific configurations -->
+		<RuntimeIdentifiers Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">ios-arm64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">maccatalyst-arm64;maccatalyst-x64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">android-arm;android-arm64;android-x64;android-x86</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">win10-x64;win10-x86;win10-arm64</RuntimeIdentifiers>
+		
+		<!-- Enable trimming for release builds -->
+		<PublishTrimmed Condition="'$(Configuration)' == 'Release'">true</PublishTrimmed>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- ✅ Keep core MAUI packages -->
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+
+		<!-- ✅ Useful packages kept -->
+		<!-- 🧹 Removed Acr.UserDialogs - replaced with MAUI native dialogs and CommunityToolkit.Maui -->
+		<!-- 🧹 Removed Com.OneSignal - causes Xamarin.Forms dependency conflicts -->
+		<!-- ✅ TODO: Replace with OneSignal.DotNet.SDK or similar MAUI-compatible package -->
+		<PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.Face" Version="2.7.0-preview.1" />
+		
+		<!-- Push notifications and background services -->
+		<!-- For now, remove Firebase Push Notification as it has complex dependencies -->
+		<!-- Will implement push notifications with a MAUI-compatible solution later -->
+		<!-- <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.35" /> -->
+		
+		<!-- Alternative: Use Plugin.LocalNotification for local notifications -->
+		<PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Plugin.Fingerprint" Version="2.1.3" />
+		<PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+		<!-- 🧹 Removed Xam.Plugin.Geolocator - use Microsoft.Maui.Essentials instead -->
+		<!-- 🧹 Removed Xam.Plugin.Media - use Microsoft.Maui.Essentials or CommunityToolkit.Maui.MediaElement instead -->
+
+		<!-- 🧹 Removed: Xamarin.Plugin.Calendar (Xamarin.Forms only) -->
+		<!-- ✅ Added alternative: Plugin.Maui.Calendar -->
+		<PackageReference Include="Plugin.Maui.Calendar" Version="1.1.6" />
+
+		<!-- 🧹 Removed: Xamarin.FFImageLoading.Forms -->
+		<!-- ✅ MAUI has built-in Image, or CommunityToolkit.Maui.MediaElement for advanced cases -->
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+
+		<!-- 🧹 Removed: XF.Material -->
+		<!-- ✅ Can use built-in MAUI styling, or add Maui.Material if needed -->
+		<!-- <PackageReference Include="Maui.Material" Version="x.y.z" /> -->
+
+		<!-- 🧹 Removed: Xamarin.Forms.Skeleton -->
+		<!-- ✅ Use SkeletonView from CommunityToolkit.Maui -->
+
+		<!-- 🧹 Removed: Com.Airbnb.Xamarin.Forms.Lottie -->
+		<!-- ✅ Added: SkiaSharp.Extended.UI.Maui (includes Lottie support) -->
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
+
+		<!-- 🧹 Removed: Matcha.BackgroundService -->
+		<!-- ✅ Use built-in BackgroundService pattern or MAUI Essentials Background APIs -->
+
+		<!-- ✅ Essential MAUI packages -->
+		<PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.100" />
+		<PackageReference Include="CommunityToolkit.Maui.Core" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<!-- Camera package temporarily disabled due to compatibility issues -->
+		
+		<!-- ✅ Debug logging support -->
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		
+		<!-- Platform-specific packages -->
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240802000" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" />
+		
+		<!-- Android-specific packages - minimal set to avoid conflicts -->
+		<!-- Core AndroidX packages removed to avoid collection class conflicts -->
+	</ItemGroup>
+	
+	<!-- Platform-specific build properties -->
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
+		<OutputType>WinExe</OutputType>
+		<UseWinUI>true</UseWinUI>
+		<WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+		<WindowsPackageType>None</WindowsPackageType>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<CodesignKey>iPhone Developer</CodesignKey>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
+		<UseHardenedRuntime>true</UseHardenedRuntime>
+		<EnableCodeSigning>false</EnableCodeSigning>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <AndroidLinkMode>None</AndroidLinkMode>
+	  <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+	  <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+	  <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+	  <AndroidDexTool>d8</AndroidDexTool>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidKeyStore>true</AndroidKeyStore>
+	  <AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningKeyAlias>androiddebugkey</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>android</AndroidSigningKeyPass>
+	  <AndroidSigningStorePass>android</AndroidSigningStorePass>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+	  <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+	  <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+	  <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+	  <AndroidDexTool>d8</AndroidDexTool>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidManagedSymbols>true</AndroidManagedSymbols>
+	  <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+	  <AndroidKeyStore>true</AndroidKeyStore>
+	  <AndroidSigningKeyStore>debug.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningKeyAlias>androiddebugkey</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>android</AndroidSigningKeyPass>
+	  <AndroidSigningStorePass>android</AndroidSigningStorePass>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+	<!-- RESX files removed - now using JSON localization -->
+	
+	<!-- Font files -->
+	<ItemGroup>
+		<MauiFont Include="Fonts\*.ttf" />
+		<MauiFont Include="Fonts\*.otf" />
+	</ItemGroup>
+	
+	<!-- XAML Pages -->
+	<ItemGroup>
+		<MauiXaml Update="Views\*.xaml" />
+		<MauiXaml Update="Views\**\*.xaml" />
+		<MauiXaml Update="CustomControls\**\*.xaml" />
+	</ItemGroup>
+	
+	<!-- App Icon and Splash Screen -->
+	<ItemGroup>
+		<MauiIcon Include="Resources\AppIcon\appicon.png" />
+		<!-- SPLASH SCREEN COMMENTED OUT - Direct login page loading -->
+		<!-- <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" /> -->
+	</ItemGroup>
+	
+	<!-- Images -->
+	<ItemGroup>
+		<MauiImage Include="Resources\Images\*.png" />
+		<MauiImage Include="Resources\Images\*.jpg" />
+		<MauiImage Include="Resources\Images\*.jpeg" />
+		<MauiImage Include="Resources\Images\*.svg" />
+		<MauiImage Include="Resources\Images\*.gif" />
+	</ItemGroup>
+	
+	<!-- JSON Language Files -->
+	<ItemGroup>
+		<MauiAsset Include="Resources\Lang\*.json" />
+	</ItemGroup>
+
+	<!-- Android-specific configurations -->
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+		<AndroidUseAapt2>true</AndroidUseAapt2>
+<AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+		<AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+		<JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
+		<AndroidLinkSkip></AndroidLinkSkip>
+		<AndroidManifest>Platforms\Android\AndroidManifest.xml</AndroidManifest>
+	</PropertyGroup>
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+		<None Include="Platforms\Android\AndroidManifest.xml" Pack="true" />
+		<AndroidResource Include="Platforms\Android\Resources\xml\file_paths.xml" />
+	</ItemGroup>
+</Project>

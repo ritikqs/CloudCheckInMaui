@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.LanguageSelectionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    BackgroundColor="{StaticResource White}"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="true"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            Padding="20"
+            RowDefinitions="40,*,30"
+            VerticalOptions="FillAndExpand">
+            <Label
+                Grid.Row="0"
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Text="{translater:Translate SelectLanguage}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <ListView
+                x:Name="LanguageList"
+                Grid.Row="1"
+                HasUnevenRows="True"
+                ItemTapped="LanguageList_ItemTapped"
+                ItemsSource="{Binding LanguageList}"
+                RowHeight="40"
+                SelectedItem="{Binding SelectedLanguage}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                Padding="0,5"
+                                ColumnDefinitions="*,30"
+                                HeightRequest="40"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Fill">
+                                <Label
+                                    FontSize="12"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Name}"
+                                    TextColor="{StaticResource Black}"
+                                    VerticalOptions="Center" />
+                                <Image
+                                    HeightRequest="15"
+                                    HorizontalOptions="End"
+                                    IsVisible="{Binding IsSelected}"
+                                    Source="tick_icon"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label
+                Grid.Row="2"
+                FontAttributes="Bold"
+                FontSize="15"
+                HorizontalOptions="End"
+                Text="{translater:Translate Next}"
+                TextColor="{StaticResource AppThemeColor}"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NextButtonCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

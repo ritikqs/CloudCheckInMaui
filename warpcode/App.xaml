@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="CCIMIGRATION.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:CCIMIGRATION.CustomControls">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  App Colors  -->
+            <Color x:Key="BlueHeaderColor">#4d6da1</Color>
+            <Color x:Key="AppThemeColor">#4d6da1</Color>
+            <Color x:Key="White">#FFF</Color>
+            <Color x:Key="LightBlueColor">#f2f2f2</Color>
+            <Color x:Key="Green">#3bb54a</Color>
+
+
+            <Color x:Key="Black">#000</Color>
+            <Color x:Key="LightGray">LightGray</Color>
+            <Color x:Key="Gray">Gray</Color>
+            <Color x:Key="Red">#f04a57</Color>
+            <Color x:Key="Transparent">#00FFFFFF</Color>
+
+
+
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <!--  Default Styles  -->
+            <Style x:Key="LandingPageCard" TargetType="Frame">
+                <Setter Property="Background" Value="{DynamicResource BackgroundGradient}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="175" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="LandingPageCardIcon" TargetType="Image">
+                <Setter Property="HeightRequest" Value="25" />
+                <Setter Property="WidthRequest" Value="25" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="LandingPageCardLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="LightFont" />
+            </Style>
+            <Style x:Key="InputFieldFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="2" />
+                <Setter Property="Padding" Value="1" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+            <Style x:Key="InputField" TargetType="customControl:CustomEntry">
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="Margin" Value="5,0,0,0" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+
+            </Style>
+            <Style x:Key="RoundCornerBlueButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource BlueHeaderColor}" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+            </Style>
+            <Style x:Key="Optrax_Button" TargetType="customControl:CustomButton">
+                <Setter Property="Background" Value="{DynamicResource BackgroundGradient}" />
+                <Setter Property="Margin" Value="0,10,0,0" />
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="FontFamily" Value="LightFont" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Key="BorderlessPicker" TargetType="customControl:BorderlessPicker">
+                <Setter Property="TitleColor" Value="Gray" />
+                <Setter Property="Margin" Value="5,5,5,0" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+            <Style x:Key="Theme_Button" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource BlueHeaderColor}" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+            </Style>
+            <Style x:Key="Theme_Border_Button" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="BorderColor" Value="{StaticResource AppThemeColor}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="TextColor" Value="{StaticResource AppThemeColor}" />
+            </Style>
+            <Style x:Key="DropDownArrow" TargetType="Image">
+                <Setter Property="Source" Value="arrow_down" />
+                <Setter Property="HeightRequest" Value="15" />
+                <Setter Property="WidthRequest" Value="15" />
+                <Setter Property="Margin" Value="3" />
+            </Style>
+            <!-- Material Entry style removed - XF.Material not compatible with MAUI -->
+            <Style x:Key="KeypadButton" TargetType="Button">
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderColor" Value="{StaticResource LightGray}" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="Fill" />
+            </Style>
+            <Style x:Key="Container" TargetType="Frame">
+                <Setter Property="Padding" Value="0,10,0,30" />
+                <Setter Property="Margin" Value="0,0,0,-20" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="Fill" />
+            </Style>
+            <Style x:Key="SideMenuIcon" TargetType="Image">
+                <Setter Property="HeightRequest" Value="20" />
+                <Setter Property="WidthRequest" Value="20" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="SideMenuText" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+
+            <!--  New Colors  -->
+            <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Offset="0.0" Color="{DynamicResource GradientStartColor}" />
+                <GradientStop Offset="1.0" Color="{DynamicResource GradientEndColor}" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="ShiftButtonBackground" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Offset="0.0" Color="{DynamicResource ShiftButtonStartColor}" />
+                <GradientStop Offset="1.0" Color="{DynamicResource ShiftButtonEndColor}" />
+            </LinearGradientBrush>
+            <Color x:Key="GradientStartColor">#6bbd46</Color>
+            <Color x:Key="GradientEndColor">#46bb83</Color>
+            <Color x:Key="NewThemeTextColor">#6bbd46</Color>
+            <Color x:Key="AuthorizedColor">#0d71ba</Color>
+            <Color x:Key="ShiftButtonStartColor">#663091</Color>
+            <Color x:Key="ShiftButtonEndColor">#663091</Color>
+            <Style x:Key="ShiftButton" TargetType="Button">
+                <Setter Property="Padding" Value="20,0" />
+                <Setter Property="Background" Value="{DynamicResource BackgroundGradient}" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="140" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextTransform" Value="Uppercase" />
+
+            </Style>
+            <Style x:Key="GradientFrame" TargetType="Frame">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Background" Value="{DynamicResource BackgroundGradient}" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="HeightRequest" Value="65" />
+                <Setter Property="WidthRequest" Value="65" />
+                <Setter Property="CornerRadius" Value="25" />
+            </Style>
+            <Style x:Key="GrayFrame" TargetType="Frame">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Background" Value="#e6e6e6" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="HeightRequest" Value="65" />
+                <Setter Property="WidthRequest" Value="65" />
+                <Setter Property="CornerRadius" Value="25" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

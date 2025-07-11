@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>OPTRAX</value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Authenticating</value>
+  </data>
+  <data name="Capture" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <data name="Capturing" xml:space="preserve">
+    <value>Capturing...</value>
+  </data>
+  <data name="ThankYou_for_Registering" xml:space="preserve">
+    <value>Thank You for Registering</value>
+  </data>
+  <data name="Account_verfied_Admin" xml:space="preserve">
+    <value>Your account will be verfied</value>
+  </data>
+  <data name="CheckInButtonText" xml:space="preserve">
+    <value>Check-In</value>
+  </data>
+  <data name="CheckoutButtonText" xml:space="preserve">
+    <value>Check-Out</value>
+  </data>
+  <data name="CheckOutValidation" xml:space="preserve">
+    <value>You must checkout first</value>
+  </data>
+  <data name="SendAlert" xml:space="preserve">
+    <value>Send Alert</value>
+  </data>
+  <data name="AddNewVisitor" xml:space="preserve">
+    <value>Add New Visitor</value>
+  </data>
+  <data name="PageTitleHoliday" xml:space="preserve">
+    <value>Holiday Requests</value>
+  </data>
+  <data name="PageTitleVisitors" xml:space="preserve">
+    <value>Visitors</value>
+  </data>
+  <data name="ConfirmPasswordPlaceholder" xml:space="preserve">
+    <value>Confirm Pin</value>
+  </data>
+  <data name="ConfirmPasswordValidation" xml:space="preserve">
+    <value>Password and confirm password not matched</value>
+  </data>
+  <data name="Contractor" xml:space="preserve">
+    <value> Contractor</value>
+  </data>
+  <data name="CreatePinTitle" xml:space="preserve">
+    <value>Please create a pin</value>
+  </data>
+  <data name="DOBPlaceholder" xml:space="preserve">
+    <value>DOB</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Enter Email</value>
+  </data>
+  <data name="MaidenPlaceHolder" xml:space="preserve">
+    <value>Mothers Maiden Name</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Please enter valid email</value>
+  </data>
+  <data name="EmpIdValidation" xml:space="preserve">
+    <value>Please enter employee id</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value> Employer</value>
+  </data>
+  <data name="EmpPlaceholder" xml:space="preserve">
+    <value>Enter Employee Id</value>
+  </data>
+  <data name="PageTitleEvacuation" xml:space="preserve">
+    <value>Evacuation</value>
+  </data>
+  <data name="FaceCaptureTitle" xml:space="preserve">
+    <value>Please look into the camera</value>
+  </data>
+  <data name="FingerAuthFailedMessage" xml:space="preserve">
+    <value>Authentication failed. Please try again</value>
+  </data>
+  <data name="FirstNamePlaceholder" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="FNameValidation" xml:space="preserve">
+    <value>Please enter valid first name</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="FourDigitPin" xml:space="preserve">
+    <value>Please enter 4 digit pin</value>
+  </data>
+  <data name="InsuranceNumberValidation" xml:space="preserve">
+    <value>Please enter insurance number</value>
+  </data>
+  <data name="LastNamePlaceholder" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LNameValidation" xml:space="preserve">
+    <value>Please enter valid last name</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="LoadingSites" xml:space="preserve">
+    <value>Loading sites</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="LoadingTimeSheet" xml:space="preserve">
+    <value>Loading TimeSheet</value>
+  </data>
+  <data name="LogginIn" xml:space="preserve">
+    <value>Logging in</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginWithFingerOrPin" xml:space="preserve">
+    <value>Login with pin or device biometrics</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MobilePlaceHolder" xml:space="preserve">
+    <value>Enter Mobile Number</value>
+  </data>
+  <data name="NIValidation" xml:space="preserve">
+    <value>Please enter valid NI Number</value>
+  </data>
+  <data name="DOBValidation" xml:space="preserve">
+    <value>Please enter valid DOB</value>
+  </data>
+  <data name="NamePlaceHolder" xml:space="preserve">
+    <value>Enter Name</value>
+  </data>
+  <data name="EmployerValidation" xml:space="preserve">
+    <value>Please Select an Employer</value>
+  </data>
+  <data name="TradeValidation" xml:space="preserve">
+    <value>Please Select a Trade</value>
+  </data>
+  <data name="ContractorValidation" xml:space="preserve">
+    <value>Please Select a Contractor</value>
+  </data>
+  <data name="NameValidation" xml:space="preserve">
+    <value>Please enter name</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="NIdPlaceholder" xml:space="preserve">
+    <value>Enter Insurance Id</value>
+  </data>
+  <data name="NINumberPlaceholder" xml:space="preserve">
+    <value>NI Number</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>Enter Pin</value>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>Please enter valid password</value>
+  </data>
+  <data name="PhoneValidation" xml:space="preserve">
+    <value>Please enter valid phone number </value>
+  </data>
+  <data name="PinPlaceholder" xml:space="preserve">
+    <value>Enter Pin</value>
+  </data>
+  <data name="Pin" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="PinValidation" xml:space="preserve">
+    <value>Please enter the 4 digit pin</value>
+  </data>
+  <data name="Placefinger" xml:space="preserve">
+    <value>Place your finger on scanner to login</value>
+  </data>
+  <data name="Proceed" xml:space="preserve">
+    <value>Proceed</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterFormTitle" xml:space="preserve">
+    <value>User Registration</value>
+  </data>
+  <data name="Registering" xml:space="preserve">
+    <value>Registering</value>
+  </data>
+  <data name="SavingPin" xml:space="preserve">
+    <value>Saving Pin</value>
+  </data>
+  <data name="SelectSite" xml:space="preserve">
+    <value>Select Site</value>
+  </data>
+  <data name="SiteValidation" xml:space="preserve">
+    <value>Please select site first</value>
+  </data>
+  <data name="SomethingwentWrong" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SyncingTime" xml:space="preserve">
+    <value>Syncing time</value>
+  </data>
+  <data name="TimeSynced" xml:space="preserve">
+    <value>Time synced</value>
+  </data>
+  <data name="Trade" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="ApplyHolidayText" xml:space="preserve">
+    <value>Apply For Holiday</value>
+  </data>
+  <data name="UserRegistration" xml:space="preserve">
+    <value>User Registration</value>
+  </data>
+  <data name="ApplyForHoliday" xml:space="preserve">
+    <value>Apply For Leave</value>
+  </data>
+  <data name="Holiday" xml:space="preserve">
+    <value>Holiday</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End:</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start:</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="FaceNotMatch" xml:space="preserve">
+    <value>Face Not Matched. Please try again</value>
+  </data>
+  <data name="CameraUnavailable" xml:space="preserve">
+    <value>Camera unavailable</value>
+  </data>
+  <data name="LightGray" xml:space="preserve">
+    <value>LightGray</value>
+  </data>
+  <data name="PermissionError" xml:space="preserve">
+    <value>Please grant location permission</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>Check In</value>
+  </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>CheckOut</value>
+  </data>
+  <data name="ResetCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="OtherTradePlaceholder" xml:space="preserve">
+    <value>Enter Trade</value>
+  </data>
+  <data name="InputFieldPlaceholderColor" xml:space="preserve">
+    <value>Gray</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Get Started</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="HaveSafeDay" xml:space="preserve">
+    <value>Have a safe day</value>
+  </data>
+  <data name="HolidayRequestSubimtted" xml:space="preserve">
+    <value>Your holiday request ​has been submitted</value>
+  </data>
+  <data name="IConfirmSafetyMeasures" xml:space="preserve">
+    <value>I can confirm i have all the safety equipements to carry out my job</value>
+  </data>
+  <data name="LookintoCamera" xml:space="preserve">
+    <value>Please look into the camera and move your head from left to right.</value>
+  </data>
+  <data name="MenuHoliday" xml:space="preserve">
+    <value>Holiday</value>
+  </data>
+  <data name="MenuEvacuation" xml:space="preserve">
+    <value>Evacuation</value>
+  </data>
+  <data name="MenuCalender" xml:space="preserve">
+    <value>Calender</value>
+  </data>
+  <data name="MenuVisitors" xml:space="preserve">
+    <value>Visitors</value>
+  </data>
+  <data name="StaffOnSite" xml:space="preserve">
+    <value>Staff On Site</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="MenuLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MenuTimesheet" xml:space="preserve">
+    <value>Timesheet</value>
+  </data>
+  <data name="MotherNameRequired" xml:space="preserve">
+    <value>Mothers Maiden Name required for security question</value>
+  </data>
+  <data name="NotAllowedToWorkonSite" xml:space="preserve">
+    <value>Not allowed to work on site untill correct PPE has been obtained</value>
+  </data>
+  <data name="PressHere" xml:space="preserve">
+    <value>Press Here</value>
+  </data>
+  <data name="ReturnToLogin" xml:space="preserve">
+    <value>Return to login</value>
+  </data>
+  <data name="ReviewAndConfirm" xml:space="preserve">
+    <value>Please review and confirm you have the following:</value>
+  </data>
+  <data name="YouCanWorkOn" xml:space="preserve">
+    <value>You can now work on</value>
+  </data>
+  <data name="RequestHoliday" xml:space="preserve">
+    <value>Request Holiday</value>
+  </data>
+  <data name="StartHoliday" xml:space="preserve">
+    <value>Start Holiday</value>
+  </data>
+  <data name="EndHoliday" xml:space="preserve">
+    <value>End Holiday</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Alerts" xml:space="preserve">
+    <value>Alerts</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="HolidayCalender" xml:space="preserve">
+    <value>Holiday Calender</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>this week</value>
+  </data>
+  <data name="TimeSheets" xml:space="preserve">
+    <value>Timesheets</value>
+  </data>
+  <data name="YouHaveWorked" xml:space="preserve">
+    <value>You have worked </value>
+  </data>
+  <data name="OtherContractor" xml:space="preserve">
+    <value>Enter Contractor</value>
+  </data>
+  <data name="MakeSureLocationOn" xml:space="preserve">
+    <value>Make sure your device location is turned on</value>
+  </data>
+  <data name="PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Enter Phone</value>
+  </data>
+  <data name="AlertMessage" xml:space="preserve">
+    <value>Alert Message</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="AddEvacutationMessage" xml:space="preserve">
+    <value>You must enter or select the alert message</value>
+  </data>
+  <data name="AlreadyApproved" xml:space="preserve">
+    <value>This request is already approved</value>
+  </data>
+  <data name="AlreadyCheckedIn" xml:space="preserve">
+    <value>You are already checked in</value>
+  </data>
+  <data name="AlreadyCheckedOut" xml:space="preserve">
+    <value>You are already checked out</value>
+  </data>
+  <data name="CannotApplyHoliday" xml:space="preserve">
+    <value>You must have worked on atleast any one site to apply holiday</value>
+  </data>
+  <data name="CannotSeeEmployees" xml:space="preserve">
+    <value>You must have worked on atleast any one site to see employees</value>
+  </data>
+  <data name="CannotSeeHoliday" xml:space="preserve">
+    <value>You must have worked on atleast any one site to check holiday</value>
+  </data>
+  <data name="CheckEmailForResetPassword" xml:space="preserve">
+    <value>Please check your mail to reset password</value>
+  </data>
+  <data name="CurrentSiteError" xml:space="preserve">
+    <value>Error getting your current site</value>
+  </data>
+  <data name="EnableLocation" xml:space="preserve">
+    <value>Enable Location</value>
+  </data>
+  <data name="EnableLocationForCheckIn" xml:space="preserve">
+    <value>Please enable location settings to check in</value>
+  </data>
+  <data name="ErrorCompressing" xml:space="preserve">
+    <value>Error compressing photos</value>
+  </data>
+  <data name="ErrorGettingLocation" xml:space="preserve">
+    <value>Error getting your location</value>
+  </data>
+  <data name="ErrorGettingTime" xml:space="preserve">
+    <value>Error getting monitoring time. You will be monitored every one minute</value>
+  </data>
+  <data name="ErrorUploadingAzure" xml:space="preserve">
+    <value>Error in adding face to azure</value>
+  </data>
+  <data name="ErrorUploadingImage" xml:space="preserve">
+    <value>Error in uploading images to server</value>
+  </data>
+  <data name="EvacuationAlertSuccess" xml:space="preserve">
+    <value>Sent</value>
+  </data>
+  <data name="FailedCheckIn" xml:space="preserve">
+    <value>Failed to sign in</value>
+  </data>
+  <data name="FailedCheckOut" xml:space="preserve">
+    <value>Failed to sign out</value>
+  </data>
+  <data name="GoBackLocationWarning" xml:space="preserve">
+    <value>Please go back to the site, otherwise you will be logged out</value>
+  </data>
+  <data name="GrantCameraPermission" xml:space="preserve">
+    <value>Please grant camera permission</value>
+  </data>
+  <data name="HolidayApprovedSuccess" xml:space="preserve">
+    <value>Request approved successfully</value>
+  </data>
+  <data name="HolidayDateTimeValidatonError" xml:space="preserve">
+    <value>Start date/time must be less then end date/time</value>
+  </data>
+  <data name="HolidayRejectSuccess" xml:space="preserve">
+    <value>Request declined successfully</value>
+  </data>
+  <data name="ImageDeleteMessage" xml:space="preserve">
+    <value>Your images has been deleted by admin. Please recapture.</value>
+  </data>
+  <data name="InputFieldValidationError" xml:space="preserve">
+    <value>Please provide the valid input to the fields</value>
+  </data>
+  <data name="LeaveStatusApproved" xml:space="preserve">
+    <value>Authorized</value>
+  </data>
+  <data name="LeaveStatusPending" xml:space="preserve">
+    <value>Applied</value>
+  </data>
+  <data name="LeaveStatusRejected" xml:space="preserve">
+    <value>Not-Authorized</value>
+  </data>
+  <data name="LocationOnWarning" xml:space="preserve">
+    <value>Please turn on the location, otherwise you will be signed out</value>
+  </data>
+  <data name="LocationUnavailable" xml:space="preserve">
+    <value>Location unavailable</value>
+  </data>
+  <data name="NeedLocationInBackgrund" xml:space="preserve">
+    <value>Optrax need your location in background. Please allow locatio permission to always</value>
+  </data>
+  <data name="NoHolidayEventFound" xml:space="preserve">
+    <value>No holiday events found</value>
+  </data>
+  <data name="NoInputError" xml:space="preserve">
+    <value>All input fields should be filled</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Please Check your internet connection</value>
+  </data>
+  <data name="NotOnActiveSite" xml:space="preserve">
+    <value>You are not on an active ECL Site</value>
+  </data>
+  <data name="NotOnSite" xml:space="preserve">
+    <value>You are not any site</value>
+  </data>
+  <data name="OfflineSyncError" xml:space="preserve">
+    <value>Offline data sync error</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OnActiveSite" xml:space="preserve">
+    <value>You are on an active ECL Site</value>
+  </data>
+  <data name="OpenSettingsForLocation" xml:space="preserve">
+    <value>Open Settings to enable location</value>
+  </data>
+  <data name="OutOfSite" xml:space="preserve">
+    <value>Out of site</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>Password does not match</value>
+  </data>
+  <data name="PasswordResetSuccess" xml:space="preserve">
+    <value>Password reset success. Please login</value>
+  </data>
+  <data name="PhoneNumberError" xml:space="preserve">
+    <value>Please enter valid phone number of 11 digits</value>
+  </data>
+  <data name="ReCapture" xml:space="preserve">
+    <value>Re-Capture</value>
+  </data>
+  <data name="RequiredPhotoForCheckout" xml:space="preserve">
+    <value>Need to capture photo to check out</value>
+  </data>
+  <data name="SafetyMesaureErrorMessage" xml:space="preserve">
+    <value>Please select the safety measures and confirm</value>
+  </data>
+  <data name="SelectContractorError" xml:space="preserve">
+    <value>Please select contractor</value>
+  </data>
+  <data name="SelectEmployerError" xml:space="preserve">
+    <value>Please select employer</value>
+  </data>
+  <data name="SelectOtherOntractorError" xml:space="preserve">
+    <value>Please enter the other contractor</value>
+  </data>
+  <data name="SelectOtherTradeError" xml:space="preserve">
+    <value>Please enter the other trade</value>
+  </data>
+  <data name="SelectTradeError" xml:space="preserve">
+    <value>Please select trade</value>
+  </data>
+  <data name="SelectUserForEvacuation" xml:space="preserve">
+    <value>You must select users to send alert</value>
+  </data>
+  <data name="SomethingWentWrongTryAgain" xml:space="preserve">
+    <value>Something went wrong. please try again</value>
+  </data>
+  <data name="YouAreSignedOut" xml:space="preserve">
+    <value>You are signed out</value>
+  </data>
+  <data name="YouMustCheckInForHoliday" xml:space="preserve">
+    <value>You must first checkin to see the holiday requests</value>
+  </data>
+  <data name="AuthorizedBy" xml:space="preserve">
+    <value>Authorized by</value>
+  </data>
+  <data name="Calender" xml:space="preserve">
+    <value>Calender</value>
+  </data>
+  <data name="NoEvents" xml:space="preserve">
+    <value>NO EVENTS FOR THE SELECTED DATE</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="YouAreAlreadyCheckedIn" xml:space="preserve">
+    <value>You are already signed in, please sign out last session</value>
+  </data>
+  <data name="Captured" xml:space="preserve">
+    <value>Captured</value>
+  </data>
+  <data name="LoggingOut" xml:space="preserve">
+    <value>Logging Out...</value>
+  </data>
+  <data name="YouMustCheckOutFirst" xml:space="preserve">
+    <value>You must sign out first</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="Authenticateaccesstologintoapp" xml:space="preserve">
+    <value>Authenticate access to login to app</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Authentication</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Coming Soon</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="Isonleaveon" xml:space="preserve">
+    <value>is on leave on</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="Loading1" xml:space="preserve">
+    <value>Loading..</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No data</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="SearchContractor" xml:space="preserve">
+    <value>Search contractor</value>
+  </data>
+  <data name="SearchEmployer" xml:space="preserve">
+    <value>Search employer</value>
+  </data>
+  <data name="SearchTrade" xml:space="preserve">
+    <value>Search trade</value>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Sent</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="Staffon" xml:space="preserve">
+    <value>Staff on</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Change Language</value>
+  </data>
+  <data name="LocationConsent" xml:space="preserve">
+    <value>This app collects location data to enable Geofence which will track the movement of a user while working on a site even when the application is closed or not in use. After that only, Users will be able to sign in and can mark their attendance. It helps an organization to track their employees on the site and keep a track of attendance. Please grant "Always allow" permission.</value>
+  </data>
+  <data name="LocationRequired" xml:space="preserve">
+    <value>Loction Required</value>
+  </data>
+  <data name="MotherNameValidation" xml:space="preserve">
+    <value>Please enter mothers maiden name</value>
+  </data>
+  <data name="CodeValidation" xml:space="preserve">
+    <value>Please enter the code</value>
+  </data>
+  <data name="ConfirmPinValidation" xml:space="preserve">
+    <value>Confirm pin doesnot match with Pin</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="SubmitApprovel" xml:space="preserve">
+    <value>Submit for Approvel</value>
+  </data>
+  <data name="Attendance" xml:space="preserve">
+    <value>Attendance</value>
+  </data>
+  <data name="AllowInSettings" xml:space="preserve">
+    <value>Allow in settings</value>
+  </data>
+  <data name="ClickToStart" xml:space="preserve">
+    <value>Click to start</value>
+  </data>
+  <data name="ClockIn" xml:space="preserve">
+    <value>Clock In</value>
+  </data>
+  <data name="ClockOut" xml:space="preserve">
+    <value>Clock Out</value>
+  </data>
+  <data name="DontHaveAccount" xml:space="preserve">
+    <value>Don't have an account?</value>
+  </data>
+  <data name="ShiftTime" xml:space="preserve">
+    <value>Shift Time</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="TurnOn" xml:space="preserve">
+    <value>Turn on</value>
+  </data>
+  <data name="WorkingHours" xml:space="preserve">
+    <value>Working Hours</value>
+  </data>
+  <data name="EnableLocationAndAccess" xml:space="preserve">
+    <value>Please enable device location and give access to the app</value>
+  </data>
+  <data name="ErrorCapturingPhoto" xml:space="preserve">
+    <value>Error capturing photo</value>
+  </data>
+  <data name="NonAuth" xml:space="preserve">
+    <value>(Non Auth)</value>
+  </data>
+  <data name="NotInSiteReach" xml:space="preserve">
+    <value>You are not in site reach</value>
+  </data>
+  <data name="PhotoRecapturedContactAdmin" xml:space="preserve">
+    <value>Your images has been re-captured successfully. You need to contact your administration to activate your account.</value>
+  </data>
+  <data name="PhotosSubmitted" xml:space="preserve">
+    <value>You photos have been submitted, please contact admin to approve and login</value>
+  </data>
+  <data name="SiteAndDate" xml:space="preserve">
+    <value>Site &amp; Date</value>
+  </data>
+  <data name="YouAreIn" xml:space="preserve">
+    <value>You are in</value>
+  </data>
+</root>

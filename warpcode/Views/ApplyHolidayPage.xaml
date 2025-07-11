@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.ApplyHolidayPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:CCIMIGRATION.CustomControls"
+    xmlns:header="clr-namespace:CCIMIGRATION.CustomControls.CustomHeader"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <Grid
+            Padding="20,0"
+            BackgroundColor="{StaticResource White}"
+            RowDefinitions="50,40,*,100">
+            <Label
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontFamily="SolidIcons" Text="{x:Static icons:Icons.ChevronLeft}" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="MediumFont"
+                            FontSize="15"
+                            Text="  Back" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{translater:Translate ApplyForHoliday}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="0"
+                RowDefinitions="30,Auto,20,30,Auto"
+                RowSpacing="0">
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    FontFamily="LightFont"
+                    FontSize="12"
+                    Text="Choose Date"
+                    TextColor="Gray"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="From"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <DatePicker
+                        x:Name="startDate"
+                        Date="{Binding StartDate}"
+                        HeightRequest="30"
+                        HorizontalOptions="Fill"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="startDateLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StartDatePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="To"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <DatePicker
+                        x:Name="endDate"
+                        Date="{Binding EndDate}"
+                        HeightRequest="30"
+                        HorizontalOptions="Fill"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="endDateLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EndDatePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <!--<Grid Grid.Row="1" Grid.Column="0">
+                    <Label
+                        Grid.Row="0"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="{translater:Translate StartDate}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                    <customControl:CustomButton
+                        Grid.Row="1"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource LightGray}"
+                        BorderWidth="0.5"
+                        CornerRadius="5" />
+                    <DatePicker
+                        x:Name="startDate"
+                        Grid.Row="1"
+                        BackgroundColor="{StaticResource White}"
+                        Date="{Binding StartDate}"
+                        HorizontalOptions="Fill"
+                        TextColor="{StaticResource Black}" />
+                </Grid>-->
+                <!--<Grid Grid.Row="1" Grid.Column="1">
+                    <Label
+                        Grid.Row="0"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="{translater:Translate EndDate}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                    <customControl:CustomButton
+                        Grid.Row="1"
+                        BackgroundColor="{StaticResource Transparent}"
+                        BorderColor="{StaticResource LightGray}"
+                        BorderWidth="0.5"
+                        CornerRadius="5" />
+                    <DatePicker
+                        x:Name="endDate"
+                        Grid.Row="1"
+                        BackgroundColor="{StaticResource White}"
+                        Date="{Binding EndDate}"
+                        TextColor="{StaticResource Black}" />
+                </Grid>-->
+                <Label
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    FontFamily="LightFont"
+                    FontSize="12"
+                    Text="Choose Time"
+                    TextColor="Gray"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="From"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <TimePicker
+                        x:Name="starttimepicker"
+                        BackgroundColor="{StaticResource White}"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        Time="{Binding StartTime}" />
+                    <Label
+                        x:Name="startTimeLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StartTimePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="To"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <TimePicker
+                        x:Name="endTimePicker"
+                        BackgroundColor="{StaticResource White}"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        Time="{Binding EndTime}" />
+                    <Label
+                        x:Name="endTimeLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EndTimePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+
+            </Grid>
+
+
+            <!--<control:Calendar
+
+                    x:Name="calender"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    AnimateCalendar="True"
+                    FooterSectionVisible="True"
+                    OtherMonthDayIsVisible="True"
+                    Month="5"
+                    MonthLabelColor="Red"
+                    YearLabelColor="Blue"
+                    SelectedDateColor="Red"
+                    SelectedDayBackgroundColor="DarkCyan"
+                    EventIndicatorColor="Red"
+                    EventIndicatorSelectedColor="White"
+                    DaysTitleColor="{StaticResource BlueHeaderColor}"
+                    SelectedDayTextColor="Cyan"
+                    DeselectedDayTextColor="Blue"
+                    OtherMonthDayColor="Gray"
+                    TodayOutlineColor="Blue"
+                    TodayFillColor="Silver"
+                    Year="2020"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"/>-->
+            <!--<controls:Calendar
+                    x:Name="calendarView"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    DisableDatesLimitToMaxMinRange="True"
+                    DateClicked="Calendar_DateClicked"
+                    DatesBackgroundColorOutsideMonth="{StaticResource LightGray}"
+                    DisabledBorderColor="Black"
+                    MultiSelectDates="True"
+                    SelectedBorderColor="{StaticResource BlueHeaderColor}"
+                    SelectedBorderWidth="4"
+                    ShowNumberOfWeek="false"
+                    StartDay="Monday"
+                    TitleLabelTextColor="{StaticResource BlueHeaderColor}"
+                    TitleLeftArrowTextColor="{StaticResource BlueHeaderColor}"
+                    TitleRightArrowTextColor="{StaticResource BlueHeaderColor}"
+                    VerticalOptions="CenterAndExpand" />-->
+
+
+            <customControl:CustomButton
+                Grid.Row="3"
+                Command="{Binding ApplyButtonCommand}"
+                HorizontalOptions="CenterAndExpand"
+                Style="{StaticResource Optrax_Button}"
+                Text="{translater:Translate SubmitApprovel}"
+                VerticalOptions="CenterAndExpand" />
+     
+            <Grid
+                Grid.Row="0"
+                Grid.RowSpan="4"
+                Margin="-20,0"
+                BackgroundColor="White"
+                IsVisible="{Binding IsHolidaySuccessAppliedViewVisible}"
+                RowDefinitions="200,*"
+                VerticalOptions="FillAndExpand">
+
+                <Image
+                    Grid.Row="0"
+                    Aspect="Fill"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="logo"
+                    VerticalOptions="End"
+                    WidthRequest="250" />
+                
+                <StackLayout
+                    Grid.Row="1"
+                    HorizontalOptions="Center"
+                    Spacing="20"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="60"
+                        Source="green_tick"
+                        WidthRequest="60" />
+                    <Label
+                        FontFamily="MediumFont"
+                        FontSize="15"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Black">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{translater:Translate HolidayRequestSubimtted}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Button
+                        Margin="0,50"
+                        Command="{Binding SafetySuccessDoneButtonCommand}"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource Optrax_Button}"
+                        Text="{translater:Translate Done}"
+                        VerticalOptions="End" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

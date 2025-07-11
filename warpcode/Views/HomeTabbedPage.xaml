@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="CCIMIGRATION.Views.HomeTabbedPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:page1="clr-namespace:CCIMIGRATION.SiteManagerViews"
+    xmlns:page2="clr-namespace:CCIMIGRATION.Views.SiteManagerViews"
+    xmlns:pages="clr-namespace:CCIMIGRATION.Views"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    BarBackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    SelectedTabColor="{DynamicResource NewThemeTextColor}"
+    UnselectedTabColor="Gray">
+    <TabbedPage.Children>
+        <pages:Home Title="Home" IconImageSource="home" />
+        <pages:TimesheetPage Title="Timesheet" IconImageSource="timesheet" />
+        <ContentPage />
+        <page1:ComingSoonPage Title="Messages" IconImageSource="message" />
+        <pages:Alerts Title="Alerts" IconImageSource="alert" />
+
+    </TabbedPage.Children>
+</TabbedPage>

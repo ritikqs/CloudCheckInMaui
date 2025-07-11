@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CCIMIGRATION.Views.Headers.CustomTitleBar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts">
+    <ContentView.Content>
+        <Grid ColumnDefinitions="50,*,50">
+            <Label
+                Grid.Column="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{Binding UserName}"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Label
+                Grid.Column="2"
+                FontFamily="LightIcons"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="{x:Static icons:Icons.Menu}"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenMenu}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <!--<Image
+                Grid.Column="2"
+                HeightRequest="30"
+                HorizontalOptions="Center"
+                Source="menu"
+                VerticalOptions="Center"
+                WidthRequest="30">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Menu_Click" />
+                </Image.GestureRecognizers>
+            </Image>-->
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.RegisterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:const="clr-namespace:CCIMIGRATION.ConstantHelper"
+    xmlns:converter="clr-namespace:CCIMIGRATION.Converter"
+    xmlns:customControl="clr-namespace:CCIMIGRATION.CustomControls"
+    xmlns:header="clr-namespace:CCIMIGRATION.CustomControls.CustomHeader"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InValidFrameColorConverter x:Key="ValidationErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid
+                    Padding="20,10"
+                    IsVisible="{Binding FirstViewVisible}"
+                    RowDefinitions="50,40,Auto,150">
+                    <Label
+                        Grid.Row="0"
+                        HorizontalOptions="Start"
+                        TextColor="Red"
+                        VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontFamily="SolidIcons" Text="{x:Static icons:Icons.ChevronLeft}" />
+                                <Span
+                                    FontAttributes="Bold"
+                                    FontFamily="MediumFont"
+                                    FontSize="15"
+                                    Text="  Back" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                        Grid.Row="1"
+                        Margin="10,0,10,0"
+                        FontFamily="MediumFont"
+                        FontSize="16"
+                        Text="{translater:Translate UserRegistration}"
+                        TextColor="Black" />
+                    <StackLayout
+                        Grid.Row="2"
+                        Margin="10,0,10,0"
+                        Spacing="10">
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="firstname"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate FirstNamePlaceholder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding FirstName}"
+                                TextChanged="FirstNameTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsFirstNameNotValid}"
+                                Text="{translater:Translate FNameValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="lastname"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate LastNamePlaceholder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding LastName}"
+                                TextChanged="LastNameTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsLastNameNotValid}"
+                                Text="{translater:Translate LNameValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <DatePicker x:Name="datepicker" BackgroundColor="White" />
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="dobTextField"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate DOBPlaceholder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Text="{Binding DOB}"
+                                TextColor="Black" />
+                            <BoxView
+                                Grid.Row="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill">
+                                <BoxView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </BoxView.GestureRecognizers>
+                            </BoxView>
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsDobNotValid}"
+                                Text="{translater:Translate DOBValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="ninumber"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate NINumberPlaceholder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding NINumber}"
+                                TextChanged="NINumberTextChanged"
+                                TextColor="Black"
+                                Unfocused="Ninumber_Unfocused" />
+                            <ActivityIndicator
+                                x:Name="ninumbercheckloader"
+                                Grid.Row="0"
+                                Margin="0,0,10,0"
+                                HeightRequest="20"
+                                HorizontalOptions="End"
+                                IsRunning="True"
+                                IsVisible="False"
+                                VerticalOptions="Center"
+                                WidthRequest="20"
+                                Color="{StaticResource NewThemeTextColor}" />
+                            <Label
+                                x:Name="ninumbervalidation"
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsNINumberNotValid}"
+                                Text="{translater:Translate NIValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="mothername"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate MaidenPlaceHolder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding MotherMaidenName}"
+                                TextChanged="MotherNameTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsMotherNameNotValid}"
+                                Text="{translater:Translate MotherNameValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Label
+                            Margin="5,-10,0,0"
+                            FontFamily="LightFont"
+                            FontSize="13"
+                            Text="{translater:Translate MotherNameRequired}"
+                            TextColor="Green" />
+                    </StackLayout>
+                    <Frame
+                        Grid.Row="3"
+                        HorizontalOptions="Center"
+                        Style="{DynamicResource GradientFrame}"
+                        VerticalOptions="Center">
+                        <Label
+                            FontFamily="Icons"
+                            FontSize="30"
+                            HorizontalOptions="Center"
+                            Text="{x:Static icons:Icons.ArrowRight}"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NextStepCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+                <Grid
+                    Padding="20,10"
+                    IsVisible="{Binding SecondViewVisible}"
+                    RowDefinitions="50,Auto,150">
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="10,0,10,0"
+                        Spacing="10">
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="email"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                Keyboard="Email"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate EmailPlaceHolder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding Email}"
+                                TextChanged="EmailTextChanged"
+                                TextColor="Black"
+                                Unfocused="EmailUnfocused" />
+                            <ActivityIndicator
+                                x:Name="emailcheckloader"
+                                Grid.Row="0"
+                                Margin="0,0,10,0"
+                                HeightRequest="20"
+                                HorizontalOptions="End"
+                                IsRunning="True"
+                                IsVisible="False"
+                                VerticalOptions="Center"
+                                WidthRequest="20"
+                                Color="{StaticResource NewThemeTextColor}" />
+                            <Label
+                                x:Name="emailvalidation"
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsEmailNotValid}"
+                                Text="{translater:Translate EmailValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="password"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                IsPassword="True"
+                                Keyboard="Numeric"
+                                MaxLength="10"
+                                Placeholder="{translater:Translate Pin}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding Password}"
+                                TextChanged="PasswordTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsPasswordNotValid}"
+                                Text="{translater:Translate PinValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="phone"
+                                Grid.Row="0"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                Keyboard="Numeric"
+                                MaxLength="11"
+                                Placeholder="{translater:Translate PhoneNumberPlaceholder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding PhoneNumber}"
+                                TextChanged="PhoneTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsPhoneNumberNotValid}"
+                                Text="{translater:Translate PhoneNumberError}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <Grid
+                                Grid.Row="0"
+                                Padding="10,0,10,0"
+                                ColumnDefinitions="*,Auto">
+                                <customControl:CustomEntry
+                                    FontFamily="LightFont"
+                                    Placeholder="{translater:Translate Contractor}"
+                                    PlaceholderColor="{StaticResource Gray}"
+                                    Text="{Binding SelectedContractor.Title}"
+                                    TextColor="{StaticResource Black}" />
+                                <Image Grid.Column="1" Style="{StaticResource DropDownArrow}" />
+                                <BoxView
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenPopUp}" CommandParameter="Contractor" />
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+                            </Grid>
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsContractorNotValid}"
+                                Text="{translater:Translate ContractorValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid IsVisible="{Binding IsOtherContractorFieldVisible}" RowDefinitions="50,Auto">
+                            <Button
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="otherContractor"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                Keyboard="Email"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate OtherContractor}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding OtherContractor}"
+                                TextChanged="OContractorTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsOtherContractorNotValid}"
+                                Text="{translater:Translate SelectOtherOntractorError}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <Grid
+                                Grid.Row="0"
+                                Padding="10,0,10,0"
+                                ColumnDefinitions="*,Auto">
+                                <customControl:CustomEntry
+                                    FontFamily="LightFont"
+                                    Placeholder="{translater:Translate Employer}"
+                                    PlaceholderColor="{StaticResource Gray}"
+                                    Text="{Binding SelectedEmployeeType.EmployeeType}"
+                                    TextColor="{StaticResource Black}" />
+                                <Image Grid.Column="1" Style="{StaticResource DropDownArrow}" />
+                                <BoxView
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenPopUp}" CommandParameter="Employee" />
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+                            </Grid>
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsEmployeeTypeNotValid}"
+                                Text="{translater:Translate EmployerValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button
+                                Grid.Row="0"
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <Grid
+                                Grid.Row="0"
+                                Padding="10,0,10,0"
+                                ColumnDefinitions="*,Auto">
+                                <customControl:CustomEntry
+                                    FontFamily="LightFont"
+                                    Placeholder="{translater:Translate Trade}"
+                                    PlaceholderColor="{StaticResource Gray}"
+                                    Text="{Binding SelectedTrade.Title}"
+                                    TextColor="{StaticResource Black}" />
+                                <Image Grid.Column="1" Style="{StaticResource DropDownArrow}" />
+                                <BoxView
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenPopUp}" CommandParameter="Trade" />
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+                            </Grid>
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsTradeNotValid}"
+                                Text="{translater:Translate TradeValidation}"
+                                TextColor="Red" />
+                        </Grid>
+                        <Grid IsVisible="{Binding IsOtherTradeFieldVisible}" RowDefinitions="50,Auto">
+                            <Button
+                                Background="#e6e6e6"
+                                BorderColor="Transparent"
+                                CornerRadius="8"
+                                HeightRequest="60"
+                                HorizontalOptions="Fill"
+                                IsEnabled="False"
+                                VerticalOptions="Fill" />
+                            <customControl:CustomEntry
+                                x:Name="othertrade"
+                                Margin="10,0"
+                                BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                Keyboard="Email"
+                                MaxLength="30"
+                                Placeholder="{translater:Translate OtherTradePlaceholder}"
+                                PlaceholderColor="{StaticResource Gray}"
+                                Style="{StaticResource InputField}"
+                                Text="{Binding OtherTrade}"
+                                TextChanged="OtherTradeTextChanged"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                FontSize="12"
+                                IsVisible="{Binding IsOtherTradeNotValid}"
+                                Text="{translater:Translate SelectOtherTradeError}"
+                                TextColor="Red" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="2"
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        VerticalOptions="Center">
+                        <Frame Style="{DynamicResource GrayFrame}">
+                            <Label
+                                FontFamily="Icons"
+                                FontSize="30"
+                                HorizontalOptions="Center"
+                                Text="{x:Static icons:Icons.ArrowLeft}"
+                                TextColor="DarkGray"
+                                VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BackStepCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame
+                            Grid.Row="3"
+                            HorizontalOptions="Center"
+                            Style="{DynamicResource GradientFrame}"
+                            VerticalOptions="Center">
+                            <Label
+                                FontFamily="Icons"
+                                FontSize="30"
+                                HorizontalOptions="Center"
+                                Text="{x:Static icons:Icons.ArrowRight}"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ProceedButtonCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+
+                </Grid>
+                <Grid
+                    x:Name="PickerPopupView"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Fill"
+                    IsVisible="{Binding IsPickerPopUpVisible}"
+                    VerticalOptions="Fill">
+                    <BoxView
+                        x:Name="demoviewbg1"
+                        BackgroundColor="Black"
+                        HorizontalOptions="Fill"
+                        Opacity="0.8"
+                        VerticalOptions="Fill">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HidePickerPopup}" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Frame
+                        Margin="20,0"
+                        Padding="5"
+                        BackgroundColor="{StaticResource White}"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Grid Padding="10,0" RowDefinitions="50,150">
+
+                            <customControl:CustomEntry
+                                Grid.Row="0"
+                                BackgroundColor="{StaticResource White}"
+                                CharacterSpacing="0.8"
+                                FontFamily="LightFont"
+                                FontSize="18"
+                                Placeholder="{Binding PickerPopupPlaceholder}"
+                                Text="{Binding PickerPopupInput}"
+                                TextColor="{StaticResource Black}" />
+
+                            <BoxView
+                                Margin="-10,0"
+                                BackgroundColor="Black"
+                                HeightRequest="1"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="End" />
+                            <CollectionView
+                                x:Name="tradelist"
+                                Grid.Row="1"
+                                IsVisible="{Binding IsTradeListVisible}"
+                                ItemsSource="{Binding TempTradeList}"
+                                SelectedItem="{Binding SelectedTrade}"
+                                SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="40">
+                                            <Label
+                                                FontFamily="LightFont"
+                                                FontSize="16"
+                                                HeightRequest="30"
+                                                Text="{Binding Title}"
+                                                TextColor="Black"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <CollectionView
+                                x:Name="employeetypeList"
+                                Grid.Row="1"
+                                IsVisible="{Binding IsEmployeeTypeListVisible}"
+                                ItemsSource="{Binding TempEmployeeTypeList}"
+                                SelectedItem="{Binding SelectedEmployeeType}"
+                                SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="40">
+                                            <Label
+                                                FontFamily="LightFont"
+                                                FontSize="16"
+                                                HeightRequest="30"
+                                                Text="{Binding EmployeeType}"
+                                                TextColor="Black"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <CollectionView
+                                x:Name="contractorlist"
+                                Grid.Row="1"
+                                IsVisible="{Binding IsContractorListVisible}"
+                                ItemsSource="{Binding TempContractorList}"
+                                SelectedItem="{Binding SelectedContractor}"
+                                SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="40">
+                                            <Label
+                                                FontFamily="LightFont"
+                                                FontSize="16"
+                                                HeightRequest="30"
+                                                Text="{Binding Title}"
+                                                TextColor="Black"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </Grid>
+                    </Frame>
+                </Grid>
+
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

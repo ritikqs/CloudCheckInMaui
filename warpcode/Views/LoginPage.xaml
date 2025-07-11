@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:const="clr-namespace:CCIMIGRATION.ConstantHelper"
+    xmlns:converter="clr-namespace:CCIMIGRATION.Converter"
+    xmlns:customControl="clr-namespace:CCIMIGRATION.CustomControls"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    xmlns:viewmodels="clr-namespace:CCIMIGRATION.ViewModels"
+    x:DataType="viewmodels:LoginPageViewModel"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}"
+    Shell.NavBarIsVisible="False">
+ 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InValidFrameColorConverter x:Key="ValidationErrorConverter" />
+            
+            <!-- Modern styles -->
+            <Style x:Key="ModernCardStyle" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#2C2C2E}" />
+                <Setter Property="Stroke" Value="{AppThemeBinding Light=#E5E5E7, Dark=#38383A}" />
+                <Setter Property="StrokeThickness" Value="1" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="{AppThemeBinding Light=Black, Dark=Transparent}" 
+                                Offset="0,2" 
+                                Radius="8" 
+                                Opacity="0.1" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ModernEntryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=Gray, Dark=LightGray}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ModernButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#007AFF" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HeightRequest" Value="52" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="#007AFF" 
+                                Offset="0,2" 
+                                Radius="8" 
+                                Opacity="0.3" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ValidationLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#FF3B30" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="16,4,16,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <Grid RowDefinitions="Auto,*,Auto" 
+                  Padding="20">
+                
+                <!-- Header Section -->
+                <StackLayout Grid.Row="0" 
+                           VerticalOptions="Center"
+                           Spacing="16"
+                           Margin="0,40,0,20">
+                    
+                    <!-- Logo/Header Image -->
+                    <Image Source="login_header"
+                           HeightRequest="120"
+                           WidthRequest="120"
+                           Aspect="AspectFit"
+                           HorizontalOptions="Center" />
+                    
+                    <!-- Welcome Text -->
+                    <Label Text="{translater:Translate WelcomeBack}"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                           HorizontalOptions="Center" />
+                    
+                    <Label Text="{translater:Translate SignInToContinue}"
+                           FontSize="16"
+                           TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"
+                           HorizontalOptions="Center" />
+                </StackLayout>
+                
+                <!-- Login Form -->
+                <StackLayout Grid.Row="1" 
+                           VerticalOptions="Center"
+                           Spacing="24">
+                    
+                    <!-- Email Input -->
+                    <StackLayout Spacing="8">
+                        <Label Text="{translater:Translate Email}"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"
+                               Margin="4,0" />
+                        
+                        <Border Style="{StaticResource ModernCardStyle}">
+                            <Grid ColumnDefinitions="40,*" 
+                                  HeightRequest="56"
+                                  Margin="16,0">
+                                
+                                <Label Grid.Column="0"
+                                       Text="{x:Static icons:Icons.Mail}"
+                                       FontFamily="LightIcons"
+                                       FontSize="18"
+                                       TextColor="{AppThemeBinding Light=#007AFF, Dark=#0A84FF}"
+                                       VerticalOptions="Center" />
+                                
+                                <Entry x:Name="email"
+                                       Grid.Column="1"
+                                       Style="{StaticResource ModernEntryStyle}"
+                                       Placeholder="{translater:Translate EmailPlaceHolder}"
+                                       Text="{Binding Email}"
+                                       TextChanged="LoginTextChanged"
+                                       Keyboard="Email" />
+                            </Grid>
+                        </Border>
+                        
+                        <Label Text="{translater:Translate EmailValidation}"
+                               Style="{StaticResource ValidationLabelStyle}"
+                               IsVisible="{Binding IsEmailNotValid}" />
+                    </StackLayout>
+                    
+                    <!-- PIN Input -->
+                    <StackLayout Spacing="8">
+                        <Label Text="{translater:Translate Pin}"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"
+                               Margin="4,0" />
+                        
+                        <Border Style="{StaticResource ModernCardStyle}">
+                            <Grid ColumnDefinitions="40,*" 
+                                  HeightRequest="56"
+                                  Margin="16,0">
+                                
+                                <Label Grid.Column="0"
+                                       Text="{x:Static icons:Icons.Key}"
+                                       FontFamily="LightIcons"
+                                       FontSize="18"
+                                       TextColor="{AppThemeBinding Light=#007AFF, Dark=#0A84FF}"
+                                       VerticalOptions="Center" />
+                                
+                                <Entry x:Name="password"
+                                       Grid.Column="1"
+                                       Style="{StaticResource ModernEntryStyle}"
+                                       Placeholder="{translater:Translate PinPlaceholder}"
+                                       Text="{Binding Pin}"
+                                       TextChanged="PasswordTextChanged"
+                                       IsPassword="True"
+                                       Keyboard="Numeric"
+                                       MaxLength="10" />
+                            </Grid>
+                        </Border>
+                        
+                        <Label Text="{translater:Translate PasswordValidation}"
+                               Style="{StaticResource ValidationLabelStyle}"
+                               IsVisible="{Binding IsPinNotValid}" />
+                    </StackLayout>
+                    
+                    <!-- Forgot Password -->
+                    <Label Text="{translater:Translate ForgotPassword}"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light=#007AFF, Dark=#0A84FF}"
+                           HorizontalOptions="End"
+                           Margin="0,0,4,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+                    <!-- Login Button -->
+                    <Frame
+                        Margin="0,30,0,0"
+                        HorizontalOptions="Center"
+                        Style="{DynamicResource GradientFrame}"
+                        VerticalOptions="Center">
+                        <Label
+                            FontFamily="Icons"
+                            FontSize="30"
+                            HorizontalOptions="Center"
+                            Text="{x:Static icons:Icons.ArrowRight}"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoginButtonCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    
+                </StackLayout>
+                
+                <!-- Bottom Section -->
+                <StackLayout Grid.Row="2" 
+                           VerticalOptions="End"
+                           Spacing="16"
+                           Margin="0,20,0,20">
+                    
+                    <!-- Divider -->
+                    <BoxView HeightRequest="1"
+                             BackgroundColor="{AppThemeBinding Light=#E5E5E7, Dark=#38383A}"
+                             HorizontalOptions="FillAndExpand"
+                             Margin="0,16" />
+                    
+                    <!-- Register Link -->
+                    <StackLayout Orientation="Horizontal"
+                               HorizontalOptions="Center"
+                               Spacing="4">
+                        <Label Text="{translater:Translate DontHaveAccount}"
+                               FontSize="14"
+                               TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
+                        <Label Text="{translater:Translate Register}"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#007AFF, Dark=#0A84FF}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterButtonCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

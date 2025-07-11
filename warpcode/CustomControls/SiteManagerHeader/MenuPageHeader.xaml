@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CCIMIGRATION.CustomControls.SiteManagerHeader.MenuPageHeader"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="root">
+    <ContentView.Content>
+        <StackLayout>
+            <Grid HeightRequest="50">
+                <Image
+                    Margin="10,0"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="menu"
+                    VerticalOptions="Center"
+                    WidthRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuIcon_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="{Binding Source={x:Reference root}, Path=Title}"
+                    TextColor="{StaticResource Black}"
+                    VerticalOptions="Center" />
+                <BoxView
+                    BackgroundColor="{StaticResource LightBlueColor}"
+                    HeightRequest="0.9"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

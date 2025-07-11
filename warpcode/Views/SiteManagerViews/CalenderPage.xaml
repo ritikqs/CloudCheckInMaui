@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.SiteManagerViews.CalenderPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:const="clr-namespace:CCIMIGRATION.ConstantHelper"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    xmlns:calendar="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid
+            Padding="20,0"
+            BackgroundColor="{StaticResource White}"
+            RowDefinitions="50,40,*"
+            RowSpacing="0">
+            <Label
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontFamily="SolidIcons" Text="{x:Static icons:Icons.ChevronLeft}" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="MediumFont"
+                            FontSize="15"
+                            Text="  Back" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{translater:Translate Calender}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <!-- TODO: Replace with CommunityToolkit.Maui or Plugin.Maui.Calendar calendar control. Example below if available: -->
+            <!-- <toolkit:CalendarView ... /> -->
+            <!-- <calendar:CalendarView ... /> -->
+            <!-- Old control commented out for migration reference: -->
+            <!-- <controls:Calendar ... > ... </controls:Calendar> -->
+            <calendar:Calendar
+                Grid.Row="2"
+                Padding="10,0"
+                Events="{Binding Events}"
+                HorizontalOptions="FillAndExpand"
+                SelectedDate="{Binding SelectedDate}"
+                VerticalOptions="FillAndExpand" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

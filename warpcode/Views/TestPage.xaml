@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.TestPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="TEST PAGE LOADED SUCCESSFULLY!" 
+                   FontSize="20" 
+                   FontAttributes="Bold"
+                   TextColor="Green"
+                   HorizontalOptions="Center" />
+            <Label Text="Navigation is working!" 
+                   FontSize="16"
+                   TextColor="Blue"
+                   HorizontalOptions="Center" />
+            <Button Text="Go to Login Page" 
+                    x:Name="LoginButton"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    Clicked="OnLoginButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.SiteManagerViews.ComingSoonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="{StaticResource White}"
+            RowDefinitions="50,*"
+            VerticalOptions="FillAndExpand">
+            <Grid
+                Grid.Row="0"
+                HeightRequest="50"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+                <!--<Image
+                    Margin="10,0"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="menu"
+                    VerticalOptions="Fill"
+                    WidthRequest="30" />-->
+                <BoxView
+                    BackgroundColor="{StaticResource Transparent}"
+                    HeightRequest="50"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Fill"
+                    WidthRequest="50">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Label
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    TextColor="{StaticResource Black}"
+                    VerticalOptions="Center" />
+            </Grid>
+            <StackLayout
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Label
+                    FontFamily="MediumFont" TextColor="Black"
+                    HorizontalOptions="Center"
+                    Text="{translater:Translate ComingSoon}"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

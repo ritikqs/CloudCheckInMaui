@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CCIMIGRATION.Views.CameraView.FaceCaptureView"
+     xmlns:customControl="clr-namespace:CCIMIGRATION.CustomControls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper" BackgroundColor="Black">
+    <ContentView.Content>
+        <Grid RowDefinitions="*,80" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Frame Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
+                <customControl:CameraPage BackgroundColor="Black" Margin="-50"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+            </Frame>
+            
+            
+            <Grid Grid.Row="1" ColumnDefinitions="*,80,*" BackgroundColor="Black" IsVisible="{Binding IsCaptureButtonVisible}">
+                <Label Text="Cancel" Grid.Column="0" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Fill" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CancelCaptureCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image Source="circle_capture" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50" WidthRequest="50">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CapturePhotoCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <Grid Grid.Row="1" ColumnDefinitions="*,80,*" BackgroundColor="Black" IsVisible="{Binding IsSubmitButtonVisible}">
+                <Label Text="Retake" Grid.Column="0" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Fill" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RetakeCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Submit" Grid.Column="2" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Fill" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SubmitCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.Home"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:local="clr-namespace:CCIMIGRATION.Views.Headers"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    Title="Home"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    xmlns:views="clr-namespace:CCIMIGRATION.Views.CameraView"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource White}" RowDefinitions="50,*,80">
+            <local:CustomTitleBar Grid.Row="0" />
+            <Grid
+                Grid.Row="1"
+                BackgroundColor="White"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsNotCheckedInViewVisible}"
+                RowDefinitions="250,*"
+                RowSpacing="0"
+                VerticalOptions="CenterAndExpand">
+                <Image
+                    Grid.Row="0"
+                    Aspect="AspectFit"
+                    HeightRequest="280"
+                    HorizontalOptions="Center"
+                    Source="circle_click"
+                    VerticalOptions="Center"
+                    WidthRequest="280">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding StartTimerCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <StackLayout
+                    Grid.Row="1"
+                    Spacing="20"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        HorizontalTextAlignment="Center"
+                        Text="{translater:Translate ClickToStart}"
+                        TextColor="{StaticResource Green}"
+                        VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartTimerCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout
+                        x:Name="locationstatus"
+                        Margin="30,0"
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal">
+                        <Image
+                            HeightRequest="20"
+                            Source="home_location"
+                            WidthRequest="20" />
+                        <Label
+                            FontFamily="MediumFont"
+                            FontSize="18"
+                            Text="{Binding LocationStatus}"
+                            TextColor="Black" />
+
+                    </StackLayout>
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsTurnOnButtonVisible}"
+                        Text="{translater:Translate TurnOn}"
+                        TextColor="blue"
+                        TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                BackgroundColor="White"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsCheckedInViewVisible}"
+                RowDefinitions="250,*"
+                RowSpacing="0"
+                VerticalOptions="CenterAndExpand">
+                <Image
+                    x:Name="circle"
+                    Grid.Row="0"
+                    Aspect="AspectFit"
+                    HeightRequest="280"
+                    HorizontalOptions="Center"
+                    Source="circle"
+                    VerticalOptions="Center"
+                    WidthRequest="280" />
+                <StackLayout
+                    Grid.Row="0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="MediumFont"
+                        FontSize="38"
+                        HorizontalOptions="Center"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding LoggedTime}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="LightFont"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="{translater:Translate ShiftTime}"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                <Button
+                    Grid.Row="1"
+                    Command="{Binding StopTimerCommand}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource ShiftButton}"
+                    Text="End Shift"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Padding="0,5,0,0"
+                ColumnDefinitions="*,*,*">
+                <StackLayout
+                    Grid.Column="0"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="0"
+                    VerticalOptions="Start">
+                    <Image
+                        HeightRequest="18"
+                        HorizontalOptions="Center"
+                        Source="in"
+                        WidthRequest="18" />
+
+                    <Label
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="{Binding ClockInTime}"
+                        TextColor="Black" />
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{translater:Translate ClockIn}"
+                        TextColor="Black" />
+                </StackLayout>
+                <StackLayout
+                    Grid.Column="1"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="0"
+                    VerticalOptions="Start">
+                    <Image
+                        HeightRequest="18"
+                        HorizontalOptions="Center"
+                        Source="out"
+                        WidthRequest="18" />
+                    <Label
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="{Binding ClockOutTime}"
+                        TextColor="Black" />
+                    <StackLayout Orientation="Vertical" Spacing="2">
+                        <Label
+                            FontFamily="LightFont"
+                            FontSize="12"
+                            HorizontalOptions="Center"
+                            Text="{translater:Translate ClockOut}"
+                            TextColor="Black" />
+                        <Label
+                            FontFamily="LightFont"
+                            FontSize="10"
+                            HorizontalOptions="Center"
+                            IsVisible="{Binding IsNonAuthTime}"
+                            Text="(Non Auth)"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                </StackLayout>
+                <StackLayout
+                    Grid.Column="2"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="0"
+                    VerticalOptions="Start">
+                    <Image
+                        HeightRequest="18"
+                        HorizontalOptions="Center"
+                        Source="done"
+                        WidthRequest="18" />
+                    <Label
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding WorkingHours}"
+                        TextColor="Black"
+                        WidthRequest="60" />
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{translater:Translate WorkingHours}"
+                        TextColor="Black" />
+                </StackLayout>
+            </Grid>
+            <BoxView
+                x:Name="popupbg"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                BackgroundColor="Black"
+                IsVisible="{Binding IsSafetyInstructionViewVisible}"
+                Opacity="0.5">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CancelSafetyPopUpCommand}" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <BoxView
+                x:Name="popupbg1"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                BackgroundColor="Black"
+                IsVisible="{Binding IsSafetySuccessViewVisible}"
+                Opacity="0.5" />
+            <BoxView
+                x:Name="popupbg2"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                BackgroundColor="Black"
+                IsVisible="{Binding IsSafetyFailViewVisible}"
+                Opacity="0.5" />
+            <Frame
+                x:Name="safetypopup"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Margin="20"
+                Padding="20"
+                BackgroundColor="White"
+                CornerRadius="20"
+                IsVisible="{Binding IsSafetyInstructionViewVisible}"
+                VerticalOptions="Center">
+                <ScrollView>
+                    <StackLayout
+                        x:Name="safetyinstructionview"
+                        Padding="20,0"
+                        HorizontalOptions="Fill"
+                        Spacing="5"
+                        VerticalOptions="Fill">
+                        <Grid
+                            ColumnDefinitions="40,*"
+                            RowDefinitions="Auto,30,30,30"
+                            VerticalOptions="Start">
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="LightFont"
+                                FontSize="Small"
+                                HorizontalTextAlignment="Start"
+                                TextColor="Black">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="PPE requirements for site " />
+                                        <Span Text="{Binding CurrentSite}" />
+                                        <Span Text="are listed below. " />
+                                        <Span Text="{translater:Translate ReviewAndConfirm}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <CheckBox
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                IsChecked="{Binding IsHeadProtectionChecked}"
+                                Color="{DynamicResource NewThemeTextColor}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontFamily="LightFont"
+                                Text="Head Protection"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                            <CheckBox
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                IsChecked="{Binding IsHighVJacketChecked}"
+                                Color="{DynamicResource NewThemeTextColor}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontFamily="LightFont"
+                                Text="High Visibility Jacket"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                            <CheckBox
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                IsChecked="{Binding IsEarProtectionChecked}"
+                                Color="{DynamicResource NewThemeTextColor}" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                FontFamily="LightFont"
+                                Text="Ear Protection"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                        <Grid
+                            ColumnDefinitions="40,*"
+                            RowDefinitions="Auto,30,30"
+                            VerticalOptions="Start">
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="LightFont"
+                                FontSize="Small"
+                                Text="{translater:Translate IConfirmSafetyMeasures}"
+                                TextColor="Black" />
+                            <StackLayout
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Start">
+                                <RadioButton
+                                    BackgroundColor="Transparent"
+                                    Content="Yes"
+                                    FontFamily="LightFont"
+                                    FontSize="14"
+                                    GroupName="agree"
+                                    
+                                    IsChecked="{Binding IsConfirmationYesChecked}"
+                                    TextColor="Black"
+                                    WidthRequest="150" />
+                                <RadioButton
+                                    BackgroundColor="Transparent"
+                                    Content="No"
+                                    FontFamily="LightFont"
+                                    FontSize="14"
+                                    GroupName="agree"
+                                    IsChecked="{Binding IsConfirmationNoChecked}"
+                                    TextColor="Black"
+                                    WidthRequest="150" />
+                            </StackLayout>
+                        </Grid>
+                        <Button
+                            Command="{Binding SafetySubmitButtonCommand}"
+                            FontFamily="RegularFont"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource Optrax_Button}"
+                            Text="{translater:Translate Submit}"
+                            VerticalOptions="End" />
+                    </StackLayout>
+                </ScrollView>
+
+            </Frame>
+            <Frame
+                x:Name="safetysucpopup"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Margin="20"
+                Padding="20"
+                BackgroundColor="White"
+                CornerRadius="20"
+                IsVisible="{Binding IsSafetySuccessViewVisible}"
+                VerticalOptions="Center">
+                <StackLayout
+                    x:Name="safetysuccessview"
+                    Padding="20,0"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                        <Image
+                            HeightRequest="80"
+                            Source="green_tick"
+                            WidthRequest="80" />
+                        <Label
+                            FontFamily="LightFont"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{translater:Translate YouCanWorkOn}" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding CurrentSite}" />
+                                    <Span Text=". " />
+                                    <Span Text="{translater:Translate HaveSafeDay}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Button
+                            Command="{Binding SafetySuccessDoneButtonCommand}"
+                            FontFamily="LightFont"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource Optrax_Button}"
+                            Text="{translater:Translate Done}"
+                            VerticalOptions="End" />
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+            <Frame
+                x:Name="safetyfapopup"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Margin="20"
+                Padding="20"
+                BackgroundColor="White"
+                CornerRadius="20"
+                IsVisible="{Binding IsSafetyFailViewVisible}"
+                VerticalOptions="Center">
+                <StackLayout
+                    x:Name="safetyfail"
+                    Padding="20,0"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                        <Image
+                            HeightRequest="80"
+                            Source="cross.png"
+                            WidthRequest="80" />
+                        <Label
+                            FontFamily="LightFont"
+                            HorizontalTextAlignment="Center"
+                            Text="{translater:Translate NotAllowedToWorkonSite}"
+                            TextColor="Black" />
+                        <Button
+                            Command="{Binding SafetyFailBackButtonCommand}"
+                            FontFamily="LightFont"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource Optrax_Button}"
+                            Text="{translater:Translate GoBack}"
+                            VerticalOptions="End" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <views:FaceCaptureView IsVisible="{Binding IsFaceCaptureViewVisible}" Grid.Row="0" Grid.RowSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

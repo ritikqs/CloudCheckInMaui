@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.SiteManagerViews.SiteManagerHolidayPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:converter="clr-namespace:CCIMIGRATION.Converter"
+    xmlns:header="clr-namespace:CCIMIGRATION.CustomControls.SiteManagerHeader"
+    xmlns:header1="clr-namespace:CCIMIGRATION.Views.Headers"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:LeaveStatusConverter x:Key="Leavestatusconverter" />
+            <converter:LeaveStatusColorConverter x:Key="Leavestatuscolorconverter" />
+            <converter:BackgroundConverter x:Key="TextColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="10,0" RowDefinitions="40,30,50,*">
+            <header1:CustomTitleBar Grid.Row="0" />
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{translater:Translate HolidayCalender}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="120,120,*"
+                VerticalOptions="Fill">
+                <Frame
+                    Grid.Column="0"
+                    Padding="0"
+                    BackgroundColor="LightGray"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HeightRequest="35"
+                    HorizontalOptions="Fill"
+                    IsClippedToBounds="True"
+                    VerticalOptions="Center" />
+                <Frame
+                    Grid.Column="0"
+                    Padding="0"
+                    Background="{DynamicResource BackgroundGradient}"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HeightRequest="35"
+                    IsVisible="{Binding IsRequestSelected}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Column="0"
+                    FontFamily="LightFont"
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                    Text="{translater:Translate Received}"
+                    TextColor="{Binding IsRequestSelected, Converter={StaticResource TextColorConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoadHolidayRequest}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Frame
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="LightGray"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HeightRequest="35"
+                    IsClippedToBounds="True"
+                    VerticalOptions="Center" />
+                <Frame
+                    Grid.Column="1"
+                    Padding="0"
+                    Background="{DynamicResource BackgroundGradient}"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HeightRequest="35"
+                    IsVisible="{Binding IsSentSelected}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Column="1"
+                    FontFamily="LightFont"
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                    Text="{translater:Translate Sent}"
+                    TextColor="{Binding IsSentSelected, Converter={StaticResource TextColorConverter}}"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoadAppliedHolidays}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+            <ListView
+                x:Name="holidayList"
+                Grid.Row="3"
+                Margin="10"
+                BackgroundColor="{StaticResource White}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsListRefreshing}"
+                IsVisible="{Binding IsRequestSelected}"
+                ItemTapped="HolidayList_ItemTapped"
+                ItemsSource="{Binding HolidayRequestList}"
+                RefreshCommand="{Binding RefreshHolidayRequestCommand}"
+                RowHeight="100"
+                SelectionMode="None"
+                SeparatorVisibility="None"
+                VerticalOptions="FillAndExpand">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                x:Name="Item"
+                                Margin="5"
+                                Padding="5"
+                                BackgroundColor="{StaticResource White}"
+                                BorderColor="{StaticResource LightBlueColor}"
+                                CornerRadius="5"
+                                HasShadow="False"
+                                HeightRequest="80">
+                                <Grid
+                                    BackgroundColor="{StaticResource White}"
+                                    ColumnDefinitions="15,*,120"
+                                    ColumnSpacing="5"
+                                    RowDefinitions="30,*"
+                                    RowSpacing="0">
+                                    <BoxView
+                                        Grid.Column="0"
+                                        Margin="0,10,0,0"
+                                        Background="{StaticResource BackgroundGradient}"
+                                        CornerRadius="5"
+                                        HeightRequest="10"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Start"
+                                        WidthRequest="10" />
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontFamily="MediumFont"
+                                        FontSize="14"
+                                        HorizontalOptions="StartAndExpand"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1"
+                                        TextColor="{StaticResource Black}"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Leave Applied by " />
+                                                <Span Text="{Binding Employee.FirstMidName}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Employee.LastName}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Spacing="0">
+                                        <StackLayout
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HorizontalOptions="StartAndExpand"
+                                            Orientation="Horizontal"
+                                            Spacing="5"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                FontFamily="MediumFont"
+                                                FontSize="12"
+                                                Text="{translater:Translate StartHoliday}"
+                                                TextColor="{StaticResource Gray}" />
+                                            <Label
+                                                FontFamily="MediumFont"
+                                                FontSize="12"
+                                                Text="{Binding FromDateString}"
+                                                TextColor="{StaticResource Gray}" />
+                                        </StackLayout>
+                                        <StackLayout
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HorizontalOptions="StartAndExpand"
+                                            Orientation="Horizontal"
+                                            Spacing="5"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                FontFamily="MediumFont"
+                                                FontSize="12"
+                                                Text="{translater:Translate EndHoliday}"
+                                                TextColor="{StaticResource Gray}" />
+                                            <Label
+                                                FontFamily="MediumFont"
+                                                FontSize="12"
+                                                Text="{Binding ToDateString}"
+                                                TextColor="{StaticResource Gray}" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        IsVisible="{Binding IsApproveRejectButtonVisible}"
+                                        Spacing="5"
+                                        VerticalOptions="Center">
+
+                                        <Frame
+                                            Padding="0"
+                                            BackgroundColor="{StaticResource Green}"
+                                            CornerRadius="15"
+                                            HasShadow="False"
+                                            HeightRequest="30"
+                                            WidthRequest="80">
+                                            <Label
+                                                FontFamily="LightFont"
+                                                FontSize="14"
+                                                HorizontalOptions="Center"
+                                                Text="Accept"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    BindingContext="{Binding Source={x:Reference holidayList}, Path=BindingContext}"
+                                                    Command="{Binding ApproveHolidayCommand}"
+                                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+                                        <Frame
+                                            Padding="0"
+                                            BackgroundColor="{StaticResource Red}"
+                                            CornerRadius="15"
+                                            HasShadow="False"
+                                            HeightRequest="30"
+                                            WidthRequest="80">
+                                            <Label
+                                                FontFamily="LightFont"
+                                                FontSize="14"
+                                                HorizontalOptions="Center"
+                                                Text="Reject"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    BindingContext="{Binding Source={x:Reference holidayList}, Path=BindingContext}"
+                                                    Command="{Binding RejectHolidayCommand}"
+                                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+
+                                        <!--<Image
+                                            Aspect="AspectFit"
+                                            HeightRequest="15"
+                                            Source="tick_icon"
+                                            WidthRequest="20">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    BindingContext="{Binding Source={x:Reference holidayList}, Path=BindingContext}"
+                                                    Command="{Binding ApproveHolidayCommand}"
+                                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image
+                                            Aspect="AspectFit"
+                                            HeightRequest="15"
+                                            Source="cross_icon"
+                                            WidthRequest="15">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    BindingContext="{Binding Source={x:Reference holidayList}, Path=BindingContext}"
+                                                    Command="{Binding RejectHolidayCommand}"
+                                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+                                            </Image.GestureRecognizers>
+                                        </Image>-->
+                                    </StackLayout>
+                                    <Frame
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        Padding="0"
+                                        BackgroundColor="{Binding StatusButtonBackgroundColor}"
+                                        BorderColor="{Binding StatusButtonBorderColor}"
+                                        CornerRadius="13"
+                                        HasShadow="False"
+                                        HeightRequest="25"
+                                        HorizontalOptions="Center"
+                                        IsVisible="{Binding IsLeaveStatusVisible}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="100">
+                                        <Label
+                                            FontFamily="LightFont"
+                                            FontSize="10"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding LeaveStatus}"
+                                            TextColor="{Binding StatusButtonTextColor}"
+                                            TextTransform="Uppercase"
+                                            VerticalOptions="Center" />
+                                    </Frame>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView
+                Grid.Row="3"
+                Margin="10"
+                android:ListView.IsFastScrollEnabled="True"
+                BackgroundColor="{StaticResource White}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsAppliedListRefreshing}"
+                IsVisible="{Binding IsSentSelected}"
+                ItemsSource="{Binding HolidayAppliedList}"
+                RefreshCommand="{Binding RefreshAppliedHolidayListCommand}"
+                RowHeight="80"
+                SelectionMode="None"
+                SeparatorVisibility="None"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="5"
+                                Padding="10,5"
+                                BackgroundColor="{StaticResource White}"
+                                BorderColor="LightGray"
+                                CornerRadius="8"
+                                HasShadow="False"
+                                HeightRequest="60">
+                                <Grid
+                                    BackgroundColor="{StaticResource White}"
+                                    ColumnDefinitions="15,*,100"
+                                    ColumnSpacing="5"
+                                    VerticalOptions="Fill">
+
+                                    <BoxView
+                                        Grid.Column="0"
+                                        Margin="0,15,0,0"
+                                        Background="{StaticResource BackgroundGradient}"
+                                        CornerRadius="5"
+                                        HeightRequest="10"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Start"
+                                        WidthRequest="10" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Margin="0,10,0,0"
+                                        HorizontalOptions="Fill"
+                                        HorizontalTextAlignment="Start"
+                                        MaxLines="2"
+                                        VerticalOptions="Start"
+                                        VerticalTextAlignment="Start">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontFamily="MediumFont"
+                                                    Text="Leave Applied"
+                                                    TextColor="Black" />
+                                                <Span
+                                                    FontFamily="LightFont"
+                                                    Text=" from "
+                                                    TextColor="Gray" />
+                                                <Span
+                                                    FontFamily="LightFont"
+                                                    Text="{Binding FromDateString}"
+                                                    TextColor="Gray" />
+                                                <Span
+                                                    FontFamily="LightFont"
+                                                    Text=" to "
+                                                    TextColor="Gray" />
+                                                <Span
+                                                    FontFamily="LightFont"
+                                                    Text="{Binding ToDateString}"
+                                                    TextColor="Gray" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Center">
+                                        <Frame
+                                            Padding="0"
+                                            BackgroundColor="{Binding StatusButtonBackgroundColor}"
+                                            BorderColor="{Binding StatusButtonBorderColor}"
+                                            CornerRadius="13"
+                                            HasShadow="False"
+                                            HeightRequest="25"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            WidthRequest="70">
+                                            <Label
+                                                FontFamily="LightFont"
+                                                FontSize="10"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding LeaveStatus}"
+                                                TextColor="{Binding StatusButtonTextColor}"
+                                                TextTransform="Uppercase"
+                                                VerticalOptions="Center" />
+                                        </Frame>
+
+                                    </StackLayout>
+
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label
+                Grid.Row="3"
+                FontFamily="LightFont"
+                FontSize="16"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding IsNoData}"
+                Text="{translater:Translate NoData}"
+                TextColor="Black"
+                VerticalOptions="Fill"
+                VerticalTextAlignment="Center" />
+            <Frame
+                Grid.Row="3"
+                Margin="10,0,10,30"
+                Padding="0"
+                Background="{DynamicResource BackgroundGradient}"
+                CornerRadius="30"
+                HasShadow="False"
+                HeightRequest="60"
+                HorizontalOptions="End"
+                IsVisible="{Binding IsSentSelected}"
+                VerticalOptions="End"
+                WidthRequest="60">
+                <Label
+                    FontFamily="LightIcons"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    Text="{x:Static icons:Icons.Plus}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NewLeave_Tapped_1" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

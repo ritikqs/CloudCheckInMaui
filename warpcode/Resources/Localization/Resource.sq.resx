@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_verfied_Admin" xml:space="preserve">
+    <value>Llogaria juaj do të verifikohet</value>
+  </data>
+  <data name="AddEvacutationMessage" xml:space="preserve">
+    <value>Duhet të futni ose zgjidhni mesazhin e alarmit</value>
+  </data>
+  <data name="AddNewVisitor" xml:space="preserve">
+    <value>Shto një vizitor të ri</value>
+  </data>
+  <data name="AlertMessage" xml:space="preserve">
+    <value>Mesazh Alert</value>
+  </data>
+  <data name="Alerts" xml:space="preserve">
+    <value>Paralajmërime</value>
+  </data>
+  <data name="AlreadyApproved" xml:space="preserve">
+    <value>Kjo kërkesë është aprovuar tashmë</value>
+  </data>
+  <data name="AlreadyCheckedIn" xml:space="preserve">
+    <value>Ju jeni regjistruar tashmë</value>
+  </data>
+  <data name="AlreadyCheckedOut" xml:space="preserve">
+    <value>Ju jeni regjistruar tashmë</value>
+  </data>
+  <data name="ApplyForHoliday" xml:space="preserve">
+    <value>Bëni kërkesë për pushime</value>
+  </data>
+  <data name="ApplyHolidayText" xml:space="preserve">
+    <value>Bëni kërkesë për pushime</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>OPTRAX</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Prill</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Gusht</value>
+  </data>
+  <data name="Authenticateaccesstologintoapp" xml:space="preserve">
+    <value>Vërtetoni qasjen për t'u identifikuar në aplikacion</value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Vërtetimi</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Vërtetimi</value>
+  </data>
+  <data name="AuthorizedBy" xml:space="preserve">
+    <value>I autorizuar nga</value>
+  </data>
+  <data name="Calender" xml:space="preserve">
+    <value>Kalendar</value>
+  </data>
+  <data name="CameraUnavailable" xml:space="preserve">
+    <value>Kamera nuk mundësohet</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulo</value>
+  </data>
+  <data name="CannotApplyHoliday" xml:space="preserve">
+    <value>Ju duhet të keni punuar së paku në ndonjë sit për të aplikuar pushime</value>
+  </data>
+  <data name="CannotSeeEmployees" xml:space="preserve">
+    <value>Ju duhet të keni punuar së paku në ndonjë sit për të parë punonjësit</value>
+  </data>
+  <data name="CannotSeeHoliday" xml:space="preserve">
+    <value>Ju duhet të keni punuar së paku në ndonjë sit për të kontrolluar pushimet</value>
+  </data>
+  <data name="Capture" xml:space="preserve">
+    <value>Kapni</value>
+  </data>
+  <data name="Capturing" xml:space="preserve">
+    <value>Po kap ...</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Ndrysho gjuhën</value>
+  </data>
+  <data name="CheckEmailForResetPassword" xml:space="preserve">
+    <value>Ju lutemi kontrolloni postën tuaj për të rivendosur fjalëkalimin</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>Kontrolloni</value>
+  </data>
+  <data name="CheckInButtonText" xml:space="preserve">
+    <value>Regjistrimi</value>
+  </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>Kontrolloni</value>
+  </data>
+  <data name="CheckoutButtonText" xml:space="preserve">
+    <value>Check-Out</value>
+  </data>
+  <data name="CheckOutValidation" xml:space="preserve">
+    <value>Së pari duhet të bëni arkë</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>vjen së shpejti</value>
+  </data>
+  <data name="ConfirmPasswordPlaceholder" xml:space="preserve">
+    <value>Konfirmo Pin</value>
+  </data>
+  <data name="ConfirmPasswordValidation" xml:space="preserve">
+    <value>Fjalëkalimi dhe konfirmoni fjalëkalimin nuk përputhen</value>
+  </data>
+  <data name="Contractor" xml:space="preserve">
+    <value>Kontraktori</value>
+  </data>
+  <data name="ContractorValidation" xml:space="preserve">
+    <value>Ju lutemi Zgjidhni një Kontraktor</value>
+  </data>
+  <data name="CreatePinTitle" xml:space="preserve">
+    <value>Ju lutemi krijoni një kunj</value>
+  </data>
+  <data name="CurrentSiteError" xml:space="preserve">
+    <value>Gabim në marrjen e faqes tuaj aktuale</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>dhjetor</value>
+  </data>
+  <data name="DOBPlaceholder" xml:space="preserve">
+    <value>DOB</value>
+  </data>
+  <data name="DOBValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani DOB të vlefshëm</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Bërë</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Vendosni Emailin</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani një email të vlefshëm</value>
+  </data>
+  <data name="EmpIdValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani ID-në e punonjësit</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>Punëdhënësi</value>
+  </data>
+  <data name="EmployerValidation" xml:space="preserve">
+    <value>Ju lutemi Zgjidhni një Punëdhënës</value>
+  </data>
+  <data name="EmpPlaceholder" xml:space="preserve">
+    <value>Fut ID-në e Punonjësve</value>
+  </data>
+  <data name="EnableLocation" xml:space="preserve">
+    <value>Aktivizo Vendndodhjen</value>
+  </data>
+  <data name="EnableLocationForCheckIn" xml:space="preserve">
+    <value>Ju lutemi aktivizoni cilësimet e vendndodhjes për t'u regjistruar</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Fundi:</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Data e përfundimit</value>
+  </data>
+  <data name="EndHoliday" xml:space="preserve">
+    <value>Fundi i Festës</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Koha e Fundit</value>
+  </data>
+  <data name="ErrorCompressing" xml:space="preserve">
+    <value>Gabim në ngjeshjen e fotove</value>
+  </data>
+  <data name="ErrorGettingLocation" xml:space="preserve">
+    <value>Gabim në marrjen e vendndodhjes suaj</value>
+  </data>
+  <data name="ErrorGettingTime" xml:space="preserve">
+    <value>Gabim në marrjen e kohës së monitorimit. Ju do të monitoroheni çdo një minutë</value>
+  </data>
+  <data name="ErrorUploadingAzure" xml:space="preserve">
+    <value>Gabim në shtimin e fytyrës në azure</value>
+  </data>
+  <data name="ErrorUploadingImage" xml:space="preserve">
+    <value>Gabim në ngarkimin e imazheve në server</value>
+  </data>
+  <data name="EvacuationAlertSuccess" xml:space="preserve">
+    <value>Dërguar</value>
+  </data>
+  <data name="FaceCaptureTitle" xml:space="preserve">
+    <value>Ju lutemi shikoni në kamera</value>
+  </data>
+  <data name="FaceNotMatch" xml:space="preserve">
+    <value>Fytyra nuk përputhet. Ju lutemi provoni përsëri</value>
+  </data>
+  <data name="FailedCheckIn" xml:space="preserve">
+    <value>Identifikimi dështoi</value>
+  </data>
+  <data name="FailedCheckOut" xml:space="preserve">
+    <value>Dështoi në dalje</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Shkurt</value>
+  </data>
+  <data name="FingerAuthFailedMessage" xml:space="preserve">
+    <value>Vërtetimi dështoi. Ju lutemi provoni përsëri</value>
+  </data>
+  <data name="FirstNamePlaceholder" xml:space="preserve">
+    <value>Emri</value>
+  </data>
+  <data name="FNameValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani emrin e vlefshëm</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Keni harruar fjalëkalimin</value>
+  </data>
+  <data name="FourDigitPin" xml:space="preserve">
+    <value>Ju lutemi vendosni një kunj 4 shifror</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Nga</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Fillo</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Kthehu mbrapa</value>
+  </data>
+  <data name="GoBackLocationWarning" xml:space="preserve">
+    <value>Ju lutemi kthehuni në sit, përndryshe do të dilni nga llogaria</value>
+  </data>
+  <data name="GrantCameraPermission" xml:space="preserve">
+    <value>Ju lutemi jepni leje për kamerën</value>
+  </data>
+  <data name="HaveSafeDay" xml:space="preserve">
+    <value>Kaloni një ditë të sigurt</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Përshëndetje</value>
+  </data>
+  <data name="Holiday" xml:space="preserve">
+    <value>Pushime</value>
+  </data>
+  <data name="HolidayApprovedSuccess" xml:space="preserve">
+    <value>Kërkesa u miratua me sukses</value>
+  </data>
+  <data name="HolidayCalender" xml:space="preserve">
+    <value>Kalendari i festave</value>
+  </data>
+  <data name="HolidayDateTimeValidatonError" xml:space="preserve">
+    <value>Data / ora e fillimit duhet të jetë më e vogël se data / ora e mbarimit</value>
+  </data>
+  <data name="HolidayRejectSuccess" xml:space="preserve">
+    <value>Kërkesa u refuzua me sukses</value>
+  </data>
+  <data name="HolidayRequestSubimtted" xml:space="preserve">
+    <value>Kërkesa juaj për pushime është dorëzuar</value>
+  </data>
+  <data name="IConfirmSafetyMeasures" xml:space="preserve">
+    <value>Mund të konfirmoj se kam të gjitha pajisjet e sigurisë për të kryer punën time</value>
+  </data>
+  <data name="ImageDeleteMessage" xml:space="preserve">
+    <value>Imazhet tuaja janë fshirë nga administratori. Ju lutemi rikapni.</value>
+  </data>
+  <data name="InputFieldPlaceholderColor" xml:space="preserve">
+    <value>Gri</value>
+  </data>
+  <data name="InputFieldValidationError" xml:space="preserve">
+    <value>Ju lutemi jepni hyrjen e vlefshme në fusha</value>
+  </data>
+  <data name="InsuranceNumberValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani numrin e sigurimit</value>
+  </data>
+  <data name="Isonleaveon" xml:space="preserve">
+    <value>është në pushim më</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Janar</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Korrik</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Qershor</value>
+  </data>
+  <data name="LastNamePlaceholder" xml:space="preserve">
+    <value>Mbiemri</value>
+  </data>
+  <data name="LeaveStatusApproved" xml:space="preserve">
+    <value>I autorizuar</value>
+  </data>
+  <data name="LeaveStatusPending" xml:space="preserve">
+    <value>Zbatohet</value>
+  </data>
+  <data name="LeaveStatusRejected" xml:space="preserve">
+    <value>Jo i Autorizuar</value>
+  </data>
+  <data name="LightGray" xml:space="preserve">
+    <value>Gri e hapur</value>
+  </data>
+  <data name="LNameValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani Mbiemrin e vlefshëm</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Po ngarkohet ...</value>
+  </data>
+  <data name="Loading1" xml:space="preserve">
+    <value>Po ngarkohet …</value>
+  </data>
+  <data name="LoadingSites" xml:space="preserve">
+    <value>Vendet po ngarkohen</value>
+  </data>
+  <data name="LoadingTimeSheet" xml:space="preserve">
+    <value>Koha e ngarkimit</value>
+  </data>
+  <data name="LocationConsent" xml:space="preserve">
+    <value>Ky aplikacion mbledh të dhënat e vendndodhjes për të mundësuar Geofence e cila do të ndjekë lëvizjen e një përdoruesi gjatë punës në një faqe edhe kur aplikacioni është i mbyllur ose nuk është në përdorim. Vetëm pas kësaj, Përdoruesit do të jenë në gjendje të regjistrohen dhe mund të shënojnë pjesëmarrjen e tyre. Ndihmon një organizatë të gjurmojë punonjësit e tyre në sit dhe të mbajë një gjurmë të pjesëmarrjes.</value>
+  </data>
+  <data name="LocationOnWarning" xml:space="preserve">
+    <value>Ju lutemi aktivizoni vendndodhjen, përndryshe do të dilni nga llogaria</value>
+  </data>
+  <data name="LocationRequired" xml:space="preserve">
+    <value>Lokacioni kërkohet</value>
+  </data>
+  <data name="LocationUnavailable" xml:space="preserve">
+    <value>Vendndodhja e padisponueshme</value>
+  </data>
+  <data name="LogginIn" xml:space="preserve">
+    <value>logging-in.com</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Hyrja</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>Hyrja</value>
+  </data>
+  <data name="LoginWithFingerOrPin" xml:space="preserve">
+    <value>Identifikohu me pin ose biometrike të pajisjes</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Shkyç</value>
+  </data>
+  <data name="LookintoCamera" xml:space="preserve">
+    <value>Ju lutemi shikoni në kamerë dhe lëvizni kokën nga e majta në të djathtë.</value>
+  </data>
+  <data name="MaidenPlaceHolder" xml:space="preserve">
+    <value>Emrat Vajza Nënave</value>
+  </data>
+  <data name="MakeSureLocationOn" xml:space="preserve">
+    <value>Sigurohuni që vendndodhja e pajisjes tuaj të jetë e ndezur</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>marsh</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Mund</value>
+  </data>
+  <data name="MenuCalender" xml:space="preserve">
+    <value>Kalendar</value>
+  </data>
+  <data name="MenuEvacuation" xml:space="preserve">
+    <value>Evakuimi</value>
+  </data>
+  <data name="MenuHoliday" xml:space="preserve">
+    <value>Pushime</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Shtëpi</value>
+  </data>
+  <data name="MenuLogout" xml:space="preserve">
+    <value>Shkyç</value>
+  </data>
+  <data name="MenuTimesheet" xml:space="preserve">
+    <value>Fletë kohore</value>
+  </data>
+  <data name="MenuVisitors" xml:space="preserve">
+    <value>Vizitorët</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Mesazhet</value>
+  </data>
+  <data name="MobilePlaceHolder" xml:space="preserve">
+    <value>Vendosni numrin e celularit</value>
+  </data>
+  <data name="MotherNameRequired" xml:space="preserve">
+    <value>Kërkohet Emri Vajza e Nënave për pyetjen e sigurisë</value>
+  </data>
+  <data name="NamePlaceHolder" xml:space="preserve">
+    <value>Vendosni emrin</value>
+  </data>
+  <data name="NameValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani emrin e vlefshëm</value>
+  </data>
+  <data name="NeedLocationInBackgrund" xml:space="preserve">
+    <value>Optrax ka nevojë për vendndodhjen tuaj në sfond. Ju lutemi lejoni lejen e lokacionit gjithmonë</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Tjetra</value>
+  </data>
+  <data name="NIdPlaceholder" xml:space="preserve">
+    <value>Vendosni ID-në e Sigurimit</value>
+  </data>
+  <data name="NINumberPlaceholder" xml:space="preserve">
+    <value>Numri NI</value>
+  </data>
+  <data name="NIValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani Numrin e vlefshëm NI</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Nuk ka të dhëna</value>
+  </data>
+  <data name="NoEvents" xml:space="preserve">
+    <value>ASNJ EV NGJARJE P THER DATN E ZGJEDHUR</value>
+  </data>
+  <data name="NoHolidayEventFound" xml:space="preserve">
+    <value>Nuk u gjet asnjë ngjarje festash</value>
+  </data>
+  <data name="NoInputError" xml:space="preserve">
+    <value>Të gjitha fushat e hyrjes duhet të plotësohen</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Ju lutemi kontrolloni lidhjen tuaj të internetit</value>
+  </data>
+  <data name="NotAllowedToWorkonSite" xml:space="preserve">
+    <value>Nuk lejohet të punojë në vend derisa të jetë marrë PPE e saktë</value>
+  </data>
+  <data name="NotOnActiveSite" xml:space="preserve">
+    <value>Ju nuk jeni në një sit aktiv të ECL</value>
+  </data>
+  <data name="NotOnSite" xml:space="preserve">
+    <value>Ju nuk jeni ndonjë sit</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>nëntor</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Tetor</value>
+  </data>
+  <data name="OfflineSyncError" xml:space="preserve">
+    <value>Gabim i sinkronizimit të të dhënave jashtë linje</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ne rregull</value>
+  </data>
+  <data name="OnActiveSite" xml:space="preserve">
+    <value>Ju jeni në një sit aktiv të ECL</value>
+  </data>
+  <data name="OpenSettingsForLocation" xml:space="preserve">
+    <value>Hapni Cilësimet për të aktivizuar vendndodhjen</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Tjetër</value>
+  </data>
+  <data name="OtherContractor" xml:space="preserve">
+    <value>Hyni Kontraktori</value>
+  </data>
+  <data name="OtherTradePlaceholder" xml:space="preserve">
+    <value>Hyni në Tregti</value>
+  </data>
+  <data name="OutOfSite" xml:space="preserve">
+    <value>Jashtë faqes</value>
+  </data>
+  <data name="PageTitleEvacuation" xml:space="preserve">
+    <value>Evakuimi</value>
+  </data>
+  <data name="PageTitleHoliday" xml:space="preserve">
+    <value>Kërkesat për pushime</value>
+  </data>
+  <data name="PageTitleVisitors" xml:space="preserve">
+    <value>Vizitorët</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>Fjalekalimi Nuk perputhet</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>Vendosni Pin</value>
+  </data>
+  <data name="PasswordResetSuccess" xml:space="preserve">
+    <value>Suksesi i rivendosjes së fjalëkalimit. Ju lutemi identifikohuni</value>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani fjalëkalimin e vlefshëm</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Ndalo</value>
+  </data>
+  <data name="PermissionError" xml:space="preserve">
+    <value>Ju lutemi jepni leje për vendndodhjen</value>
+  </data>
+  <data name="PhoneNumberError" xml:space="preserve">
+    <value>Ju lutemi shkruani numrin e telefonit me 11 shifra</value>
+  </data>
+  <data name="PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Fut telefonin</value>
+  </data>
+  <data name="PhoneValidation" xml:space="preserve">
+    <value>Ju lutemi shkruani numrin e vlefshëm të telefonit</value>
+  </data>
+  <data name="Pin" xml:space="preserve">
+    <value>Gjilpere</value>
+  </data>
+  <data name="PinPlaceholder" xml:space="preserve">
+    <value>Vendosni Pin</value>
+  </data>
+  <data name="PinValidation" xml:space="preserve">
+    <value>Ju lutemi vendosni pinin 4 shifror</value>
+  </data>
+  <data name="Placefinger" xml:space="preserve">
+    <value>Vendosni gishtin në skaner për t'u identifikuar</value>
+  </data>
+  <data name="PressHere" xml:space="preserve">
+    <value>Shtypni Këtu</value>
+  </data>
+  <data name="Proceed" xml:space="preserve">
+    <value>Vazhdoni</value>
+  </data>
+  <data name="ReCapture" xml:space="preserve">
+    <value>Ri-kap</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>E marrë</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>E kuqe</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Regjistrohuni</value>
+  </data>
+  <data name="RegisterFormTitle" xml:space="preserve">
+    <value>Regjistrimi i përdoruesit</value>
+  </data>
+  <data name="Registering" xml:space="preserve">
+    <value>Regjistrimi</value>
+  </data>
+  <data name="RequestHoliday" xml:space="preserve">
+    <value>Kërkoni pushime</value>
+  </data>
+  <data name="RequiredPhotoForCheckout" xml:space="preserve">
+    <value>Nevoja për të kapur foto për të kontrolluar</value>
+  </data>
+  <data name="ResetCode" xml:space="preserve">
+    <value>Kodin</value>
+  </data>
+  <data name="ReturnToLogin" xml:space="preserve">
+    <value>Kthehuni tek identifikimi</value>
+  </data>
+  <data name="ReviewAndConfirm" xml:space="preserve">
+    <value>Ju lutemi rishikoni dhe konfirmoni se keni sa vijon:</value>
+  </data>
+  <data name="SafetyMesaureErrorMessage" xml:space="preserve">
+    <value>Ju lutemi zgjidhni masat e sigurisë dhe konfirmoni</value>
+  </data>
+  <data name="SavingPin" xml:space="preserve">
+    <value>Kunji i kursimit</value>
+  </data>
+  <data name="SearchContractor" xml:space="preserve">
+    <value>Kërkoni kontraktorin</value>
+  </data>
+  <data name="SearchEmployer" xml:space="preserve">
+    <value>Kërkoni punëdhënësin</value>
+  </data>
+  <data name="SearchTrade" xml:space="preserve">
+    <value>Kërko tregti</value>
+  </data>
+  <data name="SelectContractorError" xml:space="preserve">
+    <value>Ju lutemi zgjidhni kontraktorin</value>
+  </data>
+  <data name="SelectEmployerError" xml:space="preserve">
+    <value>Proszę wybrać pracodawcę</value>
+  </data>
+  <data name="SelectOtherOntractorError" xml:space="preserve">
+    <value>Ju lutemi shkruani kontraktorin tjetër</value>
+  </data>
+  <data name="SelectOtherTradeError" xml:space="preserve">
+    <value>Ju lutemi futni tregtinë tjetër</value>
+  </data>
+  <data name="SelectSite" xml:space="preserve">
+    <value>Zgjidhni sitin</value>
+  </data>
+  <data name="SelectTradeError" xml:space="preserve">
+    <value>Ju lutemi zgjidhni tregtinë</value>
+  </data>
+  <data name="SelectUserForEvacuation" xml:space="preserve">
+    <value>Ju duhet të zgjidhni përdoruesit për të dërguar paralajmërim</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Dërgoni</value>
+  </data>
+  <data name="SendAlert" xml:space="preserve">
+    <value>Dërgo Alert</value>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Dërguar</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Shtator</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Hyni</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Dilni</value>
+  </data>
+  <data name="SiteValidation" xml:space="preserve">
+    <value>Ju lutemi zgjidhni faqen e parë</value>
+  </data>
+  <data name="SomethingwentWrong" xml:space="preserve">
+    <value>Dicka shkoi keq</value>
+  </data>
+  <data name="SomethingWentWrongTryAgain" xml:space="preserve">
+    <value>Dicka shkoi keq. ju lutem provoni përsëri</value>
+  </data>
+  <data name="Staffon" xml:space="preserve">
+    <value>stafi në</value>
+  </data>
+  <data name="StaffOnSite" xml:space="preserve">
+    <value>Stafi Në Vend</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Fillimi:</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Data e fillimit</value>
+  </data>
+  <data name="StartHoliday" xml:space="preserve">
+    <value>Filloni pushimet</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Koha e nisjes</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Ndal</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Paraqit</value>
+  </data>
+  <data name="SyncingTime" xml:space="preserve">
+    <value>Timp de sincronizare</value>
+  </data>
+  <data name="ThankYou_for_Registering" xml:space="preserve">
+    <value>Faleminderit për Regjistrimin</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>këtë javë</value>
+  </data>
+  <data name="TimeSheets" xml:space="preserve">
+    <value>Fletët kohore</value>
+  </data>
+  <data name="TimeSynced" xml:space="preserve">
+    <value>Koha u sinkronizua</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>Për të</value>
+  </data>
+  <data name="Trade" xml:space="preserve">
+    <value>Tregtia</value>
+  </data>
+  <data name="TradeValidation" xml:space="preserve">
+    <value>Ju lutemi Zgjidhni një Tregti</value>
+  </data>
+  <data name="UserRegistration" xml:space="preserve">
+    <value>Regjistrimi i përdoruesit</value>
+  </data>
+  <data name="YouAreSignedOut" xml:space="preserve">
+    <value>Ju keni dalë nga llogaria</value>
+  </data>
+  <data name="YouCanWorkOn" xml:space="preserve">
+    <value>Tani mund të punoni</value>
+  </data>
+  <data name="YouHaveWorked" xml:space="preserve">
+    <value>Ju keni punuar</value>
+  </data>
+  <data name="YouMustCheckInForHoliday" xml:space="preserve">
+    <value>Së pari duhet të regjistroheni për të parë kërkesat për pushime</value>
+  </data>
+  <data name="YouMustCheckOutFirst" xml:space="preserve">
+    <value>Zgjidh gjuhen</value>
+  </data>
+</root>

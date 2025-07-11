@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_verfied_Admin" xml:space="preserve">
+    <value>Twoje konto zostanie zweryfikowane</value>
+  </data>
+  <data name="AddEvacutationMessage" xml:space="preserve">
+    <value>Musisz wpisać lub wybrać komunikat ostrzegawczy</value>
+  </data>
+  <data name="AddNewVisitor" xml:space="preserve">
+    <value>Dodaj nowego gościa</value>
+  </data>
+  <data name="AlertMessage" xml:space="preserve">
+    <value>Wiadomość ostrzegawcza</value>
+  </data>
+  <data name="Alerts" xml:space="preserve">
+    <value>Alerty</value>
+  </data>
+  <data name="AlreadyApproved" xml:space="preserve">
+    <value>Ta prośba została już zatwierdzona</value>
+  </data>
+  <data name="AlreadyCheckedIn" xml:space="preserve">
+    <value>Jesteś już zameldowany</value>
+  </data>
+  <data name="AlreadyCheckedOut" xml:space="preserve">
+    <value>Jesteś już wypisany</value>
+  </data>
+  <data name="ApplyForHoliday" xml:space="preserve">
+    <value>Złóż wniosek o wakacje</value>
+  </data>
+  <data name="ApplyHolidayText" xml:space="preserve">
+    <value>Złóż wniosek o wakacje</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>OPTRAX</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>kwiecień</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>sierpień</value>
+  </data>
+  <data name="Authenticateaccesstologintoapp" xml:space="preserve">
+    <value>Uwierzytelnij dostęp do logowania do aplikacji</value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Uwierzytelnianie</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Uwierzytelnianie</value>
+  </data>
+  <data name="AuthorizedBy" xml:space="preserve">
+    <value>Autoryzowany przez</value>
+  </data>
+  <data name="Calender" xml:space="preserve">
+    <value>Kalendarz</value>
+  </data>
+  <data name="CameraUnavailable" xml:space="preserve">
+    <value>Kamera niedostępna</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="CannotApplyHoliday" xml:space="preserve">
+    <value>Musisz pracować na co najmniej jednej stronie, aby ubiegać się o urlop</value>
+  </data>
+  <data name="CannotSeeEmployees" xml:space="preserve">
+    <value>Aby zobaczyć pracowników, musisz pracować na co najmniej jednej witrynie</value>
+  </data>
+  <data name="CannotSeeHoliday" xml:space="preserve">
+    <value>Musisz pracować na co najmniej jednej stronie, aby sprawdzić wakacje check</value>
+  </data>
+  <data name="Capture" xml:space="preserve">
+    <value>Zdobyć</value>
+  </data>
+  <data name="Capturing" xml:space="preserve">
+    <value>Przechwytywanie...</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Zmień język</value>
+  </data>
+  <data name="CheckEmailForResetPassword" xml:space="preserve">
+    <value>Sprawdź pocztę, aby zresetować hasło</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>Zameldować się</value>
+  </data>
+  <data name="CheckInButtonText" xml:space="preserve">
+    <value>Zameldować się</value>
+  </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>Sprawdzić</value>
+  </data>
+  <data name="CheckoutButtonText" xml:space="preserve">
+    <value>Sprawdzić</value>
+  </data>
+  <data name="CheckOutValidation" xml:space="preserve">
+    <value>Musisz najpierw zapłacić</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Wkrótce</value>
+  </data>
+  <data name="ConfirmPasswordPlaceholder" xml:space="preserve">
+    <value>Potwierdź PIN</value>
+  </data>
+  <data name="ConfirmPasswordValidation" xml:space="preserve">
+    <value>Hasło i potwierdź hasło nie pasują</value>
+  </data>
+  <data name="Contractor" xml:space="preserve">
+    <value>Kontrahent</value>
+  </data>
+  <data name="ContractorValidation" xml:space="preserve">
+    <value>Wybierz wykonawcę</value>
+  </data>
+  <data name="CreatePinTitle" xml:space="preserve">
+    <value>Utwórz pinezkę</value>
+  </data>
+  <data name="CurrentSiteError" xml:space="preserve">
+    <value>Błąd podczas pobierania bieżącej witryny</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>grudzień</value>
+  </data>
+  <data name="DOBPlaceholder" xml:space="preserve">
+    <value>DOB</value>
+  </data>
+  <data name="DOBValidation" xml:space="preserve">
+    <value>Proszę podać poprawny DOB</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Gotowy</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Wprowadź e-mail</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Proszę podać poprawny adres e-mail</value>
+  </data>
+  <data name="EmpIdValidation" xml:space="preserve">
+    <value>Wprowadź identyfikator pracownika</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>Pracodawca</value>
+  </data>
+  <data name="EmployerValidation" xml:space="preserve">
+    <value>Wybierz pracodawcę</value>
+  </data>
+  <data name="EmpPlaceholder" xml:space="preserve">
+    <value>Wprowadź identyfikator pracownika</value>
+  </data>
+  <data name="EnableLocation" xml:space="preserve">
+    <value>Umożliwić lokację</value>
+  </data>
+  <data name="EnableLocationForCheckIn" xml:space="preserve">
+    <value>Włącz ustawienia lokalizacji, aby się zameldować</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Koniec:</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Data końcowa</value>
+  </data>
+  <data name="EndHoliday" xml:space="preserve">
+    <value>Koniec wakacji</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Koniec czasu</value>
+  </data>
+  <data name="ErrorCompressing" xml:space="preserve">
+    <value>Błąd podczas kompresji zdjęć</value>
+  </data>
+  <data name="ErrorGettingLocation" xml:space="preserve">
+    <value>Błąd podczas pobierania Twojej lokalizacji</value>
+  </data>
+  <data name="ErrorGettingTime" xml:space="preserve">
+    <value>Błąd podczas pobierania czasu monitorowania. Będziesz monitorowany co minutę</value>
+  </data>
+  <data name="ErrorUploadingAzure" xml:space="preserve">
+    <value>Błąd podczas dodawania twarzy do błękitu</value>
+  </data>
+  <data name="ErrorUploadingImage" xml:space="preserve">
+    <value>Błąd podczas przesyłania zdjęć na serwer</value>
+  </data>
+  <data name="EvacuationAlertSuccess" xml:space="preserve">
+    <value>Wysłane</value>
+  </data>
+  <data name="FaceCaptureTitle" xml:space="preserve">
+    <value>Proszę spojrzeć w kamerę</value>
+  </data>
+  <data name="FaceNotMatch" xml:space="preserve">
+    <value>Twarz niedopasowana. Proszę spróbuj ponownie</value>
+  </data>
+  <data name="FailedCheckIn" xml:space="preserve">
+    <value>Nie udało się zalogować</value>
+  </data>
+  <data name="FailedCheckOut" xml:space="preserve">
+    <value>Nie udało się wylogować</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Luty</value>
+  </data>
+  <data name="FingerAuthFailedMessage" xml:space="preserve">
+    <value>Uwierzytelnianie nie powiodło się. Proszę spróbuj ponownie</value>
+  </data>
+  <data name="FirstNamePlaceholder" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="FNameValidation" xml:space="preserve">
+    <value>Proszę podać prawidłowe imię</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Zapomniałeś hasła</value>
+  </data>
+  <data name="FourDigitPin" xml:space="preserve">
+    <value>Wprowadź 4-cyfrowy kod PIN</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Zaczynaj</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Wróć</value>
+  </data>
+  <data name="GoBackLocationWarning" xml:space="preserve">
+    <value>Wróć na stronę, w przeciwnym razie zostaniesz wylogowany</value>
+  </data>
+  <data name="GrantCameraPermission" xml:space="preserve">
+    <value>Proszę udzielić pozwolenia na aparat</value>
+  </data>
+  <data name="HaveSafeDay" xml:space="preserve">
+    <value>Bezpiecznego dnia</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>cześć</value>
+  </data>
+  <data name="Holiday" xml:space="preserve">
+    <value>Święto</value>
+  </data>
+  <data name="HolidayApprovedSuccess" xml:space="preserve">
+    <value>Żądanie zatwierdzone pomyślnie</value>
+  </data>
+  <data name="HolidayCalender" xml:space="preserve">
+    <value>Kalendarz świąteczny</value>
+  </data>
+  <data name="HolidayDateTimeValidatonError" xml:space="preserve">
+    <value>Data/godzina rozpoczęcia musi być mniejsza niż data/godzina zakończenia</value>
+  </data>
+  <data name="HolidayRejectSuccess" xml:space="preserve">
+    <value>Żądanie odrzucone pomyślnie</value>
+  </data>
+  <data name="HolidayRequestSubimtted" xml:space="preserve">
+    <value>Twoja prośba o urlop ​została przesłana</value>
+  </data>
+  <data name="IConfirmSafetyMeasures" xml:space="preserve">
+    <value>Mogę potwierdzić, że posiadam cały sprzęt bezpieczeństwa do wykonywania mojej pracy</value>
+  </data>
+  <data name="ImageDeleteMessage" xml:space="preserve">
+    <value>Twoje obrazy zostały usunięte przez administratora. Proszę odzyskać.</value>
+  </data>
+  <data name="InputFieldPlaceholderColor" xml:space="preserve">
+    <value>Szary</value>
+  </data>
+  <data name="InputFieldValidationError" xml:space="preserve">
+    <value>Podaj prawidłowe dane wejściowe w polach</value>
+  </data>
+  <data name="InsuranceNumberValidation" xml:space="preserve">
+    <value>Proszę podać numer ubezpieczenia</value>
+  </data>
+  <data name="Isonleaveon" xml:space="preserve">
+    <value>jest na urlopie</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Styczeń</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>lipiec</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>czerwiec</value>
+  </data>
+  <data name="LastNamePlaceholder" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="LeaveStatusApproved" xml:space="preserve">
+    <value>Upoważniony</value>
+  </data>
+  <data name="LeaveStatusPending" xml:space="preserve">
+    <value>Stosowany</value>
+  </data>
+  <data name="LeaveStatusRejected" xml:space="preserve">
+    <value>Nieautoryzowany</value>
+  </data>
+  <data name="LightGray" xml:space="preserve">
+    <value>Jasny szary</value>
+  </data>
+  <data name="LNameValidation" xml:space="preserve">
+    <value>Proszę podać prawidłowe nazwisko</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Ładowanie...</value>
+  </data>
+  <data name="Loading1" xml:space="preserve">
+    <value>Ładowanie</value>
+  </data>
+  <data name="LoadingSites" xml:space="preserve">
+    <value>Ładowanie witryn</value>
+  </data>
+  <data name="LoadingTimeSheet" xml:space="preserve">
+    <value>Ładowanie arkusza czasu</value>
+  </data>
+  <data name="LocationConsent" xml:space="preserve">
+    <value>Ta aplikacja zbiera dane o lokalizacji, aby umożliwić Geofence, które będzie śledzić ruch użytkownika podczas pracy w witrynie, nawet gdy aplikacja jest zamknięta lub nie jest używana. Dopiero po tym Użytkownicy będą mogli się zalogować i zaznaczyć swoją obecność. Pomaga organizacji śledzić swoich pracowników na stronie i śledzić frekwencję.</value>
+  </data>
+  <data name="LocationOnWarning" xml:space="preserve">
+    <value>Włącz lokalizację, w przeciwnym razie zostaniesz wylogowany</value>
+  </data>
+  <data name="LocationRequired" xml:space="preserve">
+    <value>Wymagana lokalizacja</value>
+  </data>
+  <data name="LocationUnavailable" xml:space="preserve">
+    <value>Lokalizacja niedostępna</value>
+  </data>
+  <data name="LogginIn" xml:space="preserve">
+    <value>logowanie.pl</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj sie</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>Zaloguj sie</value>
+  </data>
+  <data name="LoginWithFingerOrPin" xml:space="preserve">
+    <value>Zaloguj się za pomocą kodu biometrycznego lub urządzenia biometrycznego</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="LookintoCamera" xml:space="preserve">
+    <value>Proszę spojrzeć w kamerę i przesunąć głowę od lewej do prawej.</value>
+  </data>
+  <data name="MaidenPlaceHolder" xml:space="preserve">
+    <value>Nazwisko panieńskie matki</value>
+  </data>
+  <data name="MakeSureLocationOn" xml:space="preserve">
+    <value>Upewnij się, że lokalizacja Twojego urządzenia jest włączona</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Marsz</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Może</value>
+  </data>
+  <data name="MenuCalender" xml:space="preserve">
+    <value>Kalendarz</value>
+  </data>
+  <data name="MenuEvacuation" xml:space="preserve">
+    <value>Ewakuacja</value>
+  </data>
+  <data name="MenuHoliday" xml:space="preserve">
+    <value>Święto</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Dom</value>
+  </data>
+  <data name="MenuLogout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="MenuTimesheet" xml:space="preserve">
+    <value>Lista obecności</value>
+  </data>
+  <data name="MenuVisitors" xml:space="preserve">
+    <value>goście</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Wiadomości</value>
+  </data>
+  <data name="MobilePlaceHolder" xml:space="preserve">
+    <value>Wprowadź numer telefonu komórkowego</value>
+  </data>
+  <data name="MotherNameRequired" xml:space="preserve">
+    <value>Nazwisko panieńskie matki wymagane w przypadku pytania zabezpieczającego</value>
+  </data>
+  <data name="NamePlaceHolder" xml:space="preserve">
+    <value>Wprowadź imię</value>
+  </data>
+  <data name="NameValidation" xml:space="preserve">
+    <value>Proszę wpisać imię</value>
+  </data>
+  <data name="NeedLocationInBackgrund" xml:space="preserve">
+    <value>Optrax potrzebuje Twojej lokalizacji w tle. Proszę zezwól na dostęp do lokalizacji, aby zawsze</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Kolejny</value>
+  </data>
+  <data name="NIdPlaceholder" xml:space="preserve">
+    <value>Wprowadź identyfikator ubezpieczenia</value>
+  </data>
+  <data name="NINumberPlaceholder" xml:space="preserve">
+    <value>Numer NI</value>
+  </data>
+  <data name="NIValidation" xml:space="preserve">
+    <value>Proszę podać poprawny numer NI</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Brak daty</value>
+  </data>
+  <data name="NoEvents" xml:space="preserve">
+    <value>BRAK WYDARZEŃ W WYBRANYM DACIE</value>
+  </data>
+  <data name="NoHolidayEventFound" xml:space="preserve">
+    <value>Nie znaleziono wydarzeń świątecznych</value>
+  </data>
+  <data name="NoInputError" xml:space="preserve">
+    <value>Wszystkie pola wejściowe powinny być wypełnione</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Proszę sprawdzić swoje połączenie z internetem</value>
+  </data>
+  <data name="NotAllowedToWorkonSite" xml:space="preserve">
+    <value>Nie wolno pracować na budowie do czasu uzyskania odpowiednich środków ochrony osobistej</value>
+  </data>
+  <data name="NotOnActiveSite" xml:space="preserve">
+    <value>Nie jesteś w aktywnej witrynie ECL</value>
+  </data>
+  <data name="NotOnSite" xml:space="preserve">
+    <value>Nie jesteś żadną witryną</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Listopad</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>październik</value>
+  </data>
+  <data name="OfflineSyncError" xml:space="preserve">
+    <value>Błąd synchronizacji danych offline</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Dobrze</value>
+  </data>
+  <data name="OnActiveSite" xml:space="preserve">
+    <value>Jesteś na aktywnej witrynie ECL</value>
+  </data>
+  <data name="OpenSettingsForLocation" xml:space="preserve">
+    <value>Otwórz Ustawienia, aby włączyć lokalizację</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Inne</value>
+  </data>
+  <data name="OtherContractor" xml:space="preserve">
+    <value>Wpisz Wykonawcę</value>
+  </data>
+  <data name="OtherTradePlaceholder" xml:space="preserve">
+    <value>Wejdź do handlu</value>
+  </data>
+  <data name="OutOfSite" xml:space="preserve">
+    <value>Poza witryną</value>
+  </data>
+  <data name="PageTitleEvacuation" xml:space="preserve">
+    <value>Ewakuacja</value>
+  </data>
+  <data name="PageTitleHoliday" xml:space="preserve">
+    <value>Prośby o wakacje</value>
+  </data>
+  <data name="PageTitleVisitors" xml:space="preserve">
+    <value>goście</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>Hasło Nie pasuje</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>Wpisz PIN</value>
+  </data>
+  <data name="PasswordResetSuccess" xml:space="preserve">
+    <value>Pomyślnie zresetowano hasło. Proszę się zalogować</value>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>Proszę podać prawidłowe hasło</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauza</value>
+  </data>
+  <data name="PermissionError" xml:space="preserve">
+    <value>Proszę udzielić pozwolenia na lokalizację</value>
+  </data>
+  <data name="PhoneNumberError" xml:space="preserve">
+    <value>Proszę podać numer telefonu składający się z 11 cyfr</value>
+  </data>
+  <data name="PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Wprowadź telefon</value>
+  </data>
+  <data name="PhoneValidation" xml:space="preserve">
+    <value>Proszę podać poprawny numer telefonu</value>
+  </data>
+  <data name="Pin" xml:space="preserve">
+    <value>Kołek</value>
+  </data>
+  <data name="PinPlaceholder" xml:space="preserve">
+    <value>Wpisz PIN</value>
+  </data>
+  <data name="PinValidation" xml:space="preserve">
+    <value>Wprowadź 4-cyfrowy kod PIN</value>
+  </data>
+  <data name="Placefinger" xml:space="preserve">
+    <value>Umieść palec na skanerze, aby się zalogować</value>
+  </data>
+  <data name="PressHere" xml:space="preserve">
+    <value>Naciśnij tutaj</value>
+  </data>
+  <data name="Proceed" xml:space="preserve">
+    <value>Kontynuować</value>
+  </data>
+  <data name="ReCapture" xml:space="preserve">
+    <value>Odzyskanie</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Otrzymane</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Czerwony</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Zarejestrować</value>
+  </data>
+  <data name="RegisterFormTitle" xml:space="preserve">
+    <value>Rejestracja Użytkownika</value>
+  </data>
+  <data name="Registering" xml:space="preserve">
+    <value>Rejestracyjny</value>
+  </data>
+  <data name="RequestHoliday" xml:space="preserve">
+    <value>Poproś o wakacje</value>
+  </data>
+  <data name="RequiredPhotoForCheckout" xml:space="preserve">
+    <value>Musisz zrobić zdjęcie, aby się wymeldować</value>
+  </data>
+  <data name="ResetCode" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="ReturnToLogin" xml:space="preserve">
+    <value>Wróć do logowania</value>
+  </data>
+  <data name="ReviewAndConfirm" xml:space="preserve">
+    <value>Sprawdź i potwierdź, że masz następujące informacje:</value>
+  </data>
+  <data name="SafetyMesaureErrorMessage" xml:space="preserve">
+    <value>Proszę wybrać środki bezpieczeństwa i potwierdzić</value>
+  </data>
+  <data name="SavingPin" xml:space="preserve">
+    <value>Zapisywanie PIN</value>
+  </data>
+  <data name="SearchContractor" xml:space="preserve">
+    <value>Wyszukaj wykonawcę</value>
+  </data>
+  <data name="SearchEmployer" xml:space="preserve">
+    <value>Wyszukaj pracodawcę</value>
+  </data>
+  <data name="SearchTrade" xml:space="preserve">
+    <value>Wyszukaj handel</value>
+  </data>
+  <data name="SelectContractorError" xml:space="preserve">
+    <value>Proszę wybrać wykonawcę</value>
+  </data>
+  <data name="SelectEmployerError" xml:space="preserve">
+    <value>Proszę wybrać pracodawcę</value>
+  </data>
+  <data name="SelectOtherOntractorError" xml:space="preserve">
+    <value>Proszę wpisać drugiego wykonawcę</value>
+  </data>
+  <data name="SelectOtherTradeError" xml:space="preserve">
+    <value>Proszę wprowadzić inną transakcję</value>
+  </data>
+  <data name="SelectSite" xml:space="preserve">
+    <value>Wybierz witrynę</value>
+  </data>
+  <data name="SelectTradeError" xml:space="preserve">
+    <value>Proszę wybrać handel</value>
+  </data>
+  <data name="SelectUserForEvacuation" xml:space="preserve">
+    <value>Musisz wybrać użytkowników do wysłania alertu</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Wysłać</value>
+  </data>
+  <data name="SendAlert" xml:space="preserve">
+    <value>Wyślij alert</value>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Wysłano</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>wrzesień</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Wyloguj się</value>
+  </data>
+  <data name="SiteValidation" xml:space="preserve">
+    <value>Najpierw wybierz witrynę</value>
+  </data>
+  <data name="SomethingwentWrong" xml:space="preserve">
+    <value>Coś poszło nie tak</value>
+  </data>
+  <data name="SomethingWentWrongTryAgain" xml:space="preserve">
+    <value>Coś poszło nie tak. proszę spróbuj ponownie</value>
+  </data>
+  <data name="Staffon" xml:space="preserve">
+    <value>personel na</value>
+  </data>
+  <data name="StaffOnSite" xml:space="preserve">
+    <value>Personel na miejscu</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Początek:</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Data rozpoczęcia</value>
+  </data>
+  <data name="StartHoliday" xml:space="preserve">
+    <value>Rozpocznij wakacje</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Czas rozpoczęcia</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zatrzymać</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Zatwierdź</value>
+  </data>
+  <data name="SyncingTime" xml:space="preserve">
+    <value>Czas synchronizacji</value>
+  </data>
+  <data name="ThankYou_for_Registering" xml:space="preserve">
+    <value>Dziękujemy za rejestrację</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>w tym tygodniu</value>
+  </data>
+  <data name="TimeSheets" xml:space="preserve">
+    <value>Karty czasu pracy</value>
+  </data>
+  <data name="TimeSynced" xml:space="preserve">
+    <value>Czas synchronizacji</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>Do</value>
+  </data>
+  <data name="Trade" xml:space="preserve">
+    <value>Handel</value>
+  </data>
+  <data name="TradeValidation" xml:space="preserve">
+    <value>Proszę wybrać transakcję</value>
+  </data>
+  <data name="UserRegistration" xml:space="preserve">
+    <value>Rejestracja Użytkownika</value>
+  </data>
+  <data name="YouAreSignedOut" xml:space="preserve">
+    <value>Zostałeś wylogowany</value>
+  </data>
+  <data name="YouCanWorkOn" xml:space="preserve">
+    <value>Możesz teraz pracować nad</value>
+  </data>
+  <data name="YouHaveWorked" xml:space="preserve">
+    <value>Pracowałeś</value>
+  </data>
+  <data name="YouMustCheckInForHoliday" xml:space="preserve">
+    <value>Musisz się najpierw zameldować, aby zobaczyć wnioski urlopowe</value>
+  </data>
+  <data name="YouMustCheckOutFirst" xml:space="preserve">
+    <value>Wybierz język</value>
+  </data>
+</root>

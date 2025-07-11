@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.SiteManagerViews.SiteManagerHomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:header="clr-namespace:CCIMIGRATION.CustomControls.SiteManagerHeader"
+    xmlns:icons="clr-namespace:CCIMIGRATION.Fonts"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:translater="clr-namespace:CCIMIGRATION.MultilanguageHelper"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource White}" RowDefinitions="50,50,40,*">
+            <Label
+                Grid.Row="0"
+                Margin="10,0"
+                HorizontalOptions="Start"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontFamily="SolidIcons" Text="{x:Static icons:Icons.ChevronLeft}" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="MediumFont"
+                            FontSize="15"
+                            Text="  Back" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{Binding HomePageTitleText}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <!--<header:MenuPageHeader Title="{Binding HomePageTitleText}" Grid.Row="0" />-->
+            <Frame
+                Grid.Row="2"
+                Margin="10,0"
+                Padding="10,0"
+                BackgroundColor="#ededed"
+                CornerRadius="8"
+                HasShadow="False"
+                HeightRequest="35"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="Center">
+                <Label
+                    FontFamily="MediumFont"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Date: " TextColor="Gray" />
+                            <Span Text="{Binding Date}" TextColor="#272361" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+            <!--<Button
+                Grid.Row="2"
+                Margin="10,0"
+                Padding="10,0"
+                FontSize="10"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+
+                Text="{Binding Date}"
+                VerticalOptions="Center" />-->
+            <RefreshView
+                Grid.Row="3"
+                Command="{Binding RefreshCommand}"
+                IsRefreshing="{Binding IsListRefreshing}">
+                <CollectionView
+                    x:Name="sitestafflist"
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding SiteStaffList}"
+                    SelectionMode="None"
+                    VerticalOptions="FillAndExpand">
+                    <CollectionView.Header>
+                        <Grid
+                            Padding="20,0"
+                            BackgroundColor="#e6e6e6"
+                            ColumnDefinitions="4*,6*"
+                            ColumnSpacing="5"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <Label
+                                Grid.Column="0"
+                                FontFamily="LightFont"
+                                FontSize="12"
+                                HorizontalOptions="Start"
+                                Text="User &amp; Trade"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                            <StackLayout
+                                Grid.Column="1"
+                                Orientation="Horizontal"
+                                VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="10"
+                                    Source="start"
+                                    VerticalOptions="Center"
+                                    WidthRequest="10" />
+                                <Label
+                                    FontFamily="LightFont"
+                                    FontSize="12"
+                                    HorizontalOptions="Start"
+                                    Text="Start"
+                                    TextColor="Black" />
+                            </StackLayout>
+                            <!--<StackLayout
+                                Grid.Column="2"
+                                Orientation="Horizontal"
+                                VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="10"
+                                    Source="end"
+                                    VerticalOptions="Center"
+                                    WidthRequest="10" />
+                                <Label
+                                    FontFamily="LightFont"
+                                    FontSize="12"
+                                    HorizontalOptions="Start"
+                                    Text="End"
+                                    TextColor="Black" />
+                            </StackLayout>-->
+
+
+                        </Grid>
+                    </CollectionView.Header>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                Padding="20,0"
+                                ColumnDefinitions="4*,6*"
+                                ColumnSpacing="5"
+                                HeightRequest="60"
+                                RowDefinitions="*,*"
+                                RowSpacing="0">
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontFamily="MediumFont"
+                                    FontSize="14"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Name}"
+                                    TextColor="{StaticResource Black}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontFamily="LightFont"
+                                    FontSize="13"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding Trade}"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontFamily="LightFont"
+                                    FontSize="14"
+                                    HorizontalOptions="Start"
+                                    MaxLines="1"
+                                    VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding StartDateTime}" TextColor="{StaticResource Green}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <!--<Label Grid.Row="1"
+                                    Grid.Column="2"
+                                    FontFamily="LightFont"
+                                    FontSize="14"
+                                    HorizontalOptions="Start"
+                                    MaxLines="1"
+                                    VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+
+                                            <Span Text="{Binding EndDateTime}" TextColor="{StaticResource Red}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>-->
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <!--<CollectionView.Footer>
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            IsVisible="{Binding IsNextPageLoading}"
+                            Text="{translater:Translate Loading}" />
+                    </CollectionView.Footer>-->
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <Label
+                                HorizontalOptions="Center"
+                                Text="{translater:Translate NoData}"
+                                VerticalOptions="Center" />
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </RefreshView>
+
+            <!--<ListView
+                x:Name="sitestafflist"
+                Grid.Row="3"
+                Margin="5,0"
+                BackgroundColor="{StaticResource Transparent}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsListRefreshing}"
+                ItemsSource="{Binding SiteStaffList}"
+                RefreshCommand="{Binding RefreshCommand}"
+                RowHeight="80"
+                SeparatorVisibility="None"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="5"
+                                Padding="10"
+                                BackgroundColor="{StaticResource LightBlueColor}"
+                                CornerRadius="5"
+                                HasShadow="False">
+                                <Grid
+                                    BackgroundColor="{StaticResource LightBlueColor}"
+                                    ColumnDefinitions="20,*,Auto"
+                                    ColumnSpacing="10"
+                                    RowDefinitions="*,*">
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        HeightRequest="15"
+                                        Source="user"
+                                        VerticalOptions="Center"
+                                        WidthRequest="15" />
+                                    <Image
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        HeightRequest="15"
+                                        Source="tarde"
+                                        VerticalOptions="Center"
+                                        WidthRequest="15" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontSize="12"
+                                        HorizontalOptions="StartAndExpand"
+                                        MaxLines="1"
+                                        Text="{Binding Name}"
+                                        TextColor="{StaticResource Black}"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontSize="12"
+                                        HorizontalOptions="StartAndExpand"
+                                        MaxLines="1"
+                                        Text="{Binding Trade}"
+                                        TextColor="{StaticResource Black}"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="10"
+                                                    Text="{translater:Translate Start}"
+                                                    TextColor="{StaticResource Green}" />
+                                                <Span
+                                                    FontSize="10"
+                                                    Text="{Binding StartDateTime, StringFormat=' {0}'}"
+                                                    TextColor="{StaticResource Black}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+            -->
+            <!--<Label
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="10"
+                                                    Text="{translater:Translate End}"
+                                                    TextColor="{StaticResource Red}" />
+                                                <Span
+                                                    FontSize="10"
+                                                    Text="{Binding EndDateTime, StringFormat=' {0}'}"
+                                                    TextColor="{StaticResource Black}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>-->
+            <!--
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

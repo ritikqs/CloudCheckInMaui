@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_verfied_Admin" xml:space="preserve">
+    <value>Contul dvs. va fi verificat</value>
+  </data>
+  <data name="AddEvacutationMessage" xml:space="preserve">
+    <value>Trebuie să introduceți sau să selectați mesajul de alertă</value>
+  </data>
+  <data name="AddNewVisitor" xml:space="preserve">
+    <value>Adăugați un vizitator nou</value>
+  </data>
+  <data name="AlertMessage" xml:space="preserve">
+    <value>Mesaj de alertă</value>
+  </data>
+  <data name="Alerts" xml:space="preserve">
+    <value>Alerte</value>
+  </data>
+  <data name="AlreadyApproved" xml:space="preserve">
+    <value>Această solicitare este deja aprobată</value>
+  </data>
+  <data name="AlreadyCheckedIn" xml:space="preserve">
+    <value>Sunteți deja înregistrat</value>
+  </data>
+  <data name="AlreadyCheckedOut" xml:space="preserve">
+    <value>Sunteți deja verificat</value>
+  </data>
+  <data name="ApplyForHoliday" xml:space="preserve">
+    <value>Aplicați pentru vacanță</value>
+  </data>
+  <data name="ApplyHolidayText" xml:space="preserve">
+    <value>Aplicați pentru vacanță</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>OPTRAX</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Aprilie</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="Authenticateaccesstologintoapp" xml:space="preserve">
+    <value>Autentificați accesul pentru a vă conecta la aplicație</value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>autentificare</value>
+  </data>
+  <data name="AuthorizedBy" xml:space="preserve">
+    <value>Autorizat de</value>
+  </data>
+  <data name="Calender" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="CameraUnavailable" xml:space="preserve">
+    <value>Camera nu este disponibilă</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulare</value>
+  </data>
+  <data name="CannotApplyHoliday" xml:space="preserve">
+    <value>Trebuie să fi lucrat cel puțin pe un site pentru a aplica concediu</value>
+  </data>
+  <data name="CannotSeeEmployees" xml:space="preserve">
+    <value>Trebuie să fi lucrat pe cel puțin un site pentru a vedea angajații</value>
+  </data>
+  <data name="CannotSeeHoliday" xml:space="preserve">
+    <value>Trebuie să fi lucrat cel puțin pe orice site pentru a verifica vacanța</value>
+  </data>
+  <data name="Capture" xml:space="preserve">
+    <value>Captură</value>
+  </data>
+  <data name="Capturing" xml:space="preserve">
+    <value>Se captează ...</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Schimbați limba</value>
+  </data>
+  <data name="CheckEmailForResetPassword" xml:space="preserve">
+    <value>Vă rugăm să verificați e-mailul pentru a reseta parola</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>Verifica</value>
+  </data>
+  <data name="CheckInButtonText" xml:space="preserve">
+    <value>Verifica
+</value>
+  </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>Verifică</value>
+  </data>
+  <data name="CheckoutButtonText" xml:space="preserve">
+    <value>Verifică</value>
+  </data>
+  <data name="CheckOutValidation" xml:space="preserve">
+    <value>Mai întâi trebuie să plătiți</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>in curand</value>
+  </data>
+  <data name="ConfirmPasswordPlaceholder" xml:space="preserve">
+    <value>Confirmați Pin</value>
+  </data>
+  <data name="ConfirmPasswordValidation" xml:space="preserve">
+    <value>Parola și parola de confirmare nu se potrivesc</value>
+  </data>
+  <data name="Contractor" xml:space="preserve">
+    <value>Contractant</value>
+  </data>
+  <data name="ContractorValidation" xml:space="preserve">
+    <value>Vă rugăm să selectați un antreprenor</value>
+  </data>
+  <data name="CreatePinTitle" xml:space="preserve">
+    <value>Vă rugăm să creați un pin</value>
+  </data>
+  <data name="CurrentSiteError" xml:space="preserve">
+    <value>Eroare la obținerea site-ului curent</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>decembrie</value>
+  </data>
+  <data name="DOBPlaceholder" xml:space="preserve">
+    <value>ZI</value>
+  </data>
+  <data name="DOBValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți DOB valid</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Terminat</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Introduceți adresa de email</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți un e-mail valid</value>
+  </data>
+  <data name="EmpIdValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți codul de angajat</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>Angajator</value>
+  </data>
+  <data name="EmployerValidation" xml:space="preserve">
+    <value>Vă rugăm să selectați un angajator</value>
+  </data>
+  <data name="EmpPlaceholder" xml:space="preserve">
+    <value>Introduceți codul de angajat</value>
+  </data>
+  <data name="EnableLocation" xml:space="preserve">
+    <value>Activați locația</value>
+  </data>
+  <data name="EnableLocationForCheckIn" xml:space="preserve">
+    <value>Vă rugăm să activați setările de locație pentru check-in</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Sfârșit:</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Data de încheiere</value>
+  </data>
+  <data name="EndHoliday" xml:space="preserve">
+    <value>Sfârșitul vacanței</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Sfârșitul timpului</value>
+  </data>
+  <data name="ErrorCompressing" xml:space="preserve">
+    <value>Eroare la comprimarea fotografiilor</value>
+  </data>
+  <data name="ErrorGettingLocation" xml:space="preserve">
+    <value>Eroare la obținerea locației dvs.</value>
+  </data>
+  <data name="ErrorGettingTime" xml:space="preserve">
+    <value>Eroare la obținerea timpului de monitorizare. Veți fi monitorizat la fiecare minut</value>
+  </data>
+  <data name="ErrorUploadingAzure" xml:space="preserve">
+    <value>Eroare la adăugarea feței la azur</value>
+  </data>
+  <data name="ErrorUploadingImage" xml:space="preserve">
+    <value>Eroare la încărcarea imaginilor pe server</value>
+  </data>
+  <data name="EvacuationAlertSuccess" xml:space="preserve">
+    <value>Trimis</value>
+  </data>
+  <data name="FaceCaptureTitle" xml:space="preserve">
+    <value>Vă rugăm să vă uitați în cameră</value>
+  </data>
+  <data name="FaceNotMatch" xml:space="preserve">
+    <value>Față fără potrivire. Vă rugăm să încercați din nou</value>
+  </data>
+  <data name="FailedCheckIn" xml:space="preserve">
+    <value>Conectarea nu a reușit</value>
+  </data>
+  <data name="FailedCheckOut" xml:space="preserve">
+    <value>Nu s-a deconectat</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>februarie</value>
+  </data>
+  <data name="FingerAuthFailedMessage" xml:space="preserve">
+    <value>Autentificare esuata. Vă rugăm să încercați din nou</value>
+  </data>
+  <data name="FirstNamePlaceholder" xml:space="preserve">
+    <value>Nume
+</value>
+  </data>
+  <data name="FNameValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți prenume valid</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Ați uitat parola</value>
+  </data>
+  <data name="FourDigitPin" xml:space="preserve">
+    <value>Vă rugăm să introduceți pinul din 4 cifre</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Din</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Incepe</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Întoarce-te</value>
+  </data>
+  <data name="GoBackLocationWarning" xml:space="preserve">
+    <value>Vă rugăm să reveniți la site, altfel veți fi deconectat</value>
+  </data>
+  <data name="GrantCameraPermission" xml:space="preserve">
+    <value>Vă rugăm să acordați permisiunea camerei</value>
+  </data>
+  <data name="HaveSafeDay" xml:space="preserve">
+    <value>O zi sigură</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Buna ziua</value>
+  </data>
+  <data name="Holiday" xml:space="preserve">
+    <value>Vacanţă</value>
+  </data>
+  <data name="HolidayApprovedSuccess" xml:space="preserve">
+    <value>Solicitarea a fost aprobată cu succes</value>
+  </data>
+  <data name="HolidayCalender" xml:space="preserve">
+    <value>Calendar de vacanță</value>
+  </data>
+  <data name="HolidayDateTimeValidatonError" xml:space="preserve">
+    <value>Data / ora de începere trebuie să fie mai mică decât data / ora de încheiere</value>
+  </data>
+  <data name="HolidayRejectSuccess" xml:space="preserve">
+    <value>Solicitarea a fost respinsă</value>
+  </data>
+  <data name="HolidayRequestSubimtted" xml:space="preserve">
+    <value>Cererea dvs. de vacanță a fost trimisă</value>
+  </data>
+  <data name="IConfirmSafetyMeasures" xml:space="preserve">
+    <value>Pot confirma că am toate echipamentele de siguranță pentru a-mi îndeplini sarcina</value>
+  </data>
+  <data name="ImageDeleteMessage" xml:space="preserve">
+    <value>Imaginile dvs. au fost șterse de administrator. Vă rog să recuperați.</value>
+  </data>
+  <data name="InputFieldPlaceholderColor" xml:space="preserve">
+    <value>Gray</value>
+  </data>
+  <data name="InputFieldValidationError" xml:space="preserve">
+    <value>Vă rugăm să furnizați datele de intrare valide în câmpuri</value>
+  </data>
+  <data name="InsuranceNumberValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți numărul de asigurare</value>
+  </data>
+  <data name="Isonleaveon" xml:space="preserve">
+    <value>este în concediu pe</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>ianuarie</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>iulie</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>iunie</value>
+  </data>
+  <data name="LastNamePlaceholder" xml:space="preserve">
+    <value>Nume de familie</value>
+  </data>
+  <data name="LeaveStatusApproved" xml:space="preserve">
+    <value>Autorizat</value>
+  </data>
+  <data name="LeaveStatusPending" xml:space="preserve">
+    <value>Aplicat</value>
+  </data>
+  <data name="LeaveStatusRejected" xml:space="preserve">
+    <value>Neautorizat
+</value>
+  </data>
+  <data name="LightGray" xml:space="preserve">
+    <value>LightGray</value>
+  </data>
+  <data name="LNameValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți numele de familie valid</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Se încarcă...</value>
+  </data>
+  <data name="Loading1" xml:space="preserve">
+    <value>Se încarcă</value>
+  </data>
+  <data name="LoadingSites" xml:space="preserve">
+    <value>Se încarcă site-uri</value>
+  </data>
+  <data name="LoadingTimeSheet" xml:space="preserve">
+    <value>Se încarcă TimeSheet</value>
+  </data>
+  <data name="LocationConsent" xml:space="preserve">
+    <value>Această aplicație colectează date de localizare pentru a activa Geofence, care va urmări mișcarea unui utilizator în timp ce lucrează pe un site chiar și atunci când aplicația este închisă sau nu este utilizată. Numai după aceea, utilizatorii vor putea să se conecteze și își pot marca participarea. Ajută o organizație să-și urmărească angajații pe site și să urmărească prezența.</value>
+  </data>
+  <data name="LocationOnWarning" xml:space="preserve">
+    <value>Vă rugăm să activați locația, altfel veți fi deconectat</value>
+  </data>
+  <data name="LocationRequired" xml:space="preserve">
+    <value>Locație obligatorie</value>
+  </data>
+  <data name="LocationUnavailable" xml:space="preserve">
+    <value>Locația nu este disponibilă</value>
+  </data>
+  <data name="LogginIn" xml:space="preserve">
+    <value>logging-in.com</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="LoginWithFingerOrPin" xml:space="preserve">
+    <value>Conectați-vă cu ajutorul biometriei pinului sau dispozitivului</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Deconectați-vă</value>
+  </data>
+  <data name="LookintoCamera" xml:space="preserve">
+    <value>Vă rugăm să vă uitați în cameră și să vă mișcați capul de la stânga la dreapta.</value>
+  </data>
+  <data name="MaidenPlaceHolder" xml:space="preserve">
+    <value>Numele de fată al mamei lui</value>
+  </data>
+  <data name="MakeSureLocationOn" xml:space="preserve">
+    <value>Asigurați-vă că locația dispozitivului este activată</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Martie</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Mai</value>
+  </data>
+  <data name="MenuCalender" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="MenuEvacuation" xml:space="preserve">
+    <value>Evacuare</value>
+  </data>
+  <data name="MenuHoliday" xml:space="preserve">
+    <value>Vacanţă</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Acasă</value>
+  </data>
+  <data name="MenuLogout" xml:space="preserve">
+    <value>Deconectați-vă</value>
+  </data>
+  <data name="MenuTimesheet" xml:space="preserve">
+    <value>Fișă de timp</value>
+  </data>
+  <data name="MenuVisitors" xml:space="preserve">
+    <value>Vizitatori</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Mesaje</value>
+  </data>
+  <data name="MobilePlaceHolder" xml:space="preserve">
+    <value>Introduceți numărul de telefon mobil
+</value>
+  </data>
+  <data name="MotherNameRequired" xml:space="preserve">
+    <value>Numele de fată al mamelor este necesar pentru întrebarea de securitate</value>
+  </data>
+  <data name="NamePlaceHolder" xml:space="preserve">
+    <value>Introdu numele</value>
+  </data>
+  <data name="NameValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți numele de familie valid</value>
+  </data>
+  <data name="NeedLocationInBackgrund" xml:space="preserve">
+    <value>Optrax are nevoie de locația dvs. în fundal. Vă rugăm să permiteți întotdeauna permisiunea de localizare</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Următorul</value>
+  </data>
+  <data name="NIdPlaceholder" xml:space="preserve">
+    <value>Introduceți codul de asigurare</value>
+  </data>
+  <data name="NINumberPlaceholder" xml:space="preserve">
+    <value>Numărul NI</value>
+  </data>
+  <data name="NIValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți un număr NI valid</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Nu există date</value>
+  </data>
+  <data name="NoEvents" xml:space="preserve">
+    <value>FARA EVENIMENTE PENTRU DATA SELECTATA</value>
+  </data>
+  <data name="NoHolidayEventFound" xml:space="preserve">
+    <value>Nu s-au găsit evenimente de sărbători</value>
+  </data>
+  <data name="NoInputError" xml:space="preserve">
+    <value>Toate câmpurile de introducere ar trebui să fie completate</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Vă rugăm să verificați conexiunea la internet</value>
+  </data>
+  <data name="NotAllowedToWorkonSite" xml:space="preserve">
+    <value>Nu este permis să funcționeze la fața locului până când nu a fost obținut un EIP corect</value>
+  </data>
+  <data name="NotOnActiveSite" xml:space="preserve">
+    <value>Nu sunteți pe un site ECL activ</value>
+  </data>
+  <data name="NotOnSite" xml:space="preserve">
+    <value>Nu sunteți niciun site</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>noiembrie</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>octombrie</value>
+  </data>
+  <data name="OfflineSyncError" xml:space="preserve">
+    <value>Eroare de sincronizare offline</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>O.K</value>
+  </data>
+  <data name="OnActiveSite" xml:space="preserve">
+    <value>Sunteți pe un site ECL activ</value>
+  </data>
+  <data name="OpenSettingsForLocation" xml:space="preserve">
+    <value>Deschideți Setări pentru a activa locația</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Alte</value>
+  </data>
+  <data name="OtherContractor" xml:space="preserve">
+    <value>Intrați în contractor</value>
+  </data>
+  <data name="OtherTradePlaceholder" xml:space="preserve">
+    <value>Intrați în comerț</value>
+  </data>
+  <data name="OutOfSite" xml:space="preserve">
+    <value>În afara site-ului</value>
+  </data>
+  <data name="PageTitleEvacuation" xml:space="preserve">
+    <value>Evacuare</value>
+  </data>
+  <data name="PageTitleHoliday" xml:space="preserve">
+    <value>Cereri de vacanță</value>
+  </data>
+  <data name="PageTitleVisitors" xml:space="preserve">
+    <value>Vizitatori</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>Parola nu se potriveste</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>Introduceți Pin</value>
+  </data>
+  <data name="PasswordResetSuccess" xml:space="preserve">
+    <value>S-a resetat parola. Va rugam sa va logati</value>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți o parolă validă</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauză</value>
+  </data>
+  <data name="PermissionError" xml:space="preserve">
+    <value>Vă rugăm să acordați permisiunea de localizare</value>
+  </data>
+  <data name="PhoneNumberError" xml:space="preserve">
+    <value>Vă rugăm să introduceți un număr de telefon de 11 cifre</value>
+  </data>
+  <data name="PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Introduceți telefonul</value>
+  </data>
+  <data name="PhoneValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți un număr de telefon valid</value>
+  </data>
+  <data name="Pin" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="PinPlaceholder" xml:space="preserve">
+    <value>Introduceți Pin</value>
+  </data>
+  <data name="PinValidation" xml:space="preserve">
+    <value>Vă rugăm să introduceți pinul cu 4 cifre</value>
+  </data>
+  <data name="Placefinger" xml:space="preserve">
+    <value>Puneți degetul pe scaner pentru a vă autentifica</value>
+  </data>
+  <data name="PressHere" xml:space="preserve">
+    <value>Apasa aici</value>
+  </data>
+  <data name="Proceed" xml:space="preserve">
+    <value>Continua</value>
+  </data>
+  <data name="ReCapture" xml:space="preserve">
+    <value>Re-Capture</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Primit</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Inregistreaza-te</value>
+  </data>
+  <data name="RegisterFormTitle" xml:space="preserve">
+    <value>Înregistrare utilizator</value>
+  </data>
+  <data name="Registering" xml:space="preserve">
+    <value>Înregistrare</value>
+  </data>
+  <data name="RequestHoliday" xml:space="preserve">
+    <value>Solicitați sărbători</value>
+  </data>
+  <data name="RequiredPhotoForCheckout" xml:space="preserve">
+    <value>Trebuie să fotografiați pentru a verifica</value>
+  </data>
+  <data name="ResetCode" xml:space="preserve">
+    <value>Cod</value>
+  </data>
+  <data name="ReturnToLogin" xml:space="preserve">
+    <value>Reveniți la autentificare</value>
+  </data>
+  <data name="ReviewAndConfirm" xml:space="preserve">
+    <value>Vă rugăm să examinați și să confirmați că aveți următoarele:</value>
+  </data>
+  <data name="SafetyMesaureErrorMessage" xml:space="preserve">
+    <value>Vă rugăm să selectați măsurile de siguranță și să confirmați</value>
+  </data>
+  <data name="SavingPin" xml:space="preserve">
+    <value>Pin de salvare</value>
+  </data>
+  <data name="SearchContractor" xml:space="preserve">
+    <value>Căutare antreprenor</value>
+  </data>
+  <data name="SearchEmployer" xml:space="preserve">
+    <value>Căutați angajator</value>
+  </data>
+  <data name="SearchTrade" xml:space="preserve">
+    <value>Caută comerț</value>
+  </data>
+  <data name="SelectContractorError" xml:space="preserve">
+    <value>Vă rugăm să selectați antreprenorul</value>
+  </data>
+  <data name="SelectEmployerError" xml:space="preserve">
+    <value>Vă rugăm să selectați angajatorul</value>
+  </data>
+  <data name="SelectOtherOntractorError" xml:space="preserve">
+    <value>Vă rugăm să introduceți celălalt contractant</value>
+  </data>
+  <data name="SelectOtherTradeError" xml:space="preserve">
+    <value>Vă rugăm să introduceți cealaltă tranzacție</value>
+  </data>
+  <data name="SelectSite" xml:space="preserve">
+    <value>Selectați Site</value>
+  </data>
+  <data name="SelectTradeError" xml:space="preserve">
+    <value>Vă rugăm să selectați comerțul</value>
+  </data>
+  <data name="SelectUserForEvacuation" xml:space="preserve">
+    <value>Trebuie să selectați utilizatorii pentru a trimite alertă</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Trimite</value>
+  </data>
+  <data name="SendAlert" xml:space="preserve">
+    <value>Trimiteți alertă</value>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Trimis</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Septembrie</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Conectare</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="SiteValidation" xml:space="preserve">
+    <value>Vă rugăm să selectați mai întâi site-ul</value>
+  </data>
+  <data name="SomethingwentWrong" xml:space="preserve">
+    <value>Ceva n-a mers bine</value>
+  </data>
+  <data name="SomethingWentWrongTryAgain" xml:space="preserve">
+    <value>Ceva n-a mers bine. vă rugăm să încercați din nou</value>
+  </data>
+  <data name="Staffon" xml:space="preserve">
+    <value>personalul pe</value>
+  </data>
+  <data name="StaffOnSite" xml:space="preserve">
+    <value>Personalul la fața locului</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start:</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Data de început</value>
+  </data>
+  <data name="StartHoliday" xml:space="preserve">
+    <value>Începeți sărbătorile</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Timpul de începere</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Trimite</value>
+  </data>
+  <data name="SyncingTime" xml:space="preserve">
+    <value>Koha e sinkronizimit</value>
+  </data>
+  <data name="ThankYou_for_Registering" xml:space="preserve">
+    <value>Multumim pentru inregistrare</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>în această săptămână
+</value>
+  </data>
+  <data name="TimeSheets" xml:space="preserve">
+    <value>Fișe de timp</value>
+  </data>
+  <data name="TimeSynced" xml:space="preserve">
+    <value>Timp sincronizat</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>La</value>
+  </data>
+  <data name="Trade" xml:space="preserve">
+    <value>Comerț</value>
+  </data>
+  <data name="TradeValidation" xml:space="preserve">
+    <value>Vă rugăm să selectați o tranzacție</value>
+  </data>
+  <data name="UserRegistration" xml:space="preserve">
+    <value>Înregistrare utilizator</value>
+  </data>
+  <data name="YouAreSignedOut" xml:space="preserve">
+    <value>Sunteți deconectat</value>
+  </data>
+  <data name="YouCanWorkOn" xml:space="preserve">
+    <value>Acum puteți lucra la</value>
+  </data>
+  <data name="YouHaveWorked" xml:space="preserve">
+    <value>Ai lucrat</value>
+  </data>
+  <data name="YouMustCheckInForHoliday" xml:space="preserve">
+    <value>Mai întâi trebuie să vă înregistrați pentru a vedea cererile de vacanță</value>
+  </data>
+  <data name="YouMustCheckOutFirst" xml:space="preserve">
+    <value>Selecteaza limba</value>
+  </data>
+</root>

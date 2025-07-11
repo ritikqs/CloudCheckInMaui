@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CCIMIGRATION.Views.LoaderView.Loader"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    BackgroundColor="Transparent">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+            <Frame
+                Padding="0"
+                BackgroundColor="White"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <skia:SKLottieView
+                    x:Name="AnimationView"
+                    Source="loaderjson.json"
+                    IsAnimationEnabled="True"
+                    BackgroundColor="Transparent"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    RepeatCount="-1"
+                    VerticalOptions="Center"
+                    WidthRequest="100" />
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
