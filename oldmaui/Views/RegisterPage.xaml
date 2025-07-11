@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.RegisterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:CloudCheckInMaui.Converter"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    xmlns:converters="clr-namespace:CloudCheckInMaui.Converters"
+    xmlns:customControl="clr-namespace:CloudCheckInMaui.CustomControls"
+    Title="Register"
+    BackgroundColor="{StaticResource White}"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InValidFrameColorConverter x:Key="ValidationErrorConverter" />
+            <converters:StringNotEmptyToBoolConverter x:Key="StringNotEmptyToBoolConverter" />
+
+            <Style x:Key="StepHeaderLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="MediumFont" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="20,20,20,10" />
+            </Style>
+
+            <Style x:Key="InputFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#e6e6e6" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="15,0" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="Margin" Value="0,5" />
+            </Style>
+
+            <Style x:Key="ValidationLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="Margin" Value="5,0,0,10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <!-- First Step -->
+                <Grid Padding="20,10" IsVisible="{Binding FirstViewVisible}" RowDefinitions="50,40,Auto,150">
+                    <!-- Back Button and Title -->
+                    <Label Grid.Row="0" HorizontalOptions="Start" TextColor="Red" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontFamily="SolidIcons" Text="&#xf053;" />
+                                <Span FontAttributes="Bold" FontFamily="MediumFont" FontSize="15" Text="  Back" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Grid.Row="1" Margin="10,0,10,0" FontFamily="MediumFont" FontSize="16" Text="User Registration" TextColor="Black" />
+                    <StackLayout Grid.Row="2" Margin="10,0,10,0" Spacing="15">
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="firstname" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" MaxLength="30" Placeholder="First Name" PlaceholderColor="{StaticResource Gray}" Text="{Binding FirstName}" TextChanged="FirstName_TextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsFirstNameNotValid}" Text="Please enter a valid first name" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="lastname" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" MaxLength="30" Placeholder="Last Name" PlaceholderColor="{StaticResource Gray}" Text="{Binding LastName}" TextChanged="LastName_TextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsLastNameNotValid}" Text="Please enter a valid last name" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+
+                        <!-- Replace the existing DOB input Grid with the updated version below -->
+                        <Grid RowDefinitions="50,Auto">
+                            <!-- DatePicker is present but visually hidden by overlaying controls -->
+                            <DatePicker x:Name="datepicker"
+                                IsVisible="False"
+                                Date="{Binding DOB, Mode=TwoWay}"
+                                Format="dd MMM yyyy"
+                                MinimumDate="1900-01-01"
+                                MaximumDate="{Binding CurrentDate}" />
+
+                            <!-- Visual Display with CustomEntry -->
+                            <Frame Style="{StaticResource InputFrame}">
+                                <customControl:CustomEntry x:Name="dobTextField"
+                                  Margin="10,0"
+                                  BackgroundColor="Transparent"
+                                  FontFamily="LightFont"
+                                  Placeholder="Date of Birth"
+                                  PlaceholderColor="{StaticResource Gray}"
+                                  Text="{Binding DOB, Mode=TwoWay, StringFormat='{0:dd MMM yyyy}'}"
+                                  TextColor="Black"
+                                  IsReadOnly="True" />
+                            </Frame>
+
+                            <!-- Tap triggers DatePicker -->
+                            <BoxView Grid.Row="0"
+             BackgroundColor="Transparent"
+             HorizontalOptions="Fill"
+             VerticalOptions="Fill">
+                                <BoxView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </BoxView.GestureRecognizers>
+                            </BoxView>
+
+                            <!-- Validation Label -->
+                            <Label Grid.Row="1"
+           FontSize="12"
+           IsVisible="{Binding IsDobNotValid}"
+           Text="{Binding DobValidationMessage}"
+           TextColor="Red"
+           Margin="0,0,0,10" />
+                        </Grid>
+
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="ninumber" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" MaxLength="30" Placeholder="NI Number" PlaceholderColor="{StaticResource Gray}" Text="{Binding NINumber}" TextChanged="NINumber_TextChanged" TextColor="Black" Unfocused="Ninumber_Unfocused" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsNINumberNotValid}" Text="Please enter a valid NI number" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="mothername" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" MaxLength="30" Placeholder="Mother's Maiden Name" PlaceholderColor="{StaticResource Gray}" Text="{Binding MotherMaidenName}" TextChanged="MotherName_TextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsMotherNameNotValid}" Text="Please enter a valid mother's maiden name" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <Label Margin="5,-10,0,0" FontFamily="LightFont" FontSize="13" Text="Mother's maiden name is required for security purposes." TextColor="Green" />
+                    </StackLayout>
+                    <Frame Grid.Row="3" HorizontalOptions="Center" Style="{DynamicResource GradientFrame}" VerticalOptions="Center">
+                        <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf061;" TextColor="White" VerticalOptions="Center" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NextStepCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+                <!-- Second Step -->
+                <Grid Padding="20,10" IsVisible="{Binding SecondViewVisible}" RowDefinitions="50,Auto,150">
+                    <StackLayout Grid.Row="1" Margin="10,0,10,0" Spacing="10">
+                        <!-- Email -->
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="email" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" Keyboard="Email" MaxLength="30" Placeholder="Email" PlaceholderColor="{StaticResource Gray}" Text="{Binding Email}" TextChanged="Email_TextChanged" TextColor="Black" Unfocused="Email_Unfocused" />
+                            <Label x:Name="emailvalidation" Grid.Row="1" FontSize="12" IsVisible="{Binding IsEmailNotValid}" Text="Please enter a valid email address" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <!-- PIN -->
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="password" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" IsPassword="True" Keyboard="Numeric" MaxLength="10" Placeholder="PIN" PlaceholderColor="{StaticResource Gray}" Text="{Binding Password}" TextChanged="Password_TextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsPasswordNotValid}" Text="Please enter a valid PIN" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <!-- Phone Number -->
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="phone" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" Keyboard="Numeric" MaxLength="11" Placeholder="Phone Number" PlaceholderColor="{StaticResource Gray}" Text="{Binding PhoneNumber}" TextChanged="PhoneNumber_TextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsPhoneNumberNotValid}" Text="Please enter a valid phone number" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <!-- Employer Popup -->
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <Grid Grid.Row="0" Padding="10,0,10,0" ColumnDefinitions="*,Auto">
+                                <customControl:CustomEntry FontFamily="LightFont" Placeholder="Employer" PlaceholderColor="{StaticResource Gray}" Text="{Binding SelectedEmployer.Title}" TextColor="Black" />
+                                <Image Grid.Column="1" />
+                                <BoxView Grid.ColumnSpan="2" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenPopUpCommand}" CommandParameter="Employer" />
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+                            </Grid>
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsEmployerNotValid}" Text="Please select an employer" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <!-- Other Contractor -->
+                        <Grid IsVisible="{Binding IsOtherContractorFieldVisible}" RowDefinitions="50,Auto">
+                            <Button Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="otherContractor" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" Keyboard="Email" MaxLength="30" Placeholder="Other Contractor" PlaceholderColor="{StaticResource Gray}" Text="{Binding OtherContractor}" TextChanged="OContractorTextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsOtherContractorNotValid}" Text="Please enter other contractor" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                        <Frame Style="{DynamicResource GrayFrame}">
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf060;" TextColor="DarkGray" VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BackStepCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame Grid.Row="3" HorizontalOptions="Center" Style="{DynamicResource GradientFrame}" VerticalOptions="Center">
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf061;" TextColor="White" VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ProceedButtonCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+                <!-- Third Step -->
+                <Grid Padding="20,10" IsVisible="{Binding ThirdViewVisible}" RowDefinitions="50,Auto,150">
+                    <StackLayout Grid.Row="1" Margin="10,0,10,0" Spacing="10">
+                        <!-- Confirm PIN -->
+                        <Grid RowDefinitions="50,Auto">
+                            <Button Grid.Row="0" Background="#e6e6e6" BorderColor="Transparent" CornerRadius="8" HeightRequest="60" HorizontalOptions="Fill" IsEnabled="False" VerticalOptions="Fill" />
+                            <customControl:CustomEntry x:Name="confirmpassword" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" IsPassword="True" Keyboard="Numeric" MaxLength="10" Placeholder="Confirm PIN" PlaceholderColor="{StaticResource Gray}" Text="{Binding ConfirmPassword}" TextChanged="ConfirmPassword_TextChanged" TextColor="Black" />
+                            <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsConfirmPasswordNotValid}" Text="Please confirm your PIN" TextColor="Red" Margin="0,0,0,10" />
+                        </Grid>
+                        <!-- Any additional final step fields or confirmation messages can be added here -->
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                        <Frame Style="{DynamicResource GrayFrame}">
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf060;" TextColor="DarkGray" VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BackStepCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame Grid.Row="3" HorizontalOptions="Center" Style="{DynamicResource GradientFrame}" VerticalOptions="Center">
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf061;" TextColor="White" VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+                    <!-- Add this at the end of the registration steps, before the Register button -->
+                    <Button
+                        x:Name="CapturePhotoButton"
+                        Text="Capture Face Photo"
+                        Command="{Binding NavigateToCameraCommand}"
+                        IsVisible="{Binding ThirdViewVisible}"/>
+                </Grid>
+                <!-- Popup for selection -->
+                <Grid x:Name="PickerPopupView" BackgroundColor="Transparent" HorizontalOptions="Fill" IsVisible="{Binding IsPickerPopUpVisible}" VerticalOptions="Fill">
+                    <BoxView x:Name="demoviewbg1" BackgroundColor="Black" HorizontalOptions="Fill" Opacity="1" VerticalOptions="Fill">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HidePickerPopupCommand}" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Frame Margin="20,0" Padding="5" BackgroundColor="{StaticResource White}" CornerRadius="10" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Grid Padding="10,0" RowDefinitions="50,150">
+                            <customControl:CustomEntry Grid.Row="0" BackgroundColor="{StaticResource White}" CharacterSpacing="0.8" FontFamily="LightFont" FontSize="18" Placeholder="{Binding PickerPopupPlaceholder}" Text="{Binding PickerPopupInput}" TextColor="{StaticResource Black}" />
+                            <BoxView Margin="-10,0" BackgroundColor="Black" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                            <CollectionView x:Name="tradelist" Grid.Row="1" IsVisible="{Binding IsTradeListVisible}" ItemsSource="{Binding TempTradeList}" SelectedItem="{Binding SelectedTrade}" SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="40">
+                                            <Label FontFamily="LightFont" FontSize="16" HeightRequest="30" Text="{Binding Title}" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <CollectionView x:Name="contractorlist" Grid.Row="1" IsVisible="{Binding IsContractorListVisible}" ItemsSource="{Binding TempContractorList}" SelectedItem="{Binding SelectedContractor}" SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="40">
+                                            <Label FontFamily="LightFont" FontSize="16" HeightRequest="30" Text="{Binding Title}" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <CollectionView x:Name="employerlist" Grid.Row="1" IsVisible="{Binding IsEmployerListVisible}" ItemsSource="{Binding Employers}" SelectedItem="{Binding SelectedEmployer}" SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="40">
+                                            <Label FontFamily="LightFont" FontSize="16" HeightRequest="30" Text="{Binding Title}" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage> 

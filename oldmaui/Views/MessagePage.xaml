@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.MessagePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:CloudCheckInMaui.Converter"
+    xmlns:header="clr-namespace:CloudCheckInMaui.Views.Headers"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    Title="Messages"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InvertedBoolConverter x:Key="inverseboolconverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="50,40,*">
+            <header:CustomTitleBar Grid.Row="0" />
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="Messages"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            
+            <VerticalStackLayout
+                Grid.Row="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Image
+                    Source="message"
+                    HeightRequest="100"
+                    WidthRequest="100" />
+                <Label
+                    Text="No Messages"
+                    FontSize="18"
+                    FontFamily="MediumFont"
+                    TextColor="{StaticResource Gray}"
+                    Margin="0,20,0,0" />
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage> 

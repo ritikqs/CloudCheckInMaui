@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="CloudCheckInMaui.Views.HomeTabbedPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:CloudCheckInMaui.Views"
+    xmlns:sitemanager="clr-namespace:CloudCheckInMaui.Views.SiteManagerViews"
+    BarBackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    SelectedTabColor="{StaticResource NewThemeTextColor}"
+    UnselectedTabColor="Gray">
+
+    <TabbedPage.Children>
+        <views:Home Title="Home" IconImageSource="home" />
+        <views:TimesheetPage Title="Timesheet" IconImageSource="timesheet" />
+        <ContentPage />
+        <sitemanager:ComingSoonPage Title="Messages" IconImageSource="message" />
+        <views:AlertsPage Title="Alerts" IconImageSource="alert" />
+    </TabbedPage.Children>
+
+</TabbedPage> 

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:const="clr-namespace:CloudCheckInMaui.ConstantHelper"
+    xmlns:converter="clr-namespace:CloudCheckInMaui.Converter"
+    xmlns:customControl="clr-namespace:CloudCheckInMaui.CustomControls"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodels="clr-namespace:CloudCheckInMaui.ViewModels"
+    BackgroundColor="#F3F6FB"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InValidFrameColorConverter x:Key="ValidationErrorConverter" />
+
+            <!-- Enhanced Styles -->
+            <Style x:Key="ModernInputFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#F8F9FA" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HeightRequest" Value="56" />
+            </Style>
+
+            <Style x:Key="LoginButton" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#007BFF" />
+                <Setter Property="CornerRadius" Value="28" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="HeightRequest" Value="56" />
+                <Setter Property="WidthRequest" Value="56" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+
+            <Style x:Key="WelcomeTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="LightFont" />
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#1A1A1A" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="SubtitleText" TargetType="Label">
+                <Setter Property="FontFamily" Value="LightFont" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#6C757D" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="CardStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="24" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="Padding" Value="32,36" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#007BFF" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="Margin" Value="0,16,0,0" />
+            </Style>
+
+            <Style x:Key="SecondaryLink" TargetType="Label">
+                <Setter Property="TextColor" Value="#007BFF" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="32" Padding="32,60,32,32" VerticalOptions="Center">
+                <!-- Branding Header -->
+                <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Image Source="login_header" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" />
+                    <Label Text="Welcome Back!" FontSize="28" FontAttributes="Bold" TextColor="#22223B" HorizontalOptions="Center" />
+                    <Label Text="Sign in to continue" FontSize="16" TextColor="#4A4E69" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <!-- Card-style Login Form -->
+                <Frame Style="{StaticResource CardStyle}" VerticalOptions="Center">
+                    <VerticalStackLayout Spacing="20">
+                        <!-- Email Input -->
+                        <Grid ColumnDefinitions="36,*,Auto" RowDefinitions="Auto">
+                            <Label Grid.Column="0" FontFamily="LightIcons" FontSize="20" Text="{x:Static icons:Icons.Mail}" TextColor="#7B7F9E" VerticalOptions="Center" />
+                            <customControl:CustomEntry
+                                x:Name="email"
+                                Grid.Column="1"
+                                    BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                FontSize="16"
+                                Placeholder="Email Address"
+                                PlaceholderColor="#B0B3C6"
+                                Text="{Binding Email}"
+                                TextColor="#22223B"
+                                VerticalOptions="Center" />
+                        </Grid>
+                        <Label FontSize="12" IsVisible="{Binding IsEmailNotValid}" Text="Please enter a valid email address" TextColor="#E63946" Margin="36,0,0,0" />
+
+                        <!-- Password Input -->
+                        <Grid ColumnDefinitions="36,*,Auto" RowDefinitions="Auto">
+                            <Label Grid.Column="0" FontFamily="LightIcons" FontSize="20" Text="{x:Static icons:Icons.Key}" TextColor="#7B7F9E" VerticalOptions="Center" />
+                            <customControl:CustomEntry
+                                x:Name="password"
+                                Grid.Column="1"
+                                    BackgroundColor="Transparent"
+                                FontFamily="LightFont"
+                                FontSize="16"
+                                IsPassword="True"
+                                Keyboard="Numeric"
+                                MaxLength="10"
+                                Placeholder="PIN"
+                                PlaceholderColor="#B0B3C6"
+                                Text="{Binding Pin}"
+                                TextColor="#22223B"
+                                VerticalOptions="Center" />
+                        </Grid>
+                        <Label FontSize="12" IsVisible="{Binding IsPinNotValid}" Text="Please enter a valid PIN" TextColor="#E63946" Margin="36,0,0,0" />
+
+                        <!-- Forgot Password Link -->
+                        <Label Text="Forgot Password?" Style="{StaticResource SecondaryLink}" HorizontalOptions="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <!-- Login Button -->
+                        <Button Text="Sign In" Style="{StaticResource PrimaryButton}" Command="{Binding LoginCommand}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Register Link -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                    <Label Text="Don't have an account?" FontSize="15" TextColor="#4A4E69" />
+                    <Label Text="Register" Style="{StaticResource SecondaryLink}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RegisterCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

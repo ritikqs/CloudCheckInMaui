@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CloudCheckInMaui.Views.Headers.CustomTitleBar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid ColumnDefinitions="50,*,50">
+        <Label
+            Grid.Column="1"
+            FontFamily="MediumFont"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="{Binding UserName}"
+            TextColor="Black"
+            VerticalOptions="Center" />
+        <Image
+            Grid.Column="2"
+            HeightRequest="30"
+            HorizontalOptions="Center"
+            Source="menu.png"
+            VerticalOptions="Center"
+            WidthRequest="30">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding MenuCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
+</ContentView> 

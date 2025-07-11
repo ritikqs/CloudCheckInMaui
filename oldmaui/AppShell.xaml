@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CloudCheckInMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CloudCheckInMaui"
+    xmlns:views="clr-namespace:CloudCheckInMaui.Views"
+    xmlns:fonts="clr-namespace:CloudCheckInMaui.Fonts"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <!-- Authentication Flow -->
+    <ShellContent
+        Route="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        FlyoutItemIsVisible="False" />
+
+    <!-- Main App Flow -->
+    <TabBar x:Name="MainAppTabs" Route="MainApp">
+        <ShellContent
+            Title="Home"
+            Icon="home"
+            ContentTemplate="{DataTemplate views:Home}"
+            Route="Home" />
+        <ShellContent
+            Title="Timesheet"
+            Icon="timesheet"
+            ContentTemplate="{DataTemplate views:TimesheetPage}"
+            Route="Timesheet" />
+        <ShellContent
+            Title="Holiday"
+            Icon="holiday"
+            ContentTemplate="{DataTemplate views:HolidayPage}"
+            Route="Holiday" />
+        <ShellContent
+            Title="Messages"
+            Icon="message"
+            ContentTemplate="{DataTemplate views:MessagePage}"
+            Route="Messages" />
+        <ShellContent
+            Title="Alerts"
+            Icon="alert"
+            ContentTemplate="{DataTemplate views:Alerts}"
+            Route="Alerts" />
+    </TabBar>
+
+    <!-- Registration Flow -->
+    <ShellContent
+        Route="Register"
+        ContentTemplate="{DataTemplate views:RegisterPage}"
+        Shell.NavBarIsVisible="False"
+        FlyoutItemIsVisible="False" />
+
+    <!-- Password Recovery Flow -->
+    <ShellContent
+        Route="ForgotPassword"
+        ContentTemplate="{DataTemplate views:ForgotPasswordPage}"
+        FlyoutItemIsVisible="False" />
+
+    <ShellContent
+        Route="ResetPassword"
+        ContentTemplate="{DataTemplate views:ResetPassword}"
+        FlyoutItemIsVisible="False" />
+
+    <!-- Profile and Settings -->
+    <ShellContent
+        Route="Profile"
+        ContentTemplate="{DataTemplate views:ProfilePage}"
+        FlyoutItemIsVisible="False" />
+
+    <ShellContent
+        Route="Settings"
+        ContentTemplate="{DataTemplate views:SettingsPage}"
+        FlyoutItemIsVisible="False" />
+
+    <!-- Additional Features -->
+    <ShellContent
+        Route="ApplyHoliday"
+        ContentTemplate="{DataTemplate views:ApplyHolidayPage}"
+        FlyoutItemIsVisible="False" />
+
+    <ShellContent
+        Route="Language"
+        ContentTemplate="{DataTemplate views:LanguageSelectionPage}"
+        FlyoutItemIsVisible="False" />
+</Shell>

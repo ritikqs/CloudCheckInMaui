@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.EmployeeMenuPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="10,0" RowDefinitions="50,40,*">
+                <Label
+                    Grid.Row="0"
+                    FontFamily="LightIcons"
+                    FontSize="30"
+                    HorizontalOptions="End"
+                    Text="{x:Static icons:Icons.Cross}"
+                    TextColor="Black"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    Grid.Row="1"
+                    Margin="10,0,0,0"
+                    FontFamily="MediumFont"
+                    FontSize="18"
+                    HorizontalOptions="Start"
+                    Text="{Binding UserName}"
+                    TextColor="#272361" />
+                <Grid
+                    Grid.Row="2"
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="10"
+                    RowDefinitions="Auto,Auto,Auto,Auto,*"
+                    RowSpacing="10">
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        BackgroundColor="White"
+                        BorderColor="#ededed"
+                        Padding="0"
+                        HasShadow="False"
+                        HeightRequest="120"
+                        WidthRequest="150"
+                        CornerRadius="10">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="home_side" 
+                                   HeightRequest="50" 
+                                   WidthRequest="50" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center" />
+                            <Label 
+                                FontFamily="LightFont" 
+                                FontSize="14" 
+                                TextColor="#272361" 
+                                Text="Home" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HomeCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        BackgroundColor="White"
+                        BorderColor="#ededed"
+                        Padding="0"
+                        HasShadow="False"
+                        HeightRequest="120"
+                        WidthRequest="150"
+                        CornerRadius="10">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="timesheet_side" 
+                                   HeightRequest="50" 
+                                   WidthRequest="50" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center" />
+                            <Label 
+                                FontFamily="LightFont" 
+                                FontSize="14" 
+                                TextColor="#272361" 
+                                Text="TimeSheets" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TimesheetCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        BackgroundColor="White"
+                        BorderColor="#ededed"
+                        Padding="0"
+                        HasShadow="False"
+                        HeightRequest="120"
+                        WidthRequest="150"
+                        CornerRadius="10">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="holiday_side" 
+                                   HeightRequest="50" 
+                                   WidthRequest="50" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center" />
+                            <Label 
+                                FontFamily="LightFont" 
+                                FontSize="14" 
+                                TextColor="#272361" 
+                                Text="Holiday" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HolidayCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        BackgroundColor="White"
+                        BorderColor="#ededed"
+                        Padding="0"
+                        HasShadow="False"
+                        HeightRequest="120"
+                        WidthRequest="150"
+                        CornerRadius="10">
+                        <StackLayout
+                            Padding="10,0"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image Source="logout_side" 
+                                   HeightRequest="50" 
+                                   WidthRequest="50" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center" />
+                            <Label 
+                                FontFamily="LightFont" 
+                                FontSize="14" 
+                                TextColor="#272361" 
+                                Text="Logout" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage> 

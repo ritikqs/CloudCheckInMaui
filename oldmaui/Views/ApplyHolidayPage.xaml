@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.ApplyHolidayPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    xmlns:translater="clr-namespace:CloudCheckInMaui.Resources"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            Padding="20,0"
+            BackgroundColor="{StaticResource White}"
+            RowDefinitions="50,40,*,100">
+            <Label
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontFamily="LightIcons" Text="{x:Static icons:Icons.ChevronLeft}" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="MediumFont"
+                            FontSize="15"
+                            Text="  Back" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{translater:Translate ApplyForHoliday}"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="0"
+                RowDefinitions="30,Auto,20,30,Auto"
+                RowSpacing="0">
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    FontFamily="LightFont"
+                    FontSize="12"
+                    Text="Choose Date"
+                    TextColor="Gray"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="From"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <DatePicker
+                        x:Name="startDate"
+                        Date="{Binding StartDate, Mode=TwoWay}"
+                        HeightRequest="30"
+                        HorizontalOptions="Fill"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="startDateLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StartDatePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="To"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <DatePicker
+                        x:Name="endDate"
+                        Date="{Binding EndDate, Mode=TwoWay}"
+                        HeightRequest="30"
+                        HorizontalOptions="Fill"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="endDateLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EndDatePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Label
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    FontFamily="LightFont"
+                    FontSize="12"
+                    Text="Choose Time"
+                    TextColor="Gray"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="From"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <TimePicker
+                        x:Name="starttimepicker"
+                        BackgroundColor="{StaticResource White}"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        Time="{Binding StartTime, Mode=TwoWay}" />
+                    <Label
+                        x:Name="startTimeLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StartTimePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Label
+                        FontFamily="LightFont"
+                        FontSize="13"
+                        Text="To"
+                        TextColor="Gray"
+                        VerticalOptions="End" />
+                    <TimePicker
+                        x:Name="endTimePicker"
+                        BackgroundColor="{StaticResource White}"
+                        IsVisible="False"
+                        TextColor="{StaticResource Black}"
+                        Time="{Binding EndTime, Mode=TwoWay}" />
+                    <Label
+                        x:Name="endTimeLabel"
+                        FontFamily="MediumFont"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EndTimePickerTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+            <Button
+                Grid.Row="3"
+                Style="{StaticResource HolidayApplyButtonStyle}"
+                Text="{translater:Translate SubmitApprovel}"
+                Command="{Binding ApplyButtonCommand}" />
+            <!-- Success View -->
+            <Grid IsVisible="{Binding IsHolidaySuccessAppliedViewVisible}" BackgroundColor="#80000000" RowSpan="4" ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Frame VerticalOptions="Center" HorizontalOptions="Center" Padding="30" BackgroundColor="White" CornerRadius="20">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="20">
+                        <Image Source="logo.png" HeightRequest="50" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="End" />
+                        <Image Source="green_tick.png" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" />
+                        <Label Text="{translater:Translate HolidayRequestSubmitted}" FontSize="18" FontAttributes="Bold" TextColor="Green" HorizontalOptions="Center" />
+                        <Button Text="{translater:Translate Done}" Command="{Binding SafetySuccessDoneButtonCommand}" Style="{StaticResource HolidayApplyButtonStyle}" HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage> 

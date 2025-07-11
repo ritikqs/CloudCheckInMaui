@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.TimesheetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CloudCheckInMaui.Views.Headers"
+    xmlns:translater="clr-namespace:CloudCheckInMaui.Resources"
+    Title="{translater:Translate TimesheetTitle}"
+    BackgroundColor="{StaticResource White}"
+    Shell.NavBarIsVisible="False">
+    
+    <Grid BackgroundColor="{StaticResource White}" RowDefinitions="Auto,Auto,*">
+        <!-- Title Bar -->
+        <local:CustomTitleBar Grid.Row="0" />
+        
+        <!-- Attendance Header -->
+        <Label
+            Grid.Row="1"
+            Margin="0,10"
+            FontFamily="MediumFont"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="{translater:Translate Attendance}"
+            TextColor="{StaticResource Black}"
+            VerticalOptions="Center" />
+
+        <!-- Timesheet List -->
+        <RefreshView
+            Grid.Row="2"
+            Command="{Binding RefreshTimeSheetCommand}"
+            IsRefreshing="{Binding IsListRefreshing}">
+            <CollectionView
+                x:Name="timesheetlist"
+                BackgroundColor="{StaticResource White}"
+                ItemsSource="{Binding TimesheetList}"
+                SelectionMode="None">
+                
+                <!-- Header -->
+                <CollectionView.Header>
+                    <Grid
+                        Padding="15,10"
+                        BackgroundColor="#e6e6e6"
+                        ColumnDefinitions="4*,3*,3*"
+                        ColumnSpacing="10"
+                        HeightRequest="45">
+                        <Label
+                            Grid.Column="0"
+                            FontFamily="MediumFont"
+                            FontSize="14"
+                            Text="{translater:Translate Site}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        
+                        <HorizontalStackLayout
+                            Grid.Column="1"
+                            Spacing="5"
+                            VerticalOptions="Center">
+                            <Image
+                                HeightRequest="12"
+                                Source="clock_in"
+                                VerticalOptions="Center"
+                                WidthRequest="12" />
+                            <Label
+                                FontFamily="MediumFont"
+                                FontSize="14"
+                                Text="{translater:Translate ClockIn}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        
+                        <HorizontalStackLayout
+                            Grid.Column="2"
+                            Spacing="5"
+                            VerticalOptions="Center">
+                            <Image
+                                HeightRequest="12"
+                                Source="clock_out"
+                                VerticalOptions="Center"
+                                WidthRequest="12" />
+                            <Label
+                                FontFamily="MediumFont"
+                                FontSize="14"
+                                Text="{translater:Translate ClockOut}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </CollectionView.Header>
+
+                <!-- Item Template -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="15,10"
+                            ColumnDefinitions="4*,3*,3*"
+                            ColumnSpacing="10"
+                            HeightRequest="60">
+                            
+                            <!-- Site Info -->
+                            <VerticalStackLayout
+                                Grid.Column="0"
+                                Spacing="4"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontFamily="MediumFont"
+                                    FontSize="15"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="1"
+                                    Text="{Binding SiteName}"
+                                    TextColor="{StaticResource NewThemeTextColor}" />
+                                <Label
+                                    FontFamily="LightFont"
+                                    FontSize="13"
+                                    Text="{Binding Date}"
+                                    TextColor="{StaticResource Black}" />
+                            </VerticalStackLayout>
+
+                            <!-- Clock In Time -->
+                            <Label
+                                Grid.Column="1"
+                                FontFamily="MediumFont"
+                                FontSize="14"
+                                Text="{Binding OnSite_Time}"
+                                TextColor="{StaticResource Green}"
+                                VerticalOptions="Center" />
+
+                            <!-- Clock Out Time -->
+                            <VerticalStackLayout
+                                Grid.Column="2"
+                                Spacing="2"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontFamily="LightFont"
+                                    FontSize="12"
+                                    IsVisible="{Binding IsNonAuthTime}"
+                                    Text="{translater:Translate NonAuth}"
+                                    TextColor="{StaticResource Red}" />
+                                <Label
+                                    FontFamily="MediumFont"
+                                    FontSize="14"
+                                    Text="{Binding OffSite_Time}"
+                                    TextColor="{StaticResource Red}" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <!-- Footer -->
+                <CollectionView.Footer>
+                    <Label
+                        Margin="0,10"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsNextPageLoading}"
+                        Text="{translater:Translate LoadingTimesheet}" />
+                </CollectionView.Footer>
+
+                <!-- Empty View -->
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <Label
+                            FontFamily="MediumFont"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            Text="{translater:Translate NoTimesheetData}"
+                            TextColor="Gray"
+                            VerticalOptions="Center" />
+                    </ContentView>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage> 

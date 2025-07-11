@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CloudCheckInMaui.Views.Headers.PageHeaders"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="root1">
+    <HorizontalStackLayout
+        HorizontalOptions="Fill"
+        VerticalOptions="Center">
+        <Image
+            Margin="5,0,-35,0"
+            HeightRequest="30"
+            HorizontalOptions="Start"
+            Source="menu.png"
+            WidthRequest="30">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label
+            HorizontalOptions="Center"
+            Text="{Binding Source={x:Reference root1}, Path=Title}"
+            VerticalOptions="Center" />
+    </HorizontalStackLayout>
+</ContentView> 

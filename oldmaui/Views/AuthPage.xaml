@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.AuthPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    xmlns:viewmodels="clr-namespace:CloudCheckInMaui.ViewModels"
+    x:DataType="viewmodels:AuthViewModel"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="{StaticResource White}"
+            RowDefinitions="150,*"
+            RowSpacing="0">
+            <Image
+                Grid.Row="0"
+                Aspect="Fill"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                Source="logo"
+                VerticalOptions="Center"
+                WidthRequest="150" />
+            <Grid
+                Grid.Row="1"
+                RowDefinitions="50,*,*"
+                VerticalOptions="Fill">
+                <Label
+                    Grid.Row="0"
+                    FontFamily="LightFont"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding AuthMessage}"
+                    TextColor="{StaticResource Black}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+                <Image
+                    Grid.Row="1"
+                    HeightRequest="150"
+                    HorizontalOptions="Center"
+                    Source="biometric"
+                    VerticalOptions="Center"
+                    WidthRequest="150">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding AuthenticateCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Grid
+                    Grid.Row="2"
+                    RowDefinitions="30,50"
+                    RowSpacing="0">
+                    <Label
+                        FontFamily="LightIcons"
+                        FontSize="30"
+                        HorizontalOptions="Center"
+                        Text="{x:Static icons:Icons.ArrowUp}"
+                        TextColor="{StaticResource Green}"
+                        VerticalOptions="End" />
+                    <Button
+                        Grid.Row="1"
+                        Padding="0"
+                        BackgroundColor="{StaticResource White}"
+                        BorderColor="{StaticResource Green}"
+                        BorderWidth="1"
+                        Command="{Binding AuthenticateCommand}"
+                        FontFamily="LightFont"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Text="Press Here"
+                        TextColor="{StaticResource Green}"
+                        VerticalOptions="Start"
+                        WidthRequest="100" />
+                </Grid>
+            </Grid>
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator
+                Grid.RowSpan="2"
+                HorizontalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage> 

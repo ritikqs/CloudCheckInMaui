@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:header="clr-namespace:CloudCheckInMaui.Views.Headers"
+    xmlns:translater="clr-namespace:CloudCheckInMaui.Resources"
+    BackgroundColor="White"
+    Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="50,40,*">
+        <header:CustomTitleBar Grid.Row="0" />
+        <Label
+            Grid.Row="1"
+            FontFamily="MediumFont"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="{translater:Translate Profile}"
+            TextColor="Black"
+            VerticalOptions="Center" />
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout Spacing="20" Padding="20">
+                <Frame 
+                    HorizontalOptions="Center" 
+                    WidthRequest="100" 
+                    HeightRequest="100" 
+                    CornerRadius="50"
+                    Padding="0"
+                    BorderColor="LightGray">
+                    <Image
+                        Source="profile_placeholder.png"
+                        Aspect="AspectFill"
+                        WidthRequest="100"
+                        HeightRequest="100" />
+                </Frame>
+                
+                <Label 
+                    Text="{Binding FullName}" 
+                    FontSize="22" 
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold" />
+                
+                <Label 
+                    Text="{Binding JobTitle}" 
+                    FontSize="16" 
+                    HorizontalOptions="Center"
+                    TextColor="Gray" />
+                
+                <Frame Padding="15" BorderColor="LightGray" CornerRadius="10">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+                        <Label Grid.Row="0" Grid.Column="0" Text="{translater:Translate Name}" FontAttributes="Bold" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding FullName}" HorizontalOptions="End" />
+                        
+                        <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" Color="LightGray" Margin="0,10" />
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Text="{translater:Translate Email}" FontAttributes="Bold" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Email}" HorizontalOptions="End" />
+                        
+                        <BoxView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" Color="LightGray" Margin="0,10" />
+                        
+                        <Label Grid.Row="4" Grid.Column="0" Text="{translater:Translate Phone}" FontAttributes="Bold" />
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding PhoneNumber}" HorizontalOptions="End" />
+                        
+                        <BoxView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" Color="LightGray" Margin="0,10" />
+                        
+                        <Label Grid.Row="6" Grid.Column="0" Text="{translater:Translate Department}" FontAttributes="Bold" />
+                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding Department}" HorizontalOptions="End" />
+                    </Grid>
+                </Frame>
+                
+                <Button 
+                    Text="Edit Profile" 
+                    BackgroundColor="{StaticResource NewThemeTextColor}" 
+                    TextColor="White" 
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    Command="{Binding EditProfileCommand}" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage> 

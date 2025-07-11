@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.SiteManagerViews.ComingSoonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="{StaticResource White}"
+            RowDefinitions="50,*"
+            VerticalOptions="Fill">
+            <Grid
+                Grid.Row="0"
+                HeightRequest="50"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+                <BoxView
+                    BackgroundColor="Transparent"
+                    HeightRequest="50"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Fill"
+                    WidthRequest="50">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Label
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    TextColor="{StaticResource Black}"
+                    VerticalOptions="Center" />
+            </Grid>
+            <StackLayout
+                Grid.Row="1"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+                <Label
+                    FontFamily="MediumFont" 
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    Text="Coming Soon"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage> 

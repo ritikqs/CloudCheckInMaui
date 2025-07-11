@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CloudCheckInMaui.Views.Alerts"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:CloudCheckInMaui.Converter"
+    xmlns:header="clr-namespace:CloudCheckInMaui.Views.Headers"
+    xmlns:icons="clr-namespace:CloudCheckInMaui.Fonts"
+    Title="Alerts"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InvertedBoolConverter x:Key="inverseboolconverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="50,40,*">
+            <header:CustomTitleBar Grid.Row="0" />
+            <Label
+                Grid.Row="1"
+                FontFamily="MediumFont"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="Alerts"
+                TextColor="{StaticResource Black}"
+                VerticalOptions="Center" />
+            <CollectionView
+                x:Name="alertsList"
+                Grid.Row="2"
+                ItemsSource="{Binding EvacuationsList}"
+                SelectedItem="{Binding SelectedAlert}"
+                SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame
+                                Margin="5"
+                                Padding="5"
+                                BorderColor="LightGray"
+                                CornerRadius="5"
+                                HasShadow="False">
+                                <Grid
+                                    BackgroundColor="{StaticResource White}"
+                                    ColumnDefinitions="Auto,*,60"
+                                    ColumnSpacing="5"
+                                    RowSpacing="0">
+                                    <BoxView
+                                        Grid.Column="0"
+                                        BackgroundColor="{StaticResource NewThemeTextColor}"
+                                        CornerRadius="5"
+                                        HeightRequest="10"
+                                        HorizontalOptions="End"
+                                        IsVisible="{Binding IsRead, Converter={StaticResource inverseboolconverter}}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="10" />
+
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="MediumFont"
+                                        FontSize="14"
+                                        HorizontalOptions="StartAndExpand"
+                                        LineBreakMode="TailTruncation"
+                                        TextColor="{StaticResource Black}"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Description}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Frame
+                                        Grid.Column="2"
+                                        Padding="0"
+                                        CornerRadius="5"
+                                        HeightRequest="40"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        WidthRequest="40">
+                                        <Image
+                                            Aspect="AspectFill"
+                                            Source="{Binding Image}" />
+                                    </Frame>
+
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <BoxView
+                Grid.RowSpan="3"
+                BackgroundColor="Black"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsDetailPopupVisible}"
+                Opacity="0.5"
+                VerticalOptions="Fill">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding HideDetailPopup}" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Frame
+                Grid.RowSpan="3"
+                Margin="20"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsDetailPopupVisible}"
+                VerticalOptions="Center">
+                <StackLayout Spacing="5">
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="250"
+                        HorizontalOptions="Fill"
+                        Source="{Binding AlertDetail.Image}" />
+                    <Label
+                        FontFamily="MediumFont"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        Text="Message"
+                        TextColor="Black" />
+                    <Label
+                        FontFamily="RegularFont"
+                        FontSize="12"
+                        Text="{Binding AlertDetail.Description}" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage> 
