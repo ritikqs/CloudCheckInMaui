@@ -49,7 +49,7 @@
                     <Label Grid.Row="0" HorizontalOptions="Start" TextColor="Red" VerticalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span FontFamily="SolidIcons" Text="&#xf053;" />
+                                <Span FontFamily="SolidIcons" Text="" />
                                 <Span FontAttributes="Bold" FontFamily="MediumFont" FontSize="15" Text="  Back" />
                             </FormattedString>
                         </Label.FormattedText>
@@ -70,46 +70,39 @@
                             <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsLastNameNotValid}" Text="Please enter a valid last name" TextColor="Red" Margin="0,0,0,10" />
                         </Grid>
 
-                        <!-- Replace the existing DOB input Grid with the updated version below -->
+                        <!-- Updated DOB Input -->
                         <Grid RowDefinitions="50,Auto">
-                            <!-- DatePicker is present but visually hidden by overlaying controls -->
-                            <DatePicker x:Name="datepicker"
-                                IsVisible="False"
-                                Date="{Binding DOB, Mode=TwoWay}"
-                                Format="dd MMM yyyy"
-                                MinimumDate="1900-01-01"
-                                MaximumDate="{Binding CurrentDate}" />
-
-                            <!-- Visual Display with CustomEntry -->
                             <Frame Style="{StaticResource InputFrame}">
-                                <customControl:CustomEntry x:Name="dobTextField"
-                                  Margin="10,0"
-                                  BackgroundColor="Transparent"
-                                  FontFamily="LightFont"
-                                  Placeholder="Date of Birth"
-                                  PlaceholderColor="{StaticResource Gray}"
-                                  Text="{Binding DOB, Mode=TwoWay, StringFormat='{0:dd MMM yyyy}'}"
-                                  TextColor="Black"
-                                  IsReadOnly="True" />
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <customControl:CustomEntry x:Name="dobTextField"
+                                                              Margin="10,0"
+                                                              BackgroundColor="Transparent"
+                                                              FontFamily="LightFont"
+                                                              Placeholder="Date of Birth"
+                                                              PlaceholderColor="{StaticResource Gray}"
+                                                              Text="{Binding DOB, Mode=TwoWay, StringFormat='{0:dd MMM yyyy}'}"
+                                                              TextColor="Black"
+                                                              IsReadOnly="True" />
+                                    <Image Grid.Column="1" Source="calendar_icon.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" Margin="0,0,10,0" />
+                                    <BoxView Grid.ColumnSpan="2" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                        <BoxView.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ShowDatePickerCommand}" />
+                                        </BoxView.GestureRecognizers>
+                                    </BoxView>
+                                </Grid>
                             </Frame>
-
-                            <!-- Tap triggers DatePicker -->
-                            <BoxView Grid.Row="0"
-             BackgroundColor="Transparent"
-             HorizontalOptions="Fill"
-             VerticalOptions="Fill">
-                                <BoxView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </BoxView.GestureRecognizers>
-                            </BoxView>
-
-                            <!-- Validation Label -->
+                            <DatePicker x:Name="datepicker"
+                                        Grid.Row="0"
+                                        IsVisible="{Binding IsDobPickerVisible}"
+                                        Date="{Binding DOB, Mode=TwoWay}"
+                                        Format="dd MMM yyyy"
+                                        MinimumDate="1900-01-01"
+                                        MaximumDate="{Binding CurrentDate}"
+                                        DateSelected="DatePicker_DateSelected" />
                             <Label Grid.Row="1"
-           FontSize="12"
-           IsVisible="{Binding IsDobNotValid}"
-           Text="{Binding DobValidationMessage}"
-           TextColor="Red"
-           Margin="0,0,0,10" />
+                                   Style="{StaticResource ValidationLabel}"
+                                   IsVisible="{Binding IsDobNotValid}"
+                                   Text="{Binding DobValidationMessage}" />
                         </Grid>
 
                         <Grid RowDefinitions="50,Auto">
@@ -125,7 +118,7 @@
                         <Label Margin="5,-10,0,0" FontFamily="LightFont" FontSize="13" Text="Mother's maiden name is required for security purposes." TextColor="Green" />
                     </StackLayout>
                     <Frame Grid.Row="3" HorizontalOptions="Center" Style="{DynamicResource GradientFrame}" VerticalOptions="Center">
-                        <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf061;" TextColor="White" VerticalOptions="Center" />
+                        <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="" TextColor="White" VerticalOptions="Center" />
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding NextStepCommand}" />
                         </Frame.GestureRecognizers>
@@ -175,13 +168,13 @@
                     </StackLayout>
                     <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
                         <Frame Style="{DynamicResource GrayFrame}">
-                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf060;" TextColor="DarkGray" VerticalOptions="Center" />
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="" TextColor="DarkGray" VerticalOptions="Center" />
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding BackStepCommand}" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Grid.Row="3" HorizontalOptions="Center" Style="{DynamicResource GradientFrame}" VerticalOptions="Center">
-                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf061;" TextColor="White" VerticalOptions="Center" />
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="" TextColor="White" VerticalOptions="Center" />
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ProceedButtonCommand}" />
                             </Frame.GestureRecognizers>
@@ -197,23 +190,21 @@
                             <customControl:CustomEntry x:Name="confirmpassword" Grid.Row="0" Margin="10,0" BackgroundColor="Transparent" FontFamily="LightFont" IsPassword="True" Keyboard="Numeric" MaxLength="10" Placeholder="Confirm PIN" PlaceholderColor="{StaticResource Gray}" Text="{Binding ConfirmPassword}" TextChanged="ConfirmPassword_TextChanged" TextColor="Black" />
                             <Label Grid.Row="1" FontSize="12" IsVisible="{Binding IsConfirmPasswordNotValid}" Text="Please confirm your PIN" TextColor="Red" Margin="0,0,0,10" />
                         </Grid>
-                        <!-- Any additional final step fields or confirmation messages can be added here -->
                     </StackLayout>
                     <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
                         <Frame Style="{DynamicResource GrayFrame}">
-                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf060;" TextColor="DarkGray" VerticalOptions="Center" />
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="" TextColor="DarkGray" VerticalOptions="Center" />
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding BackStepCommand}" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Grid.Row="3" HorizontalOptions="Center" Style="{DynamicResource GradientFrame}" VerticalOptions="Center">
-                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="&#xf061;" TextColor="White" VerticalOptions="Center" />
+                            <Label FontFamily="Icons" FontSize="30" HorizontalOptions="Center" Text="" TextColor="White" VerticalOptions="Center" />
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding RegisterCommand}" />
                             </Frame.GestureRecognizers>
                         </Frame>
                     </StackLayout>
-                    <!-- Add this at the end of the registration steps, before the Register button -->
                     <Button
                         x:Name="CapturePhotoButton"
                         Text="Capture Face Photo"
@@ -264,4 +255,4 @@
             </Grid>
         </ScrollView>
     </ContentPage.Content>
-</ContentPage> 
+</ContentPage>

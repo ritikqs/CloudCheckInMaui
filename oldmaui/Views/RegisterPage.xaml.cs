@@ -18,9 +18,6 @@ namespace CloudCheckInMaui.Views
             InitializeComponent();
             BindingContext = viewModel;
             ConfigureDatePicker();
-
-            datepicker.DateSelected += DatePicker_DateSelected;
-            datepicker.Focused += Datepicker_Focused;
         }
 
         public RegisterPage() : this(new RegistrationViewModel(null, null, null)) { }
@@ -33,19 +30,20 @@ namespace CloudCheckInMaui.Views
 
         private void FirstName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.IsFirstNameNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
-                !CloudCheckInMaui.ConstantHelper.ValidationHelpers.NameRegex.IsMatch(e.NewTextValue);
+            ViewModel.FirstName = e.NewTextValue;
+            ViewModel.ValidateFirstName();
         }
 
         private void LastName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.IsLastNameNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
-                !CloudCheckInMaui.ConstantHelper.ValidationHelpers.NameRegex.IsMatch(e.NewTextValue);
+            ViewModel.LastName = e.NewTextValue;
+            ViewModel.ValidateLastName();
         }
 
         private void Email_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel?.ValidateEmail();
+            ViewModel.Email = e.NewTextValue;
+            ViewModel.ValidateEmail();
         }
 
         private async void Email_Unfocused(object sender, FocusEventArgs e)
@@ -55,25 +53,26 @@ namespace CloudCheckInMaui.Views
 
         private void PhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.IsPhoneNumberNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
-                !System.Text.RegularExpressions.Regex.IsMatch(e.NewTextValue, @"^[0-9]+$") ||
-                e.NewTextValue.Length != 11;
+            ViewModel.PhoneNumber = e.NewTextValue;
+            ViewModel.ValidatePhoneNumber();
         }
 
         private void Password_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel?.ValidatePassword();
+            ViewModel.Password = e.NewTextValue;
+            ViewModel.ValidatePassword();
         }
 
         private void ConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel?.ValidateConfirmPassword();
+            ViewModel.ConfirmPassword = e.NewTextValue;
+            ViewModel.ValidateConfirmPassword();
         }
 
         private void NINumber_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.IsNINumberNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
-                !CloudCheckInMaui.ConstantHelper.ValidationHelpers.AlphaNumber.IsMatch(e.NewTextValue);
+            ViewModel.NINumber = e.NewTextValue;
+            ViewModel.ValidateNINumber();
         }
 
         private async void Ninumber_Unfocused(object sender, FocusEventArgs e)
@@ -83,42 +82,29 @@ namespace CloudCheckInMaui.Views
 
         private void MotherName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.IsMotherNameNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
-                !CloudCheckInMaui.ConstantHelper.ValidationHelpers.NameRegex.IsMatch(e.NewTextValue);
+            ViewModel.MotherMaidenName = e.NewTextValue;
+            ViewModel.ValidateMotherName();
         }
 
         private void OContractorTextChanged(object sender, TextChangedEventArgs e)
         {
+            ViewModel.OtherContractor = e.NewTextValue;
             ViewModel.IsOtherContractorNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
                 !CloudCheckInMaui.ConstantHelper.ValidationHelpers.NameRegex.IsMatch(e.NewTextValue);
         }
 
         private void OtherTradeTextChanged(object sender, TextChangedEventArgs e)
         {
+            ViewModel.OtherTrade = e.NewTextValue;
             ViewModel.IsOtherTradeNotValid = string.IsNullOrWhiteSpace(e.NewTextValue) ||
                 !CloudCheckInMaui.ConstantHelper.ValidationHelpers.NameRegex.IsMatch(e.NewTextValue);
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            ViewModel.IsDobPickerVisible = true;
-            datepicker.Focus();
-        }
-
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            dobTextField.Text = e.NewDate.ToString("dd MMM yyyy");
-            ViewModel.DOB = e.NewDate.ToString("yyyy-MM-dd");
-            ViewModel.IsDobNotValid = false;
+            ViewModel.DOB = e.NewDate;
             ViewModel.IsDobPickerVisible = false;
-        }
-
-        private void Datepicker_Focused(object sender, FocusEventArgs e)
-        {
-            dobTextField.Text = datepicker.Date.ToString("dd MMM yyyy");
-            ViewModel.DOB = datepicker.Date.ToString("yyyy-MM-dd");
-            ViewModel.IsDobNotValid = false;
-            ViewModel.IsDobPickerVisible = false;
+            ViewModel.ValidateDateOfBirth();
         }
     }
 }
